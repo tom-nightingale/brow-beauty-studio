@@ -66,19 +66,6 @@ const SINGLE_PAGE = `
             tag
         }
     }
-    allPages {
-      pageTitle
-      h1
-      content
-      slug
-      parent {
-        id
-      }
-      children {
-        pageTitle
-        slug
-      }
-    }
   }
   ${metaTagsFragment}
 `

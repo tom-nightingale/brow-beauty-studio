@@ -1,11 +1,10 @@
 module.exports = {
+  mode: 'jit',
   purge: {
       content: ['./pages/**/*.js', './components/**/*.js'],
-      options: {
-        safelist: [
-            /^wp/,
-        ],
-    },
+      safelist: [
+        //
+      ],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -32,10 +31,6 @@ module.exports = {
         'Times',
         'serif',
       ],
-    },
-    filter: {
-      none: "none",
-      grayscale: "grayscale(1)",
     },
     extend: {
       colors: {
@@ -86,7 +81,6 @@ module.exports = {
     textDecoration: ['group-hover', 'hover', 'focus', 'group-focus'],
   },
   plugins: [
-    require("tailwindcss-filters"),
     require('@tailwindcss/forms'),
   ],
   corePlugins: {

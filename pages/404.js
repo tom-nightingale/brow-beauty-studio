@@ -52,19 +52,6 @@ const HOMEPAGE_QUERY = `
         ...metaTagsFragment
       }
     }
-    allPages {
-      pageTitle
-      h1
-      content
-      slug
-      parent {
-        id
-      }
-      children {
-        pageTitle
-        slug
-      }
-    }
   }
   ${metaTagsFragment}
 `
