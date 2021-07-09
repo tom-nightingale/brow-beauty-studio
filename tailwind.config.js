@@ -45,12 +45,6 @@ module.exports = {
           dark: "#c0ced3",
         },
       },
-      spacing: {
-        72: "18rem",
-        84: "21rem",
-        96: "24rem",
-        128: "32rem",
-      },
       zIndex: {
         "-10": "-10",
         "-20": "-20",
@@ -74,14 +68,8 @@ module.exports = {
     },
   },
   variants: {
-    opacity: ['responsive', 'group-hover', 'hover', 'focus', 'group-focus'],
-    backgroundColor: ['responsive', 'group-hover', 'hover', 'focus', 'group-focus'],
-    textColor: ['responsive', 'group-hover', 'hover', 'focus', 'group-focus'],
-    padding: ['responsive', 'group-hover', 'hover', 'focus', 'group-focus'],
-    textDecoration: ['group-hover', 'hover', 'focus', 'group-focus'],
   },
   plugins: [
-    require('@tailwindcss/forms'),
   ],
   corePlugins: {
     container: false,

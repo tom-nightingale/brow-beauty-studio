@@ -1,39 +1,19 @@
-/* Tailwind base/components */
-@tailwind base;
-@tailwind components;
+/* Webfonts */
+@import '_fonts.css';
 
-/* Default Typography Styles */
-/* @import '_typography.css'; */
+/* Tailwind base/components */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Custom Style Imports */
+@import '_typography.css';
+@import '_locomotive.css';
 
 /* Tailwind Utilities */
-@tailwind utilities;
+@import 'tailwindcss/utilities';
 
 
-/* Custom */
-html {
-  min-height: 101%;
-  scroll-behavior: smooth;
-}
-
-html,
+/* Simple defaults */
 body {
-  @apply font-sans antialiased leading-relaxed text-black
-}
-
-* {
-  box-sizing: border-box;
-}
-
-a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-img {
-  max-width: 100%;
-  display: block;
+  @apply font-sans antialiased text-black bg-white;
 }
