@@ -1,7 +1,6 @@
-import Container from './container'
-import MobileMenu from '../components/mobile-menu'
-import Link from 'next/link'
-import FancyLink from '../components/fancyLink'
+import Container from '@/components/container'
+import MobileMenu from '@/components/mobile-menu'
+import SocialIcon from '@/components/social-icon'
 
 export default function Header({navItems}) {
     return (
@@ -10,13 +9,18 @@ export default function Header({navItems}) {
                       
             <Container>
 
-              <div className="flex flex-wrap p-4">
+              <div className="flex flex-wrap items-center justify-between p-4">
 
-                <div className="w-2/3">
-                  <img className="w-full" src="logo.png" alt="The Birth Mum" />
+                <div className="flex-col justify-center hidden w-1/5 md:flex md:pl-[2%]">
+                  <SocialIcon platform="instagram" url="https://www.instagram.com" />
+                  <SocialIcon platform="facebook" url="https://www.facebook.com" />
                 </div>
 
-                <div className="w-1/3">
+                <div className="w-3/5">
+                  <img className="w-full max-w-[750px] mx-auto" src="logo.png" alt="The Birth Mum" />
+                </div>
+
+                <div className="w-1/5">
                   <MobileMenu />
                 </div>
 

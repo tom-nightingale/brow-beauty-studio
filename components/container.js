@@ -1,6 +1,6 @@
-export default function Container( {children} ) {
+export default function Container({ children }) {
     return(
-        <div className="">
+        <div className="mx-auto max-w-screen-4xl ">
             {children}
         </div>
     )

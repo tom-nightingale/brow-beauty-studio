@@ -5,6 +5,7 @@ import { metaTagsFragment } from "@/lib/fragments"
 import { fade } from '@/helpers/transitions'
 import FancyLink from '@/components/fancyLink'
 import Layout from '@/components/layout'
+import Button from '@/components/button'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
@@ -41,9 +42,62 @@ export default function Home({ data: {home, site} }) {
                 animate="enter"
                 exit="exit"
               >
-                <m.main variants={fade} className="pt-24 mb-12 md:mb-16 xl:mb-24 md:pt-20"> 
+                <m.main variants={fade} className=""> 
                   
                   <Container>
+
+                    <ul className="relative z-10 flex justify-around max-w-lg p-4 mx-auto mt-16 font-medium text-white uppercase bg-black">
+                        <li>
+                          <a className="block p-2" href="">
+                            Home
+                          </a>
+                        </li>
+                         <li>
+                          <a className="block p-2" href="Treatments">
+                            Treatments
+                          </a>
+                        </li>
+                         <li>
+                          <a className="block p-2" href="About">
+                            About
+                          </a>
+                        </li>
+                         <li>
+                          <a className="block p-2" href="">
+                            Where
+                          </a>
+                        </li>
+                         <li>
+                          <a className="block p-2" href="">
+                            Contact
+                          </a>
+                        </li>
+                         <li>
+                          <a className="block p-2" href="">
+                            Social
+                          </a>
+                        </li>
+                      </ul>
+
+                    <div className="relative z-0 hidden -mt-8 overflow-hidden bg-gray-200 md:block ">
+
+                      <div className="flex flex-wrap items-center justify-end w-full min-h-[610px]">
+
+                        <img src="/hero-image.png" alt="" className="absolute top-[50%] left-0 translate-y-[-50%]" />
+
+                        <div className="w-2/5 h-full p-4">
+
+                          <h1 className="text-5xl tracking-widest uppercase">Beauty treatments unique for all</h1>
+
+                          <Button destination="#treatments" label="Treatments" modifier="" />
+                          <Button destination="#contact" label="Contact" modifier="" />
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                
                     <article>
                       <h1 className="mb-4 text-2xl font-bold md:text-3xl xl:text-4xl">Next x Tailwind x Motion x Locomotive</h1>
                       <div className="max-w-3xl mb-4 content">

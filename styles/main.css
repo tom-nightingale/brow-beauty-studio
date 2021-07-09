@@ -20,7 +20,7 @@ body {
 
 /* Mobile menu */
 .btn-mobile-menu {
-  @apply absolute top-0 right-0 z-50 flex flex-col items-center justify-around w-8 h-8 mt-12 mr-4 outline-none;
+  @apply transition duration-200 absolute top-0 xs:top-[3vw] md:top-[4vw] lg:top-[5vw] 2xl:top-[4vw] right-[2%] z-50 flex flex-col items-center justify-around w-8 h-8 mr-6 outline-none mt-7;
 
   &:focus {
     @apply outline-none;
@@ -45,4 +45,8 @@ body {
     &:nth-child(3) {
       transform: rotate(-45deg);
     }
+}
+
+.nav-item {
+  @apply relative uppercase transition duration-200;
 }
