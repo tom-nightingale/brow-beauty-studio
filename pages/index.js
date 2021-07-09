@@ -41,7 +41,7 @@ export default function Home({ data: {home, site} }) {
                 animate="enter"
                 exit="exit"
               >
-                <m.main variants={fade} className="pt-24 mb-12 md:mb-16 xl:mb-24 md:pt-20">
+                <m.main variants={fade} className="pt-24 mb-12 md:mb-16 xl:mb-24 md:pt-20"> 
                   
                   <Container>
                     <article>
