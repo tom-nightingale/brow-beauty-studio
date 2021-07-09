@@ -28,7 +28,7 @@ body {
 }
 
 .btn-mobile-menu span {
-  @apply relative w-8 h-1 transition-all duration-200 bg-black rounded-md;
+  @apply relative w-8 h-1 transition-all duration-200 bg-black rounded-lg;
   transform-origin: 0;
 }
 

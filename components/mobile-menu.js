@@ -35,14 +35,14 @@ export default function mobileMenu({navItems}) {
             </button>
 
             {/* Mobile Menu */}
-            <div open={open} className={`fixed top-0 left-0 z-0 w-full h-full p-4 transition-all duration-200 bg-red-500 md:hidden ${open ? 'opacity-100 z-40' : 'opacity-0'}`}>
+            <div open={open} className={`fixed top-0 left-0 z-0 w-full h-full p-4 transition-all duration-200 bg-white md:hidden ${open ? 'opacity-100 z-40' : 'opacity-0'}`}>
                 
                 <div className="flex flex-col items-center justify-center h-full">
 
                 <motion.div variants={container} initial="hidden" animate={open ? 'show' : ''}>
 
                     <motion.div variants={listItem}>
-                        <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="w-20 mx-auto mb-8 text-white" />
+                        <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="mx-auto mb-8" />
                     </motion.div>
 
                     {/* {
@@ -64,8 +64,7 @@ export default function mobileMenu({navItems}) {
                     </motion.div> */}
                     
                     <motion.div className="text-center" variants={listItem}>
-                    <a className="transition-all duration-200 text-green-light hover:text-green" variants={listItem} href="tel:07723039623">Tel: <span className="text-orange">07723 039623</span></a>
-                    
+                        <a className="transition-all duration-200" variants={listItem} href="tel:07723039623">Tel: <span className="font-bold">07723 039623</span></a>                    
                     </motion.div>
 
                 </motion.div>

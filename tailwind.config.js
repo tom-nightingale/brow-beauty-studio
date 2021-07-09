@@ -21,10 +21,11 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Open Sans',
+        'Montserrat',
         'sans-serif',
       ],
       serif: [
+        'Taviraj',
         'Georgia',
         'Cambria',
         '"Times New Roman"',
