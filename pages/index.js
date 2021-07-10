@@ -271,7 +271,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                     <Container>
 
-                      <div className="p-4 sm:p-8 md:p-12 lg:p-20">
+                      <div className="p-8 md:p-12 lg:p-20">
 
                         <div className="flex items-center justify-center">
 
