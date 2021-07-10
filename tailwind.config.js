@@ -35,6 +35,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        black: "#1D1D1B",
         primary: {
           light: "#eee",
           DEFAULT: "#ccc",
@@ -69,6 +70,8 @@ module.exports = {
     },
   },
   variants: {
+    extend: {
+    },
   },
   plugins: [
   ],

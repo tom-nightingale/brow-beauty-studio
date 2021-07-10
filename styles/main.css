@@ -50,3 +50,27 @@ body {
 .nav-item {
   @apply relative uppercase transition duration-200;
 }
+
+.treatment {
+  @apply relative;
+
+  &:after {
+    @apply absolute w-2/3 h-[1px] -translate-y-1/2 bg-black top-1/2 z-0;
+  }
+}
+
+@screen md {
+  .treatment:after {
+    content: '';
+  }
+}
+
+label {
+  @apply inline-block p-2;
+}
+
+input,
+textarea,
+select {
+  @apply h-full p-4 tracking-wider uppercase bg-transparent border border-black;
+}
