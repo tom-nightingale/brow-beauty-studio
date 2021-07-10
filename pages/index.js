@@ -256,7 +256,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                           </label>
                           <input type="text" name="_gotcha" className="hidden" />
                           <div className="w-full mt-8 text-center">
-                            <input type="submit" className="inline-block p-4 mx-auto text-white uppercase bg-black border border-black md:p-6 lg:text-lg lg:px-8 lg:py-6" value="Send Enquiry" />
+                            <input type="submit" className="inline-block p-4 mx-auto text-white uppercase bg-black border border-black md:p-6 lg:text-lg lg:px-8 lg:py-6" value="Send Form" />
                           </div>
                         </form>
                         
@@ -271,12 +271,16 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                     <Container>
 
-                      <div className="p-4">
+                      <div className="p-4 sm:p-8 md:p-12 lg:p-20">
 
-                        <h3 className="text-3xl text-center text-white">Social</h3>
+                        <div className="flex items-center justify-center">
 
-                        <SocialIcon platform="instagram" url="https://www.instagram.com" classes="" />
-                        <SocialIcon platform="facebook" url="https://www.facebook.com" classes="" />
+                          <h3 className="text-3xl text-center text-white">Social</h3>
+
+                          <SocialIcon platform="instagram" url="https://www.instagram.com" classes="mx-2 text-white inline-block" />
+                          <SocialIcon platform="facebook" url="https://www.facebook.com" classes="mx-2 text-white inline-block" />
+
+                        </div>
                         
                       </div>
                       
