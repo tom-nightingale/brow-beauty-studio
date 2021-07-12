@@ -18,6 +18,8 @@ import Instagram from "instagram-web-api";
 
 export default function Home({ data: {home, site}, instagramPosts }) {
 
+  console.log(instagramPosts);
+
   const containerRef = useRef(null);
 
   // Handle scrolling when clicking on the navigation
