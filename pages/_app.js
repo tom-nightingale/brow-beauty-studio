@@ -7,10 +7,9 @@ export default function App({ Component, pageProps }) {
 
     return (
         <>
-        
-        <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} key={router.asPath} />
-        </AnimatePresence>
+            <AnimatePresence exitBeforeEnter>
+                <Component {...pageProps} key={router.asPath} />
+            </AnimatePresence>
         </>
     )
 }

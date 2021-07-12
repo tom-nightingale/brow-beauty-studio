@@ -18,7 +18,34 @@ import Instagram from "instagram-web-api";
 
 export default function Home({ data: {home, site}, instagramPosts }) {
 
-  const containerRef = useRef(null)
+  const containerRef = useRef(null);
+
+  // Handle scrolling when clicking on the navigation
+//   const handleActiveChange = e => {
+//     e.preventDefault();
+//     // Reset all state to false
+//     // setValues({moreInfo: false, whatCanIChange: false, signOffForm: false, whatHappensNext: false });
+//     // Get the currently clicked button
+//     const {area} = e.target.dataset;
+//     // update the relevant state to true
+//     // setValues({ [area]: true} );
+
+//     let elemToScroll = document.getElementById(area).offsetTop;
+//     // window.scrollTo({
+//     //   top: elemToScroll-100, 
+//     //   behavior: 'smooth'
+//     // })
+//     // LocomotiveScrollProvider.scrollTo("#Treatments");
+// }
+
+  const navItems = [
+    'Home',
+    'Treatments',
+    'About',
+    'Where',
+    'Contact',
+    'Social',
+  ];
   
   return (
 
@@ -29,7 +56,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
       </Head>
 
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
+        options={{ smooth: true, lerp: 0.05,  }}
         containerRef={containerRef}
         watch={[]}
       >
@@ -50,36 +77,15 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                   <Container>
 
                     <ul className="relative z-10 justify-around hidden max-w-lg p-4 mx-auto mt-8 font-medium text-white uppercase bg-black md:flex">
-                      <li>
-                        <a className="block p-2" href="">
-                          Home
-                        </a>
-                      </li>
-                        <li>
-                        <a className="block p-2" href="Treatments">
-                          Treatments
-                        </a>
-                      </li>
-                        <li>
-                        <a className="block p-2" href="About">
-                          About
-                        </a>
-                      </li>
-                        <li>
-                        <a className="block p-2" href="">
-                          Where
-                        </a>
-                      </li>
-                        <li>
-                        <a className="block p-2" href="">
-                          Contact
-                        </a>
-                      </li>
-                        <li>
-                        <a className="block p-2" href="">
-                          Social
-                        </a>
-                      </li>
+                      {navItems.map((item, i) => {
+                        return(
+                          <li key={i}>
+                            <a data-scroll-to data-offset="-100" className="block p-2" href={`#${item}`}>
+                              {item}
+                            </a>
+                          </li>
+                        )
+                      })}
                     </ul>
 
                     <div className="relative z-0 overflow-hidden bg-gray-200 md:-mt-8">
@@ -105,41 +111,42 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                     </div>
 
-                    <div className="max-w-screen-xl mx-auto mt-8">
+                    <div className="max-w-screen-xl mx-auto mt-8" id="Treatments">
 
                       <h2 className="text-center mt-[100px] mb-[200px]">Treatments</h2>
 
                       {home.treatments.map((treatment, i) => {
                         return (
-                          <>
-                          {i %2 == 0 &&
-                            <Treatment
-                              image={treatment.treatmentImage}
-                              overlay={treatment.treatmentOverlayText}
-                              heading={treatment.treatmentHeading}
-                              subHeading={treatment.treatmentSubheading}
-                              description={treatment.treatmentDescription}
-                              alt
-                            />
-                          }
+                          <div key={i}>
+                            {i %2 == 0 &&
+                              <Treatment
+                                key={i}
+                                image={treatment.treatmentImage}
+                                overlay={treatment.treatmentOverlayText}
+                                heading={treatment.treatmentHeading}
+                                subHeading={treatment.treatmentSubheading}
+                                description={treatment.treatmentDescription}
+                                alt
+                              />
+                            }
 
-                          {i %2 != 0 && 
-                            <Treatment
-                              image={treatment.treatmentImage}
-                              overlay={treatment.treatmentOverlayText}
-                              heading={treatment.treatmentHeading}
-                              subHeading={treatment.treatmentSubheading}
-                              description={treatment.treatmentDescription}
-                            />
-                          }
-                          </>
-                          
+                            {i %2 != 0 && 
+                              <Treatment
+                                key={i}
+                                image={treatment.treatmentImage}
+                                overlay={treatment.treatmentOverlayText}
+                                heading={treatment.treatmentHeading}
+                                subHeading={treatment.treatmentSubheading}
+                                description={treatment.treatmentDescription}
+                              />
+                            }                          
+                          </div>                          
                         )
                       })}
                       
                     </div>
 
-                    <div className="flex-wrap my-12 md:flex">
+                    <div className="flex-wrap my-12 md:flex" id="About">
 
                       <article className="md:w-1/2">
                       
@@ -165,7 +172,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                     
 
-                    <div className="relative p-8 my-20 bg-gray-200 sm:p-12 lg:p-20">
+                    <div className="relative p-8 my-20 bg-gray-200 sm:p-12 lg:p-20" id="Where">
 
                       <div className="sm:max-w-screen-xs">
 
@@ -211,7 +218,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                   </Container>
 
 
-                  <div className="p-4 bg-gray-100 sm:p-8 md:p-12 lg:p-20">
+                  <div className="p-4 bg-gray-100 sm:p-8 md:p-12 lg:p-20" id="Contact">
 
                     <Container>
 
@@ -219,7 +226,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                       
                       <div className="max-w-screen-lg p-4 mx-auto bg-white shadow-lg sm:p-8 md:p-12 lg:p-20">
 
-                        <p className="max-w-screen-sm mx-auto text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada, odio eget pharetra blandit, libero diam ullamcorper lacus, in tincidunt augue sapien nec metus.</p>
+                        <p className="max-w-screen-sm mx-auto text-center">If you'd like to get in touch to make a booking or ask a question please use the form below. If you'd prefer to talk, fel free to give me a call directly on <a className="inline-block font-bold" href="tel:07930956003">07930 956 003</a>.</p>
 
                         <form id="form" action="" method="POST" className="flex flex-wrap mt-4 -m-1 overflow-x-hidden">
                           <label className="w-full md:w-1/2">
@@ -257,7 +264,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                   </div>
 
 
-                  <div className="bg-black">
+                  <div className="bg-black" id="Social">
 
                     <Container>
 
@@ -302,15 +309,11 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                     </ul>
 
                   </div>
-                
-                    
-                      
-                      
                   
                 </m.main>
                 
                 <m.div variants={fade}>
-                  <Footer />
+                  <Footer navItems={navItems} />
                 </m.div>
                 
               </m.div>
