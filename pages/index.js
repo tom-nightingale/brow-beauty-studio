@@ -80,7 +80,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                       {navItems.map((item, i) => {
                         return(
                           <li key={i}>
-                            <a data-scroll-to data-offset="-100" className="block p-2" href={`#${item}`}>
+                            <a data-scroll-to data-offset="-100" className="block p-2 tracking-widest" href={`#${item}`}>
                               {item}
                             </a>
                           </li>

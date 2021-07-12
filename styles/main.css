@@ -66,11 +66,11 @@ body {
 }
 
 label {
-  @apply inline-block p-2;
+  @apply inline-block p-6;
 }
 
 input,
 textarea,
 select {
-  @apply h-full p-4 tracking-wider uppercase bg-transparent border border-black;
+  @apply h-full p-4 tracking-widest uppercase bg-transparent border border-black;
 }
