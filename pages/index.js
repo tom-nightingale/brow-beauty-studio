@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import Head from 'next/head'
 import { request } from "@/lib/datocms";
-import { metaTagsFragment } from "@/lib/fragments"
+import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
 import { fade } from '@/helpers/transitions'
 import FancyLink from '@/components/fancyLink'
 import Layout from '@/components/layout'
@@ -15,7 +15,6 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
 import Instagram from "instagram-web-api";
-import { postcss } from 'postcss-nested';
 
 export default function Home({ data: {home, site}, instagramPosts }) {
 
@@ -87,13 +86,15 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                       <div className="flex flex-wrap items-center justify-end w-full md:min-h-[610px]">
 
-                        <img src="/hero-image.png" alt="" className="absolute top-[50%] left-0 translate-y-[-50%] z-10 opacity-20 lg:opacity-100" />
+                        <div className="absolute top-[50%] left-0 translate-y-[-50%] z-10 opacity-20 lg:opacity-100">
+                          <Image data={{...home.heroImage.responsiveImage, alt: "The Brow &amp; Beauty Studio" }} />
+                        </div>
 
                         <img src="/logo.png" alt="" className="absolute w-full top-[50%] right-0 translate-y-[-50%] z-0 opacity-5 hidden lg:block" />
 
                         <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 lg:p-4 lg:w-2/5">
 
-                          <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase lg:mb-16 md:text-5xl">Beauty treatments unique for all</h1>
+                          <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
 
                           <Button destination="#treatments" label="Treatments" modifier="mr-4" />
                           <Button destination="#contact" label="Contact" secondary modifier="" />
@@ -106,44 +107,35 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                     <div className="max-w-screen-xl mx-auto mt-8">
 
-                      <h2 className="text-center mb-[100px]">Treatments</h2>
+                      <h2 className="text-center mt-[100px] mb-[200px]">Treatments</h2>
 
-                      <Treatment
-                        image="https://picsum.photos/400"
-                        overlay="facials"
-                        title="Bespoke facials"
-                        description="including consultation"
-                      />
+                      {home.treatments.map((treatment, i) => {
+                        return (
+                          <>
+                          {i %2 == 0 &&
+                            <Treatment
+                              image={treatment.treatmentImage}
+                              overlay={treatment.treatmentOverlayText}
+                              heading={treatment.treatmentHeading}
+                              subHeading={treatment.treatmentSubheading}
+                              description={treatment.treatmentDescription}
+                              alt
+                            />
+                          }
 
-                      <Treatment
-                        image="https://picsum.photos/400"
-                        overlay="facials"
-                        title="Bespoke facials"
-                        description="including consultation"
-                        alt
-                      />
-
-                      <Treatment
-                        image="https://picsum.photos/400"
-                        overlay="facials"
-                        title="Bespoke facials"
-                        description="including consultation"
-                      />
-
-                      <Treatment
-                        image="https://picsum.photos/400"
-                        overlay="facials"
-                        title="Bespoke facials"
-                        description="including consultation"
-                        alt
-                      />
-
-                      <Treatment
-                        image="https://picsum.photos/400"
-                        overlay="facials"
-                        title="Bespoke facials"
-                        description="including consultation"
-                      />
+                          {i %2 != 0 && 
+                            <Treatment
+                              image={treatment.treatmentImage}
+                              overlay={treatment.treatmentOverlayText}
+                              heading={treatment.treatmentHeading}
+                              subHeading={treatment.treatmentSubheading}
+                              description={treatment.treatmentDescription}
+                            />
+                          }
+                          </>
+                          
+                        )
+                      })}
                       
                     </div>
 
@@ -153,15 +145,9 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                       
                         <div className="p-4 content md:p-12 lg:p-20">
 
-                          <h2>Some example content</h2>
-                          
-                          <p>At the Brow and Beauty Studio we take our treatments and procedures seriously. Every guest is unique so we work with you to custom design your specific treatment to fit your requirements.</p>
+                          <h2>{home.h1}</h2>
 
-                          <p>Former Personal therapist to the royal family in Dubai, celebrities and spa experience in five star resorts -The studio’s therapist, Asha brings you a new type of spa journey, in a small and quiet setting.</p>
-
-                          <p>Our menu is small and informative for a reason as we allow time for a detailed consultation before each treatment or service so you will leave the studio feeling confident that you are in the right hands.</p>
-
-                          <p>Should you wish to call about your treatment in advance or have a general query - please do not hesitate to do so as we will do our very best to make you feel comfortable answering all your questions and concerns.</p>
+                          <div className="content" dangerouslySetInnerHTML={{ __html: home.content }} />
 
                           <p className="mt-8 text-lg tracking-wider uppercase">Call for your appointment On <a className="inline-block font-bold" href="tel:07930956003">07930 956 003</a></p>
                           
@@ -171,7 +157,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                       <div className="w-1/2 bg-gray-200">
 
-                        //Image
+                        <Image data={{...home.contentImage.responsiveImage, alt: "The Brow &amp; Beauty Studio"}} />
 
                       </div>
 
@@ -206,6 +192,10 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                               external
                             />
 
+                        </div>
+
+                        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                          <Image data={{...home.locationImage.responsiveImage, alt: "The Brow &amp; Beauty Studio", className: ""}} />
                         </div>
 
                       </div>
@@ -350,9 +340,43 @@ const HOMEPAGE_QUERY = `
         ...metaTagsFragment
       }
       title
+      heroHeading
+      heroImage {
+        responsiveImage(imgixParams: {fm: png, fit: crop, w: 829, h: 850 }) {
+          ...responsiveImageFragment
+        }
+      }
+      treatments {
+        imageOverlayText
+        treatmentHeading
+        treatmentSubheading
+        treatmentImage {
+          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 500, h: 500 }) {
+            ...responsiveImageFragment
+          }
+        }
+        treatmentGallery {
+          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 500, h: 500 }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      h1
+      content
+      contentImage {
+        responsiveImage(imgixParams: {fm: png, fit: crop, w: 829, h: 850 }) {
+          ...responsiveImageFragment
+        }
+      }
+      locationImage {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+          ...responsiveImageFragment
+        }
+      }
     }
   }
   ${metaTagsFragment}
+  ${responsiveImageFragment}
 `
 
 export async function getStaticProps() {
@@ -376,7 +400,7 @@ export async function getStaticProps() {
 
     if (instagram["user"]["edge_owner_to_timeline_media"]["count"] > 0) {
       // if we receive timeline data back
-      //  update the posts to be equal
+      // update the posts to be equal
       // to the edges that were returned from the instagram API response
       posts = instagram["user"]["edge_owner_to_timeline_media"]["edges"]
     }
