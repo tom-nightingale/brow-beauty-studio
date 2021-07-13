@@ -174,11 +174,11 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                     
 
-                    <div className="relative p-8 my-20 bg-gray-200 sm:p-12 lg:p-20" id="Where">
+                    <div className="relative p-8 my-20 overflow-hidden bg-gray-200 sm:p-12 lg:p-20" id="Where">
 
                       <div className="sm:max-w-screen-xs">
 
-                        <p className="mb-[-6px] font-serif text-4xl leading-none text-center text-white lg:text-5xl lg:mb-[-9px]">Where</p>
+                        <p className="mb-[-6px] font-serif text-4xl leading-none text-center text-white lg:text-5xl lg:mb-[-9px] relative z-50">Where</p>
 
                         <div className="relative z-10 p-6 pb-16 mb-8 bg-white shadow-lg md:p-12 md:pb-20">
 
@@ -203,7 +203,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                         </div>
 
-                        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                        <div className="absolute z-0 w-full overflow-hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                           <Image data={{...home.locationImage.responsiveImage, alt: "The Brow &amp; Beauty Studio", className: ""}} />
                         </div>
 
@@ -226,11 +226,13 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                       <p className="mb-[-6px] font-serif text-4xl leading-none text-center text-gray-300 lg:text-5xl lg:mb-[-9px]">Contact</p>
                       
-                      <div className="max-w-screen-lg p-4 mx-auto bg-white shadow-lg sm:p-8 md:p-12 lg:p-20">
+                      <div className="relative max-w-screen-lg p-4 mx-auto bg-white shadow-lg sm:p-8 md:p-12 lg:p-20">
 
                         <p className="max-w-screen-sm mx-auto text-center">If you'd like to get in touch to make a booking or ask a question please use the form below. If you'd prefer to talk, fel free to give me a call directly on <a className="inline-block font-bold" href="tel:07930956003">07930 956 003</a>.</p>
 
-                        <form id="form" action="" method="POST" className="flex flex-wrap mt-4 -m-1 overflow-x-hidden">
+                        <img src="logo-circle-light.png" alt="The Brow &amp; Beauty Studio" className="absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" />
+
+                        <form id="form" action="" method="POST" className="relative z-10 flex flex-wrap mt-4 -m-1 overflow-x-hidden">
                           <label className="w-full md:w-1/2">
                             <input required type="text" className="w-full" name="name" placeholder="Your Name *" />
                           </label>
@@ -255,7 +257,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                           </label>
                           <input type="text" name="_gotcha" className="hidden" />
                           <div className="w-full mt-8 text-center">
-                            <input type="submit" className="inline-block p-4 mx-auto text-white uppercase bg-black border border-black md:p-6 lg:text-lg lg:px-8 lg:py-6" value="Send Form" />
+                            <input type="submit" className="inline-block p-4 mx-auto text-sm text-white uppercase bg-black border border-black md:p-6 lg:px-8 lg:py-4" value="Send Form" />
                           </div>
                         </form>
                         
@@ -374,7 +376,7 @@ const HOMEPAGE_QUERY = `
         }
       }
       locationImage {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2017, h: 1464 }) {
           ...responsiveImageFragment
         }
       }

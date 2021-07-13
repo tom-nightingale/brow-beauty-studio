@@ -18,6 +18,58 @@ body {
   @apply font-sans antialiased text-black bg-white;
 }
 
+
+/* Buttons */
+.btn {
+  @apply relative inline-block p-4 text-sm tracking-widest uppercase transition-all duration-500 delay-200 md:px-6 xl:px-12;
+
+
+  &:before,
+  &:after {
+    content: '';
+    @apply absolute w-1/5 transition-all duration-500 border h-1/5;
+  }
+
+  &:before {
+    @apply top-0 left-0 border border-black;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+
+  &:after {
+    @apply bottom-0 right-0 border-black;
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    @apply w-full h-full;
+  }
+}
+
+.btn--secondary {
+  @apply inline-block p-4 text-sm tracking-widest text-white uppercase bg-black md:px-6 xl:px-12;
+
+  &:before,
+  &:after {
+    @apply w-0 h-0;
+  }
+  
+  &:before {
+    @apply top-0 left-0 border border-white;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+
+  &:after {
+    @apply bottom-0 right-0 border-white;
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }
+}
+
+
 /* Mobile menu */
 .btn-mobile-menu {
   @apply transition duration-200 absolute top-0 xs:top-[3vw] md:top-[4vw] lg:top-[5vw] 2xl:top-[4vw] right-[2%] z-50 flex flex-col items-center justify-around w-8 h-8 mr-6 outline-none mt-7;
@@ -35,15 +87,16 @@ body {
 .btn-mobile-menu.open span {
     &:first-child {
       transform: rotate(45deg);
+      transform-origin: 0;
     }
 
     &:nth-child(2) {
       opacity: 0;
-      /* transform: translateX(20px); */
     }
 
     &:nth-child(3) {
       transform: rotate(-45deg);
+      transform-origin: 5%;
     }
 }
 
