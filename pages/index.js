@@ -14,9 +14,12 @@ import Container from '@/components/container'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
-import Instagram from "instagram-web-api";
+// import Instagram from "instagram-web-api";
+import InstagramFeed from 'react-ig-feed'
 
-export default function Home({ data: {home, site}, instagramPosts }) {
+export default function Home({ data: {home, site}, igUserToken }) {
+
+  
 
   const containerRef = useRef(null);
 
@@ -54,7 +57,7 @@ export default function Home({ data: {home, site}, instagramPosts }) {
               >
 
                 <m.div variants={logoBackground} className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full min-h-screen bg-white">
-                  <m.div variants={logoFade} className="w-1/3 mx-auto">
+                  <m.div variants={logoFade} className="w-2/3 mx-auto md:w-1/3">
                     <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
                   </m.div>
                 </m.div>
@@ -263,10 +266,10 @@ export default function Home({ data: {home, site}, instagramPosts }) {
 
                         <div className="flex items-center justify-center">
 
-                          <h3 className="text-3xl text-center text-white">Social</h3>
+                          <h3 className="mb-0 mr-4 text-3xl text-center text-gray-100 xl:text-5xl">Social</h3>
 
-                          <SocialIcon platform="instagram" url="https://www.instagram.com" classes="mx-2 text-white inline-block" />
-                          <SocialIcon platform="facebook" url="https://www.facebook.com" classes="mx-2 text-white inline-block" />
+                          <SocialIcon classes="mb-0 w-6 h-6 mx-2" svgFill="#FFF" platform="instagram" url="https://www.instagram.com" />
+                          <SocialIcon classes="mb-0 w-6 h-6 mx-2" svgFill="#FFF" platform="facebook" url="https://www.facebook.com" />
 
                         </div>
                         
@@ -274,30 +277,11 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                       
                     </Container>
 
-                    <ul className="flex flex-wrap">
-                      {instagramPosts.map(({ node }, i) => {
-                        return (
-                          <li key={i} className="w-1/6 bg-gray-500">
-                            <a
-                              href={`https://www.instagram.com/p/${node.shortcode}`}
-                              aria-label="view image on Instagram"
-                            >
-                              {/* set the image src equal to the image
-                              url from the Instagram API*/}
-                              <img
-                                src={node.thumbnail_src}
-                                alt={
-                                  // the caption with hashtags removed
-                                  node.edge_media_to_caption.edges[0].node.text
-                                    .replace(/(#\w+)+/g, "")
-                                    .trim()
-                                }
-                              />
-                            </a>
-                          </li>
-                        )
-                      })}
-                    </ul>
+                    
+                    <div className="socialFeed">
+                      <InstagramFeed token={igUserToken} counter="6"/>
+                    </div>
+
 
                   </div>
                   
@@ -378,36 +362,12 @@ export async function getStaticProps() {
     query: HOMEPAGE_QUERY
   })
 
-  const client = new Instagram({
-    username: process.env.IG_USERNAME,
-    password: process.env.IG_PASSWORD,
-  });
-  let posts = [];
-
-  
-  try {
-    await client.login()
-    // request photos for a specific instagram user
-    const instagram = await client.getPhotosByUsername({
-      username: process.env.IG_USERNAME,
-    })
-
-    if (instagram["user"]["edge_owner_to_timeline_media"]["count"] > 0) {
-      // if we receive timeline data back
-      // update the posts to be equal
-      // to the edges that were returned from the instagram API response
-      posts = instagram["user"]["edge_owner_to_timeline_media"]["edges"]
-    }
-  } 
-  catch (err) {
-    // throw an error if login to Instagram fails
-    console.log("Something went wrong while logging into Instagram", err)
-  }  
+  const igUserToken = process.env.IG_USER_TOKEN;
 
   return {
     props: { 
       data,
-      instagramPosts: posts,
+      igUserToken,
     }
   }
 }

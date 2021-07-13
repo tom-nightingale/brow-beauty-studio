@@ -12,8 +12,8 @@ export default function Header({navItems}) {
               <div className="flex flex-wrap items-center justify-between p-4">
 
                 <div className="flex-col justify-center hidden w-1/5 md:flex md:pl-[2%]">
-                  <SocialIcon platform="instagram" url="https://www.instagram.com" />
-                  <SocialIcon platform="facebook" url="https://www.facebook.com" />
+                  <SocialIcon classes="w-8 h-8 mb-5" svgFill="#1D1D1B" platform="instagram" url="https://www.instagram.com" />
+                  <SocialIcon classes="w-8 h-8 mb-5" svgFill="#1D1D1B" platform="facebook" url="https://www.facebook.com" />
                 </div>
 
                 <div className="w-3/5">
@@ -25,7 +25,6 @@ export default function Header({navItems}) {
                 </div>
 
               </div>
-                
                 
             </Container>
             
