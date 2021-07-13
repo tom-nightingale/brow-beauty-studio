@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import Head from 'next/head'
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
-import { fade } from '@/helpers/transitions'
+import { logoBackground, logoFade, fade } from '@/helpers/transitions'
 import FancyLink from '@/components/fancyLink'
 import Layout from '@/components/layout'
 import Button from '@/components/button'
@@ -18,27 +18,7 @@ import Instagram from "instagram-web-api";
 
 export default function Home({ data: {home, site}, instagramPosts }) {
 
-  console.log(instagramPosts);
-
   const containerRef = useRef(null);
-
-  // Handle scrolling when clicking on the navigation
-//   const handleActiveChange = e => {
-//     e.preventDefault();
-//     // Reset all state to false
-//     // setValues({moreInfo: false, whatCanIChange: false, signOffForm: false, whatHappensNext: false });
-//     // Get the currently clicked button
-//     const {area} = e.target.dataset;
-//     // update the relevant state to true
-//     // setValues({ [area]: true} );
-
-//     let elemToScroll = document.getElementById(area).offsetTop;
-//     // window.scrollTo({
-//     //   top: elemToScroll-100, 
-//     //   behavior: 'smooth'
-//     // })
-//     // LocomotiveScrollProvider.scrollTo("#Treatments");
-// }
 
   const navItems = [
     'Home',
@@ -58,14 +38,12 @@ export default function Home({ data: {home, site}, instagramPosts }) {
       </Head>
 
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05,  }}
+        options={{ smooth: true, lerp: 0.07,  }}
         containerRef={containerRef}
         watch={[]}
       >
         <div data-scroll-container ref={containerRef} id="scroll-container">
           <div data-scroll-section>
-            
-            <Header />
             
             <LazyMotion features={domAnimation}>
               
@@ -74,7 +52,16 @@ export default function Home({ data: {home, site}, instagramPosts }) {
                 animate="enter"
                 exit="exit"
               >
-                <m.main variants={fade} className=""> 
+
+                <m.div variants={logoBackground} className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full min-h-screen bg-white">
+                  <m.div variants={logoFade} className="w-1/3 mx-auto">
+                    <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
+                  </m.div>
+                </m.div>
+
+                <m.main variants={fade} className="relative z-50"> 
+
+                  <Header />
                   
                   <Container>
 
