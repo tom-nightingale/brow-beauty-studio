@@ -45,8 +45,10 @@ export default function Home({ data: {home, site}, igUserToken }) {
         containerRef={containerRef}
         watch={[]}
       >
+
         <div data-scroll-container ref={containerRef} id="scroll-container">
-          <div data-scroll-section>
+            
+          <div data-scroll-section>            
             
             <LazyMotion features={domAnimation}>
               
@@ -103,42 +105,46 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                     </div>
 
-                    <div className="max-w-screen-xl mx-auto mt-8" id="Treatments">
+                    <div className="relative max-w-screen-xl mx-auto my-20" id="Treatments">
 
-                      <h2 className="text-center mt-[100px] mb-[200px]">Treatments</h2>
+                      <div className="relative z-20">
 
-                      {home.treatments.map((treatment, i) => {
-                        return (
-                          <div key={i}>
-                            {i %2 == 0 &&
-                              <Treatment
-                                key={i}
-                                image={treatment.treatmentImage}
-                                overlay={treatment.treatmentOverlayText}
-                                heading={treatment.treatmentHeading}
-                                subHeading={treatment.treatmentSubheading}
-                                description={treatment.treatmentDescription}
-                                alt
-                              />
-                            }
+                        <h2 className="text-center mt-[100px] mb-[175px]">Treatments</h2>
 
-                            {i %2 != 0 && 
-                              <Treatment
-                                key={i}
-                                image={treatment.treatmentImage}
-                                overlay={treatment.treatmentOverlayText}
-                                heading={treatment.treatmentHeading}
-                                subHeading={treatment.treatmentSubheading}
-                                description={treatment.treatmentDescription}
-                              />
-                            }                          
-                          </div>                          
-                        )
-                      })}
+                        {home.treatments.map((treatment, i) => {
+                          return (
+                            <div key={i}>
+                              {i %2 == 0 &&
+                                <Treatment
+                                  key={i}
+                                  image={treatment.treatmentImage}
+                                  overlay={treatment.treatmentOverlayText}
+                                  heading={treatment.treatmentHeading}
+                                  subHeading={treatment.treatmentSubheading}
+                                  description={treatment.treatmentDescription}
+                                  alt
+                                />
+                              }
+
+                              {i %2 != 0 && 
+                                <Treatment
+                                  key={i}
+                                  image={treatment.treatmentImage}
+                                  overlay={treatment.treatmentOverlayText}
+                                  heading={treatment.treatmentHeading}
+                                  subHeading={treatment.treatmentSubheading}
+                                  description={treatment.treatmentDescription}
+                                />
+                              }                          
+                            </div>                          
+                          )
+                        })}
+                        
+                      </div>
                       
                     </div>
 
-                    <div className="flex-wrap my-12 md:flex" id="About">
+                    <div className="flex-wrap my-20 md:flex" id="About">
 
                       <article className="md:w-1/2">
                       

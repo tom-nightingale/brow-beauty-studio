@@ -27,7 +27,7 @@ body {
   &:before,
   &:after {
     content: '';
-    @apply absolute w-1/5 transition-all duration-500 border h-1/5;
+    @apply absolute w-full h-full transition-all duration-500 border;
   }
 
   &:before {
@@ -44,7 +44,7 @@ body {
 
   &:hover:before,
   &:hover:after {
-    @apply w-full h-full;
+    @apply w-1/5 h-1/5;
   }
 }
 
@@ -72,7 +72,7 @@ body {
 
 /* Mobile menu */
 .btn-mobile-menu {
-  @apply transition duration-200 absolute top-0 xs:top-[3vw] md:top-[4vw] lg:top-[5vw] 2xl:top-[4vw] right-[2%] z-50 flex flex-col items-center justify-around w-8 h-8 mr-6 outline-none mt-7;
+  @apply transition duration-200 absolute top-1/2 -translate-y-1/2 right-[6%] md:right-[2%] z-50 flex flex-col items-center justify-around w-8 h-8 outline-none;
 
   &:focus {
     @apply outline-none;
@@ -138,4 +138,9 @@ select {
   ._wPDyp {
     @apply w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6;
   }
+}
+
+#Treatments {
+  background: url('/public/logo-cirle-light.png') center center no-repeat;
+  background-attachment: fixed;
 }
