@@ -114,11 +114,10 @@ export default function Home({ data: {home, site}, igUserToken }) {
                                 <Treatment
                                   key={i}
                                   image={treatment.treatmentImage}
-                                  overlay={treatment.treatmentOverlayText}
+                                  overlay={treatment.imageOverlayText}
                                   heading={treatment.treatmentHeading}
                                   subHeading={treatment.treatmentSubheading}
                                   description={treatment.treatmentDescription}
-                                  alt
                                 />
                               }
 
@@ -126,10 +125,11 @@ export default function Home({ data: {home, site}, igUserToken }) {
                                 <Treatment
                                   key={i}
                                   image={treatment.treatmentImage}
-                                  overlay={treatment.treatmentOverlayText}
+                                  overlay={treatment.imageOverlayText}
                                   heading={treatment.treatmentHeading}
                                   subHeading={treatment.treatmentSubheading}
                                   description={treatment.treatmentDescription}
+                                  alt
                                 />
                               }                          
                             </div>                          

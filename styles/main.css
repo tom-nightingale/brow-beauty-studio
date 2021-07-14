@@ -140,7 +140,7 @@ select {
   }
 }
 
-#Treatments {
-  background: url('/logo-cirle-light.png') center center no-repeat;
+/* #Treatments {
+  background: url('./logo-circle-light.png') center center no-repeat;
   background-attachment: fixed;
-}
+} */
