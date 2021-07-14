@@ -141,6 +141,6 @@ select {
 }
 
 #Treatments {
-  background: url('/public/logo-cirle-light.png') center center no-repeat;
+  background: url('/logo-cirle-light.png') center center no-repeat;
   background-attachment: fixed;
 }

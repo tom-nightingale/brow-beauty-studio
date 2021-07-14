@@ -19,8 +19,6 @@ import InstagramFeed from 'react-ig-feed'
 
 export default function Home({ data: {home, site}, igUserToken }) {
 
-  
-
   const containerRef = useRef(null);
 
   const navItems = [
@@ -107,8 +105,6 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                     <div className="relative max-w-screen-xl mx-auto my-20" id="Treatments">
 
-                      <div className="relative z-20">
-
                         <h2 className="text-center mt-[100px] mb-[175px]">Treatments</h2>
 
                         {home.treatments.map((treatment, i) => {
@@ -139,8 +135,6 @@ export default function Home({ data: {home, site}, igUserToken }) {
                             </div>                          
                           )
                         })}
-                        
-                      </div>
                       
                     </div>
 
