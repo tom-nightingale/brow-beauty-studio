@@ -16,7 +16,7 @@ export default function mobileMenu({navItems}) {
         show: {
         opacity: 1,
             transition: {
-                staggerChildren: 0.1
+                staggerChildren: 0.15
             }
         }
     };
@@ -37,12 +37,12 @@ export default function mobileMenu({navItems}) {
             {/* Mobile Menu */}
             <div open={open} className={`fixed top-0 left-0 -z-10 w-full h-full p-4 transition-all duration-200 bg-white ${open ? 'opacity-100 z-40' : 'opacity-0'}`}>
                 
-                <div className="flex flex-col items-center justify-center h-full">
+                <div className="flex flex-col items-center justify-center h-screen">
 
                 <motion.div variants={container} initial="hidden" animate={open ? 'show' : ''}>
 
                     <motion.div variants={listItem}>
-                        <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="w-2/3 mx-auto mb-8" />
+                        <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="w-2/3 mx-auto mb-8 max-w-72" />
                     </motion.div>
 
                     {/* {
