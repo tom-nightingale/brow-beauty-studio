@@ -2,7 +2,7 @@ import Container from './container'
 
 export default function Footer({ navItems }) {
     return (
-        <footer className="py-16 bg-black">
+        <footer className="relative z-50 py-16 bg-black">
             <Container>
                 <img className="w-[270px] mx-auto" src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" />
 
@@ -10,7 +10,7 @@ export default function Footer({ navItems }) {
                     {navItems.map((item, i) => {
                         return(
                           <li key={i}>
-                            <a data-scroll-to data-offset="-100" className="block p-2" href={`#${item}`}>
+                            <a data-scroll-to data-offset="-100" className="block p-2 tracking-widest" href={`#${item}`}>
                               {item}
                             </a>
                           </li>
