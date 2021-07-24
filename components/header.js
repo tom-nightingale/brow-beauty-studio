@@ -20,7 +20,7 @@ export default function Header({navItems}) {
                   <img className="w-full max-w-[750px] mx-auto" src="logo.png" alt="The Birth Mum" />
                 </div>
 
-               <MobileMenu />
+               <MobileMenu navItems={navItems} />
 
               </div>
                 

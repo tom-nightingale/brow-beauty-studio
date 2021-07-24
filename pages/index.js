@@ -64,7 +64,7 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                 <m.main variants={fade} className="relative z-50"> 
 
-                  <Header />
+                  <Header navItems={navItems} />
                   
                   <Container>
 

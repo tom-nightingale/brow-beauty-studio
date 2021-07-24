@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export default function mobileMenu({navItems}) {
+export default function mobileMenu({ navItems }) {
 
     const router = useRouter();
     let currentPath = router.pathname;
@@ -45,71 +45,15 @@ export default function mobileMenu({navItems}) {
                         <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="w-2/3 mx-auto mb-8 max-w-72" />
                     </motion.div>
 
-                    {/* {
-                    Object.values(navItems).map((item, i) => {
+                    {navItems.map((item, i) => {
                         return(
-                        <motion.div className="mb-6 text-center" key={i} variants={listItem}>
-                            <Link href={item.href} scroll={false}>
-                            <a aria-label={`Go to ${item.label}`} onClick={() => setOpen(!open)} className={`tracking-widest uppercase navItem ${currentPath === item.href ? 'text-orange-dark navActive' : ''}`}>
-                                {item.label}
+                        <motion.div className="mb-5 text-center" variants={listItem} key={i}>
+                            <a data-scroll-to data-offset="-100" className="block tracking-widest uppercase" href={`#${item}`} onClick={() => setOpen(!open)}>
+                                {item}
                             </a>
-                            </Link>
                         </motion.div>
                         )
-                    })
-                    } */}
-
-                    {/* <motion.div className="text-center" variants={listItem}>
-                    <Button onClick={() => setOpen(!open)} link="/contact" aria-label="Navigate to Contact" classes="mb-6 inline-flex justify-center">Get In Touch</Button>
-                    </motion.div> */}
-                    <motion.div className="mb-5 text-center" variants={listItem}>
-                     <Link href="#" scroll={false}>
-                        <a aria-label="Home" onClick={() => setOpen(!open)} className="nav-item">
-                            Home
-                        </a>
-                    </Link>
-                    </motion.div>
-
-                    <motion.div className="mb-5 text-center" variants={listItem}>
-                    <Link href="#" scroll={false}>
-                        <a aria-label="Treatments" onClick={() => setOpen(!open)} className="nav-item">
-                            Treatments
-                        </a>
-                    </Link>
-                    </motion.div>
-
-                    <motion.div className="mb-5 text-center" variants={listItem}>
-                    <Link href="#" scroll={false}>
-                        <a aria-label="About" onClick={() => setOpen(!open)} className="nav-item">
-                            About
-                        </a>
-                    </Link>
-                    </motion.div>
-
-                    <motion.div className="mb-5 text-center" variants={listItem}>
-                    <Link href="#" scroll={false}>
-                        <a aria-label="Where" onClick={() => setOpen(!open)} className="nav-item">
-                            Where
-                        </a>
-                    </Link>
-                    </motion.div>
-
-                    <motion.div className="mb-5 text-center" variants={listItem}>
-                    <Link href="#" scroll={false}>
-                        <a aria-label="Contact" onClick={() => setOpen(!open)} className="nav-item">
-                            Contact
-                        </a>
-                    </Link>
-                    </motion.div>
-
-                    <motion.div className="mb-5 text-center" variants={listItem}>
-                    <Link href="#" scroll={false}>
-                        <a aria-label="Social" onClick={() => setOpen(!open)} className="nav-item">
-                            Social
-                        </a>
-                    </Link>
-                    </motion.div>
-
+                    })}
                 
                     <motion.div className="text-center" variants={listItem}>
                         <a className="transition-all duration-200" variants={listItem} href="tel:07723039623">Tel: <span className="font-bold">07723 039623</span></a>                    
