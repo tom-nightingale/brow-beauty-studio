@@ -297,9 +297,9 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
             </LazyMotion>
           
-          </div>
+          </div> {/* scroll section */}
           
-        </div>
+        </div> {/* scroll container */}
 
       </LocomotiveScrollProvider>
 
