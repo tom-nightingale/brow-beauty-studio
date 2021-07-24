@@ -108,13 +108,7 @@ body {
   @apply relative;
 
   &:after {
-    @apply absolute w-2/3 lg:w-3/4 h-[1px] -translate-y-1/2 bg-black top-1/2 z-0;
-  }
-}
-
-@screen md {
-  .treatment:after {
-    content: '';
+    @apply absolute w-1/6 sm:w-[52%] md:w-[57%] lg:w-[71%] h-[1px] -translate-y-1/2 bg-black top-1/2 z-0;
   }
 }
 

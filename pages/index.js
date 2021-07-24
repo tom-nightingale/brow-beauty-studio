@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
 import { logoBackground, logoFade, fade } from '@/helpers/transitions'
-import FancyLink from '@/components/fancyLink'
+import { instagramURL, facebookURL } from '@/helpers/constants'
 import Layout from '@/components/layout'
 import Button from '@/components/button'
 import Treatment from '@/components/treatment'
@@ -14,7 +14,6 @@ import Container from '@/components/container'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
-// import Instagram from "instagram-web-api";
 import InstagramFeed from 'react-ig-feed'
 
 export default function Home({ data: {home, site}, igUserToken }) {
@@ -62,7 +61,7 @@ export default function Home({ data: {home, site}, igUserToken }) {
                   </m.div>
                 </m.div>
 
-                <m.main variants={fade} className="relative z-50"> 
+                <m.div variants={fade} className="relative z-50"> 
 
                   <Header navItems={navItems} />
                   
@@ -103,9 +102,11 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                     </div>
 
-                    <div className="relative max-w-screen-xl mx-auto my-20" id="Treatments">
+                    <div className="relative max-w-screen-xl mx-auto my-12 md:my-20" id="Treatments">
 
-                        <h2 className="text-center mt-[100px] mb-[175px]">Treatments</h2>
+                        <h2 className="text-center lg:mt-[100px] lg:mb-[175px]">Treatments</h2>
+
+                        <img data-scroll data-scroll-sticky data-scroll-target="#Treatments" src="/logo-light-trimmed.png" alt="" className="absolute top-0 w-full" />
 
                         {home.treatments.map((treatment, i) => {
                           return (
@@ -138,11 +139,11 @@ export default function Home({ data: {home, site}, igUserToken }) {
                       
                     </div>
 
-                    <div className="flex-wrap my-20 md:flex" id="About">
+                    <main className="flex-wrap md:my-20 md:flex" id="About">
 
                       <article className="md:w-1/2">
                       
-                        <div className="p-4 content md:p-12 lg:p-20">
+                        <div className="p-4 content xs:p-12 lg:p-20">
 
                           <h2>{home.h1}</h2>
 
@@ -154,15 +155,13 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                       </article>
 
-                      <div className="w-1/2 bg-gray-200">
+                      <div className="bg-gray-200 lg:w-1/2">
 
                         <Image data={{...home.contentImage.responsiveImage, alt: "The Brow &amp; Beauty Studio"}} />
 
                       </div>
 
-                    </div>
-
-                    
+                    </main>                    
 
                     <div className="relative p-8 my-20 overflow-hidden bg-gray-200 sm:p-12 lg:p-20" id="Where">
 
@@ -257,39 +256,42 @@ export default function Home({ data: {home, site}, igUserToken }) {
                     
                   </div>
 
+                  <div className="bg-black">
 
-                  <div className="bg-black" id="Social">
+                    <div id="Social">
 
-                    <Container>
+                      <Container>
 
-                      <div className="p-8 md:p-12 lg:p-20">
+                        <div className="p-8 md:p-12 lg:p-20">
 
-                        <div className="flex items-center justify-center">
+                          <div className="flex items-center justify-center">
 
-                          <h3 className="mb-0 mr-4 text-3xl text-center text-gray-100 xl:text-5xl">Social</h3>
+                            <h3 className="mb-0 mr-4 text-3xl text-center text-gray-100 xl:text-5xl">Social</h3>
 
-                          <SocialIcon classes="mb-0 w-6 h-6 mx-2" svgFill="#FFF" platform="instagram" url="https://www.instagram.com" />
-                          <SocialIcon classes="mb-0 w-6 h-6 mx-2" svgFill="#FFF" platform="facebook" url="https://www.facebook.com" />
+                            <SocialIcon classes="mb-0 w-6 h-6 mx-2" svgFill="#FFF" platform="instagram" url={instagramURL} />
+                            <SocialIcon classes="mb-0 w-6 h-6 mx-2" svgFill="#FFF" platform="facebook" url={facebookURL} />
 
+                          </div>
+                          
                         </div>
                         
-                      </div>
+                      </Container>
                       
-                    </Container>
+                      <div className="socialFeed">
+                        <InstagramFeed token={igUserToken} counter="6"/>
+                      </div>
 
-                    
-                    <div className="socialFeed">
-                      <InstagramFeed token={igUserToken} counter="6"/>
                     </div>
 
+                    <m.div variants={fade}>
+                      <Footer navItems={navItems} />
+                    </m.div>
 
                   </div>
                   
-                </m.main>
-                
-                <m.div variants={fade}>
-                  <Footer navItems={navItems} />
                 </m.div>
+                
+                
                 
               </m.div>
 

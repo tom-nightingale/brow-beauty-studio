@@ -21,7 +21,6 @@ export default function Footer({ navItems }) {
                 <hr className="w-1/6 mx-auto mt-16 opacity-20" />
 
                 <p className="px-8 mt-16 font-serif text-center text-white">&copy; Copyright The Brow & Beauty Studio 2021 - All rights reserved</p>
-
                 
             </Container>
         </footer>
