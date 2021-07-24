@@ -48,7 +48,7 @@ export default function mobileMenu({ navItems }) {
                     {navItems.map((item, i) => {
                         return(
                         <motion.div className="mb-5 text-center" variants={listItem} key={i}>
-                            <a data-scroll-to data-offset="-100" className="block tracking-widest uppercase" href={`#${item}`} onClick={() => setOpen(!open)}>
+                            <a data-scroll-to data-offset="-100" className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" href={`#${item}`} onClick={() => setOpen(!open)}>
                                 {item}
                             </a>
                         </motion.div>

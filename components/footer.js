@@ -10,7 +10,7 @@ export default function Footer({ navItems }) {
                     {navItems.map((item, i) => {
                         return(
                           <li key={i}>
-                            <a data-scroll-to data-offset="-100" className="block p-2 tracking-widest" href={`#${item}`}>
+                            <a data-scroll-to data-offset="-100" className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full" href={`#${item}`}>
                               {item}
                             </a>
                           </li>

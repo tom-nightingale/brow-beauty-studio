@@ -71,7 +71,7 @@ export default function Home({ data: {home, site}, igUserToken }) {
                       {navItems.map((item, i) => {
                         return(
                           <li key={i}>
-                            <a data-scroll-to data-offset="-100" className="block p-2 tracking-widest" href={`#${item}`}>
+                            <a data-scroll-to data-offset="-100" className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full" href={`#${item}`}>
                               {item}
                             </a>
                           </li>
@@ -93,8 +93,8 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                           <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
 
-                          <Button destination="#treatments" label="Treatments" modifier="mr-4" />
-                          <Button destination="#contact" label="Contact" secondary modifier="" />
+                          <Button destination="#Treatments" label="Treatments" modifier="mr-4" />
+                          <Button destination="#Contact" label="Contact" secondary modifier="" />
 
                         </div>
 
@@ -102,7 +102,7 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                     </div>
 
-                    <div className="relative max-w-screen-xl mx-auto my-12 md:my-20" id="Treatments">
+                    <div className="relative max-w-screen-xl py-12 mx-auto md:py-20" id="Treatments">
 
                         <h2 className="text-center lg:mt-[100px] lg:mb-[175px]">Treatments</h2>
 
@@ -167,7 +167,7 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                       <div className="sm:max-w-screen-xs">
 
-                        <p className="mb-[-6px] font-serif text-4xl leading-none text-center text-white lg:text-5xl lg:mb-[-9px] relative z-50">Where</p>
+                        <p className="mb-[-6px] font-serif text-4xl leading-none text-center text-white lg:text-5xl lg:mb-[-9px] relative z-50" data-scroll-direction="horizontal" data-scroll-speed="-0.1" data-scroll>Where</p>
 
                         <div className="relative z-10 p-6 pb-16 mb-8 bg-white shadow-lg md:p-12 md:pb-20">
 
@@ -268,8 +268,8 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                             <h3 className="mb-0 mr-4 text-3xl text-center text-gray-100 xl:text-5xl">Social</h3>
 
-                            <SocialIcon classes="mb-0 w-6 h-6 mx-2" svgFill="#FFF" platform="instagram" url={instagramURL} />
-                            <SocialIcon classes="mb-0 w-6 h-6 mx-2" svgFill="#FFF" platform="facebook" url={facebookURL} />
+                            <SocialIcon classes="mb-0 w-6 h-6 mx-2 hover:scale-110 transition duration-200 focus:scale-90" svgFill="#FFF" platform="instagram" url={instagramURL} />
+                            <SocialIcon classes="mb-0 w-6 h-6 mx-2 hover:scale-110 transition duration-200 focus:scale-90" svgFill="#FFF" platform="facebook" url={facebookURL} />
 
                           </div>
                           

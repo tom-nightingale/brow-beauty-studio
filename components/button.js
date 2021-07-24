@@ -8,7 +8,7 @@ export default function Button({ external, destination, modifier, label, seconda
             }
 
             {!external && 
-                <a href={destination} className={`btn ${secondary ? 'btn--secondary' : ''} ${modifier}`}>
+                <a data-scroll-to data-offset="-100" href={destination} className={`btn ${secondary ? 'btn--secondary' : ''} ${modifier}`}>
                     {label}
                 </a>
             }
