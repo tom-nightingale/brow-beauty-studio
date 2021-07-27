@@ -191,9 +191,9 @@ export default function Home({ data: {home, site}, igUserToken }) {
                             />
 
                         </div>
-
-                        <div className="absolute z-0 w-full overflow-hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                          <Image data={{...home.locationImage.responsiveImage, alt: "The Brow &amp; Beauty Studio", className: ""}} />
+                        
+                        <div className="absolute top-0 left-0 z-0 w-full h-full overflow-hidden">
+                          <Image data={{...home.locationImage.responsiveImage, alt: "The Brow &amp; Beauty Studioooo"}} className="absolute w-[220%] md:w-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" />
                         </div>
 
                       </div>
