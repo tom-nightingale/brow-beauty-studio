@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
-import { logoBackground, logoFade, fade } from '@/helpers/transitions'
+import { fade, quickFade } from '@/helpers/transitions'
 import { instagramURL, facebookURL, phoneNumber } from '@/helpers/constants'
 import Layout from '@/components/layout'
 import Button from '@/components/button'
@@ -17,7 +17,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
 import InstagramFeed from 'react-ig-feed'
 
-export default function Home({ data: {home, site, treatments}, igUserToken }) {
+export default function Home({ data: {home, site, treatmentCategory}, igUserToken }) {
 
   const containerRef = useRef(null);
 
@@ -78,120 +78,46 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                 exit="exit"
               >
 
-                <m.div variants={fade} className="relative z-50"> 
+                <m.div variants={quickFade} className="relative z-50"> 
+
+                <Header navItems={navItems} />
                   
                   <Container>
-
-                    <ul className="relative z-10 justify-around hidden max-w-lg p-4 mx-auto mt-8 font-medium text-white uppercase bg-black md:flex">
-                      {navItems.map(({ title, url }, i) => {
-                        return(
-                          url == "treatment-menu" ? (
-                            <>
-                              <Link href="/treatment-menu">
-                                <a className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full">
-                                  {title}
-                                </a>
-                              </Link>
-                            </>
-                          ) : (
-                          <li key={i}>
-                            <a data-scroll-to data-offset="-100" className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full" href={`#${url}`}>
-                              {title}
-                            </a>
-                          </li>
-                          )
-                        )
-                      })}
-                    </ul>
-
-                    <div className="relative z-0 overflow-hidden bg-gray-200 md:-mt-8">
-
-                      <div className="flex flex-wrap items-center justify-end w-full md:min-h-[610px]">
-
-                        <div className="absolute top-[50%] left-0 translate-y-[-50%] z-10 opacity-20 lg:opacity-100">
-                          <Image data={{...home.heroImage.responsiveImage, alt: "The Brow &amp; Beauty Studio" }} />
-                        </div>
-
-                        <img src="/logo.png" alt="" className="absolute w-full top-[50%] right-0 translate-y-[-50%] z-0 opacity-5 hidden lg:block" />
-
-                        <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 lg:p-4 lg:w-2/5">
-
-                          <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
-
-                          <Button destination="#Treatments" label="Treatments" modifier="mr-4" />
-                          <Button destination="#Contact" label="Contact" secondary modifier="" />
-
-                        </div>
-
-                      </div>
-
-                    </div>
 
                     <div className="relative max-w-screen-xl py-12 mx-auto md:py-20" id="Treatments">
 
                         <div className="relative z-10 text-center">
-                        <h2 className="lg:mt-[100px]">Treatments</h2>
-                          <Link href="/treatments">
-                            <a className="text-center lg:mb-[175px] inline-block mx-auto">
-                              View full treatment menu
-                            </a>
-                          </Link>
+                          <h2>Treatments</h2>
                         </div>
 
                         <img data-scroll data-scroll-sticky data-scroll-target="#Treatments" src="/logo-light-trimmed.png" alt="" className="absolute top-0 w-full" />
 
-                        {treatments.map((treatment, i) => {
-                          return (
-                            <div key={i}>
-                              {i %2 == 0 &&
-                                <Treatment
-                                  key={i}
-                                  image={treatment.image}
-                                  overlay={treatment.imageOverlayText}
-                                  heading={treatment.heading}
-                                  subHeading={treatment.subheading}
-                                />
-                              }
+                        <div className="relative z-10 flex-wrap p-8 pt-0 md:flex">
 
-                              {i %2 != 0 && 
-                                <Treatment
-                                  key={i}
-                                  image={treatment.image}
-                                  overlay={treatment.imageOverlayText}
-                                  heading={treatment.heading}
-                                  subHeading={treatment.subheading}
-                                  alt
-                                />
-                              }                          
-                            </div>                          
-                          )
-                        })}
+                          {treatmentCategory.map((category, i) => {
+                            return(
+                              <div key={i} className="relative p-8 text-center md:w-1/2 lg:p-16">
+                                <div className="py-4 border-b border-b-black/50">
+                                  <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
+                                  <p className="tracking-widest uppercase">{category.subheading}</p>
+                                </div>
+                                {category.treatments.map((treatment, i) => {
+                                  return (
+                                    <div className="relative" key={i}>
+                                      <div className="py-4 md:py-6 lg:py-8 after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-1/12 after:h-[1px] after:bg-black">
+                                        <h4>{treatment.treatmentHeading} - &pound;{treatment.treatmentPrice}</h4>
+                                        <p className="font-serif text-lg">{treatment.treatmentSubheading}</p>
+                                        <p className="text-sm">{treatment.treatmentDescription}</p>
+                                      </div>
+                                    </div>
+                                  )
+                                })}
+                              </div>
+                            )
+                          })}
+                        </div>                       
                       
-                    </div>
-
-                    <main className="flex-wrap md:my-20 md:flex" id="About">
-
-                      <article className="md:w-1/2">
-                      
-                        <div className="p-4 content xs:p-12 lg:p-20">
-
-                          <h2>{home.h1}</h2>
-
-                          <div className="content" dangerouslySetInnerHTML={{ __html: home.content }} />
-
-                          <p className="mt-8 text-lg tracking-wider uppercase">Call for your appointment On <a className="inline-block font-bold" href={`tel:${phoneNumber}`}>{phoneNumber}</a></p>
-                          
-                        </div>
-
-                      </article>
-
-                      <div className="bg-gray-200 lg:w-1/2">
-
-                        <Image data={{...home.contentImage.responsiveImage, alt: "The Brow &amp; Beauty Studio"}} />
-
-                      </div>
-
-                    </main>                    
+                    </div>                                      
 
                     <div className="relative p-8 my-20 overflow-hidden bg-gray-200 sm:p-12 lg:p-20" id="Where">
 
@@ -357,34 +283,20 @@ const HOMEPAGE_QUERY = `
       seo: _seoMetaTags {
         ...metaTagsFragment
       }
-      title
-      heroHeading
-      heroImage {
-        responsiveImage(imgixParams: {fm: png, fit: crop, w: 829, h: 850 }) {
-          ...responsiveImageFragment
-        }
-      }
-      h1
-      content
-      contentImage {
-        responsiveImage(imgixParams: {fm: png, fit: crop, w: 829, h: 850 }) {
-          ...responsiveImageFragment
-        }
-      }
       locationImage {
         responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2017, h: 1464 }) {
           ...responsiveImageFragment
         }
       }
     }
-    treatments: allTreatmentCategories {
+    treatmentCategory: allTreatmentCategories {
       heading
       subheading
-      imageOverlayText
-      image {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 500, h: 500 }) {
-          ...responsiveImageFragment
-        }
+      treatments {
+        treatmentHeading
+        treatmentSubheading
+        treatmentDescription
+        treatmentPrice
       }
     }
   }  

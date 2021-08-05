@@ -8,6 +8,7 @@ export default function mobileMenu({ navItems }) {
 
     const router = useRouter();
     let currentPath = router.pathname;
+    console.log(currentPath);
 
     //State management for mobile menu
     const [open, setOpen] = useState(false);
@@ -48,19 +49,35 @@ export default function mobileMenu({ navItems }) {
 
                     {navItems.map(({ title, url }, i) => {
                         return(
-                            url == "treatment-menu" ? (
-                                <motion.div className="mb-5 text-center bg-gray-100" variants={listItem} key={i}>
-                                    <Link href="/treatment-menu">
-                                        <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
-                                            {title}
-                                        </a>
-                                    </Link>
+                            url === "treatment-menu" ? (
+                                <motion.div className="mb-5 text-center" variants={listItem} key={i}>
+                                    { currentPath == "/treatment-menu" ? (
+                                        <Link href="/treatment-menu">
+                                            <a className="blah relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" onClick={() => setOpen(!open)}>
+                                                {title}
+                                            </a>
+                                        </Link>
+                                    ) : (
+                                        <Link href="/treatment-menu">
+                                            <a className="blah relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
+                                                {title}
+                                            </a>
+                                        </Link>
+                                    ) }
                                 </motion.div>
                             ) : (
                                 <motion.div className="mb-5 text-center" variants={listItem} key={i}>
-                                    <a data-scroll-to data-offset="-100" className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" href={`#${url}`} onClick={() => setOpen(!open)}>
-                                        {title}
-                                    </a>
+                                    { currentPath == "/treatment-menu" ? (
+                                        <Link href="/">
+                                            <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
+                                                {title}
+                                            </a>
+                                        </Link>
+                                    ) : (
+                                        <a data-scroll-to data-offset="-100" className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" href={`#${url}`} onClick={() => setOpen(!open)}>
+                                            {title}
+                                        </a>
+                                    )}                                    
                                 </motion.div>
                             )                        
                         )

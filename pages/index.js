@@ -138,7 +138,7 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                     <div className="relative max-w-screen-xl py-12 mx-auto md:py-20" id="Treatments">
 
                         <div className="relative z-10 text-center">
-                        <h2 className="lg:mt-[100px]">Treatments</h2>
+                          <h2 className="lg:mt-[100px]">Treatments</h2>
                           <Link href="/treatments">
                             <a className="text-center lg:mb-[175px] inline-block mx-auto">
                               View full treatment menu
