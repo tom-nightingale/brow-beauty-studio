@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
 import { logoBackground, logoFade, fade } from '@/helpers/transitions'
-import { instagramURL, facebookURL } from '@/helpers/constants'
+import { instagramURL, facebookURL, phoneNumber } from '@/helpers/constants'
 import Layout from '@/components/layout'
 import Button from '@/components/button'
 import Treatment from '@/components/treatment'
@@ -18,8 +18,6 @@ import { Image, renderMetaTags } from "react-datocms";
 import InstagramFeed from 'react-ig-feed'
 
 export default function Home({ data: {home, site, treatments}, igUserToken }) {
-
-  console.log(treatments);
 
   const containerRef = useRef(null);
 
@@ -157,7 +155,7 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
 
                           <div className="content" dangerouslySetInnerHTML={{ __html: home.content }} />
 
-                          <p className="mt-8 text-lg tracking-wider uppercase">Call for your appointment On <a className="inline-block font-bold" href="tel:07930956003">07930 956 003</a></p>
+                          <p className="mt-8 text-lg tracking-wider uppercase">Call for your appointment On <a className="inline-block font-bold" href={`tel:${phoneNumber}`}>{phoneNumber}</a></p>
                           
                         </div>
 
@@ -188,7 +186,7 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                               <p>NG23 5SF</p>
                             </div>
 
-                            <p>T: <a className="inline-block pl-1 mt-8 font-bold" href="tel:07930956003">07930 956 003</a></p>
+                            <p>T: <a className="inline-block pl-1 mt-8 font-bold" href={`tel:${phoneNumber}`}>{phoneNumber}</a></p>
 
                             <Button
                               destination="https://www.google.com/maps/dir//Southwell+Golf+Club,+Occupation+Ln,+Southwell+NG25+0TS/@53.0661906,-0.9024038,17z/data=!4m16!1m6!3m5!1s0x4879b60c9f9d4b75:0x75f5bf1d6605ff74!2sSouthwell+Golf+Club!8m2!3d53.0661394!4d-0.9003083!4m8!1m0!1m5!1m1!1s0x4879b60c9f9d4b75:0x75f5bf1d6605ff74!2m2!1d-0.9003083!2d53.0661394!3e2"
@@ -225,38 +223,46 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                       
                       <div className="relative max-w-screen-lg p-8 mx-auto bg-white shadow-lg sm:p-8 md:p-12 lg:p-20">
 
-                        <p className="max-w-screen-sm mx-auto leading-relaxed text-center">If you'd like to get in touch to make a booking or ask a question please use the form below. If you'd prefer to talk, fel free to give me a call directly on <a className="inline-block font-bold" href="tel:07930956003">07930 956 003</a>.</p>
+                        <div className="relative">
 
-                        <img src="logo-circle-light.png" alt="The Brow &amp; Beauty Studio" className="absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" />
+                          <img src="logo-circle-light.png" alt="The Brow &amp; Beauty Studio" className="absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" />
 
-                        <form id="form" action="" method="POST" className="relative z-10 flex flex-wrap mt-4 -m-1 overflow-x-hidden">
-                          <label className="w-full md:w-1/2">
-                            <input required type="text" className="w-full" name="name" placeholder="Your Name *" />
-                          </label>
-                          <label className="w-full md:w-1/2">
-                            <input required type="text" className="w-full" name="phonenumber" placeholder="Your Number *" />
-                          </label>
-                          <label className="w-full md:w-1/2">
-                            <select className="w-full" name="Treatment Type">
-                              <option value="Facial">Facial</option>
-                              <option value="Eyebrow Care">Eyebrow Care</option>
-                              <option value="Eyelash Extensions">Eyelash Extensions</option>
-                              <option value="Waxing">Waxing</option>
-                              <option value="Massage">Massage</option>
-                              <option value="Other">Other</option>
-                            </select>
-                          </label>
-                          <label className="w-full md:w-1/2">
-                            <input required type="tel" className="w-full" name="telephone" placeholder="Telephone" />
-                          </label>
-                          <label className="w-full">
-                            <textarea required placeholder="Your message" name="message" className="w-full min-h-48"></textarea>
-                          </label>
-                          <input type="text" name="_gotcha" className="hidden" />
-                          <div className="w-full mt-8 text-center">
-                            <input type="submit" className="inline-block p-4 mx-auto text-sm text-white uppercase bg-black border border-black md:p-6 lg:px-8 lg:py-4" value="Send Form" />
+                          <div className="relative z-20">
+
+                            <p className="max-w-screen-sm mx-auto leading-relaxed text-center">If you'd like to get in touch to make a booking or ask a question please use the form below. If you'd prefer to talk, fel free to give me a call directly on <a className="inline-block font-bold" href={`tel:${phoneNumber}`}>{phoneNumber}</a>.</p>
+
+                            <form id="form" action="" method="POST" className="relative z-10 flex flex-wrap mt-4 -m-1 overflow-x-hidden">
+                              <label className="w-full md:w-1/2">
+                                <input required type="text" className="w-full" name="name" placeholder="Your Name *" />
+                              </label>
+                              <label className="w-full md:w-1/2">
+                                <input required type="text" className="w-full" name="phonenumber" placeholder="Your Number *" />
+                              </label>
+                              <label className="w-full md:w-1/2">
+                                <select className="w-full" name="Treatment Type">
+                                  <option value="Facial">Facial</option>
+                                  <option value="Eyebrow Care">Eyebrow Care</option>
+                                  <option value="Eyelash Extensions">Eyelash Extensions</option>
+                                  <option value="Waxing">Waxing</option>
+                                  <option value="Massage">Massage</option>
+                                  <option value="Other">Other</option>
+                                </select>
+                              </label>
+                              <label className="w-full md:w-1/2">
+                                <input required type="tel" className="w-full" name="telephone" placeholder="Telephone" />
+                              </label>
+                              <label className="w-full">
+                                <textarea required placeholder="Your message" name="message" className="w-full min-h-48"></textarea>
+                              </label>
+                              <input type="text" name="_gotcha" className="hidden" />
+                              <div className="w-full mt-8 text-center">
+                                <input type="submit" className="inline-block p-4 mx-auto text-sm text-white uppercase bg-black border border-black md:p-6 lg:px-8 lg:py-4" value="Send Form" />
+                              </div>
+                            </form>
+
                           </div>
-                        </form>
+                          
+                        </div>
                         
                       </div>
                       
