@@ -2,6 +2,7 @@ import Container from '@/components/container'
 import MobileMenu from '@/components/mobile-menu'
 import SocialIcon from '@/components/social-icon'
 import { instagramURL, facebookURL } from '@/helpers/constants'
+import Link from 'next/link'
 
 export default function Header({ navItems }) {
     return (
@@ -18,7 +19,9 @@ export default function Header({ navItems }) {
               <div className="flex flex-wrap items-center justify-start p-4 md:justify-center">
 
                 <div className="w-9/12 2xl:w-full">
-                  <img className="w-full max-w-[750px] mx-auto" src="logo.png" alt="The Birth Mum" />
+                  <Link href="/">
+                    <img className="w-full max-w-[750px] mx-auto" src="logo.png" alt="The Birth Mum" />
+                  </Link>
                 </div>
 
                <MobileMenu navItems={navItems} />

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { request } from "@/lib/datocms";
@@ -83,7 +83,7 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                     <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
                   </m.div>
                 </m.div>
-
+                
                 <m.div variants={fade} className="relative z-50"> 
 
                   <Header navItems={navItems} />

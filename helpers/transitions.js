@@ -18,7 +18,7 @@ export const quickFade = {
   },
 	exit: {
     opacity: 0,
-		transition: { duration: 0.4, ease: [0.83, 0, 0.17, 1] }
+		transition: { duration: 1, ease: [0.83, 0, 0.17, 1] }
 	}
 }
 
