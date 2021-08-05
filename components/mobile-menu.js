@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router'
 import { phoneNumber } from '@/helpers/constants'
+import Link from 'next/link';
 
 export default function mobileMenu({ navItems }) {
 
@@ -45,13 +46,23 @@ export default function mobileMenu({ navItems }) {
                         <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="w-2/3 mx-auto mb-8 max-w-72" />
                     </motion.div>
 
-                    {navItems.map((item, i) => {
+                    {navItems.map(({ title, url }, i) => {
                         return(
-                        <motion.div className="mb-5 text-center" variants={listItem} key={i}>
-                            <a data-scroll-to data-offset="-100" className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" href={`#${item}`} onClick={() => setOpen(!open)}>
-                                {item}
-                            </a>
-                        </motion.div>
+                            url == "treatment-menu" ? (
+                                <motion.div className="mb-5 text-center bg-gray-100" variants={listItem} key={i}>
+                                    <Link href="/treatment-menu">
+                                        <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
+                                            {title}
+                                        </a>
+                                    </Link>
+                                </motion.div>
+                            ) : (
+                                <motion.div className="mb-5 text-center" variants={listItem} key={i}>
+                                    <a data-scroll-to data-offset="-100" className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" href={`#${url}`} onClick={() => setOpen(!open)}>
+                                        {title}
+                                    </a>
+                                </motion.div>
+                            )                        
                         )
                     })}
                 
