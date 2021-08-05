@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
 import { logoBackground, logoFade, fade } from '@/helpers/transitions'
@@ -16,7 +17,9 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
 import InstagramFeed from 'react-ig-feed'
 
-export default function Home({ data: {home, site}, igUserToken }) {
+export default function Home({ data: {home, site, treatments}, igUserToken }) {
+
+  console.log(treatments);
 
   const containerRef = useRef(null);
 
@@ -104,32 +107,37 @@ export default function Home({ data: {home, site}, igUserToken }) {
 
                     <div className="relative max-w-screen-xl py-12 mx-auto md:py-20" id="Treatments">
 
-                        <h2 className="text-center lg:mt-[100px] lg:mb-[175px]">Treatments</h2>
+                        <div className="relative z-10 text-center">
+                        <h2 className="lg:mt-[100px]">Treatments</h2>
+                          <Link href="treatments">
+                            <a className="text-center lg:mb-[175px] inline-block mx-auto">
+                              View full treatment menu
+                            </a>
+                          </Link>
+                        </div>
 
                         <img data-scroll data-scroll-sticky data-scroll-target="#Treatments" src="/logo-light-trimmed.png" alt="" className="absolute top-0 w-full" />
 
-                        {home.treatments.map((treatment, i) => {
+                        {treatments.map((treatment, i) => {
                           return (
                             <div key={i}>
                               {i %2 == 0 &&
                                 <Treatment
                                   key={i}
-                                  image={treatment.treatmentImage}
+                                  image={treatment.image}
                                   overlay={treatment.imageOverlayText}
-                                  heading={treatment.treatmentHeading}
-                                  subHeading={treatment.treatmentSubheading}
-                                  description={treatment.treatmentDescription}
+                                  heading={treatment.heading}
+                                  subHeading={treatment.subheading}
                                 />
                               }
 
                               {i %2 != 0 && 
                                 <Treatment
                                   key={i}
-                                  image={treatment.treatmentImage}
+                                  image={treatment.image}
                                   overlay={treatment.imageOverlayText}
-                                  heading={treatment.treatmentHeading}
-                                  subHeading={treatment.treatmentSubheading}
-                                  description={treatment.treatmentDescription}
+                                  heading={treatment.heading}
+                                  subHeading={treatment.subheading}
                                   alt
                                 />
                               }                          
@@ -209,15 +217,15 @@ export default function Home({ data: {home, site}, igUserToken }) {
                   </Container>
 
 
-                  <div className="p-4 bg-gray-100 sm:p-8 md:p-12 lg:p-20" id="Contact">
+                  <div className="px-6 py-16 bg-gray-100 sm:p-8 md:p-12 lg:p-20" id="Contact">
 
                     <Container>
 
                       <p className="mb-[-6px] font-serif text-4xl leading-none text-center text-gray-300 lg:text-5xl lg:mb-[-9px]">Contact</p>
                       
-                      <div className="relative max-w-screen-lg p-4 mx-auto bg-white shadow-lg sm:p-8 md:p-12 lg:p-20">
+                      <div className="relative max-w-screen-lg p-8 mx-auto bg-white shadow-lg sm:p-8 md:p-12 lg:p-20">
 
-                        <p className="max-w-screen-sm mx-auto text-center">If you'd like to get in touch to make a booking or ask a question please use the form below. If you'd prefer to talk, fel free to give me a call directly on <a className="inline-block font-bold" href="tel:07930956003">07930 956 003</a>.</p>
+                        <p className="max-w-screen-sm mx-auto leading-relaxed text-center">If you'd like to get in touch to make a booking or ask a question please use the form below. If you'd prefer to talk, fel free to give me a call directly on <a className="inline-block font-bold" href="tel:07930956003">07930 956 003</a>.</p>
 
                         <img src="logo-circle-light.png" alt="The Brow &amp; Beauty Studio" className="absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" />
 
@@ -326,21 +334,6 @@ const HOMEPAGE_QUERY = `
           ...responsiveImageFragment
         }
       }
-      treatments {
-        imageOverlayText
-        treatmentHeading
-        treatmentSubheading
-        treatmentImage {
-          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 500, h: 500 }) {
-            ...responsiveImageFragment
-          }
-        }
-        treatmentGallery {
-          responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 500, h: 500 }) {
-            ...responsiveImageFragment
-          }
-        }
-      }
       h1
       content
       contentImage {
@@ -354,7 +347,17 @@ const HOMEPAGE_QUERY = `
         }
       }
     }
-  }
+    treatments: allTreatmentCategories {
+      heading
+      subheading
+      imageOverlayText
+      image {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 500, h: 500 }) {
+          ...responsiveImageFragment
+        }
+      }
+    }
+  }  
   ${metaTagsFragment}
   ${responsiveImageFragment}
 `

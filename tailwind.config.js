@@ -3,7 +3,6 @@ module.exports = {
   purge: {
       content: ['./pages/**/*.js', './components/**/*.js'],
       safelist: [
-        //
       ],
   },
   darkMode: false, // or 'media' or 'class'

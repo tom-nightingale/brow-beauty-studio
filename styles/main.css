@@ -113,7 +113,7 @@ body {
 }
 
 label {
-  @apply inline-block p-6;
+  @apply inline-block p-3 lg:p-6;
 }
 
 input,
