@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { phoneNumber } from '@/helpers/constants'
 
 export default function mobileMenu({ navItems }) {
 
@@ -56,7 +56,7 @@ export default function mobileMenu({ navItems }) {
                     })}
                 
                     <motion.div className="text-center" variants={listItem}>
-                        <a className="transition-all duration-200" variants={listItem} href="tel:07723039623">Tel: <span className="font-bold">07723 039623</span></a>                    
+                        <a className="transition-all duration-200" variants={listItem} href={`tel:${phoneNumber}`}>Tel: <span className="font-bold">{phoneNumber}</span></a>                    
                     </motion.div>
 
                 </motion.div>
