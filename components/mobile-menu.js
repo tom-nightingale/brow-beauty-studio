@@ -8,7 +8,6 @@ export default function mobileMenu({ navItems }) {
 
     const router = useRouter();
     let currentPath = router.pathname;
-    console.log(currentPath);
 
     //State management for mobile menu
     const [open, setOpen] = useState(false);
