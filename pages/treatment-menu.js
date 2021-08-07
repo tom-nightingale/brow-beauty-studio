@@ -104,10 +104,11 @@ export default function Home({ data: {home, site, treatmentCategory}, igUserToke
                                 {category.treatments.map((treatment, i) => {
                                   return (
                                     <div className="relative" key={i}>
-                                      <div className="py-4 md:py-6 lg:py-8 after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-1/12 after:h-[1px] after:bg-black">
+                                      <div className="py-4 md:py-6 lg:py-12">
                                         <h4>{treatment.treatmentHeading} - &pound;{treatment.treatmentPrice}</h4>
                                         <p className="font-serif text-lg">{treatment.treatmentSubheading}</p>
                                         <p className="text-sm">{treatment.treatmentDescription}</p>
+                                        <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
                                       </div>
                                     </div>
                                   )

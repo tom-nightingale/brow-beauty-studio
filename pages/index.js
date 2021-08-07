@@ -140,7 +140,7 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                         <div className="relative z-10 text-center">
                           <h2 className="lg:mt-[100px]">Treatments</h2>
                           <Link href="/treatment-menu">
-                            <a className="text-center lg:mb-[175px] inline-block mx-auto">
+                            <a className="btn text-center lg:mb-[175px] inline-block mx-auto">
                               View full treatment menu
                             </a>
                           </Link>
@@ -174,6 +174,14 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                             </div>                          
                           )
                         })}
+
+                        <div className="mt-8 text-center lg:mt-16">
+                            <Link href="/treatment-menu">
+                              <a className="inline-block mx-auto text-center btn">
+                                View full treatment menu
+                              </a>
+                            </Link>
+                        </div>
                       
                     </div>
 
