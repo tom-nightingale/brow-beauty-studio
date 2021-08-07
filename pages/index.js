@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
-import { logoBackground, logoFade, fade } from '@/helpers/transitions'
+import { logoBackground, logoFade, fade, backToTop } from '@/helpers/transitions'
 import { instagramURL, facebookURL, phoneNumber } from '@/helpers/constants'
 import Layout from '@/components/layout'
 import Button from '@/components/button'
@@ -94,13 +94,13 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                       {navItems.map(({ title, url }, i) => {
                         return(
                           url == "treatment-menu" ? (
-                            <>
+                            <li key={i}>
                               <Link href="/treatment-menu">
                                 <a className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full">
                                   {title}
                                 </a>
                               </Link>
-                            </>
+                            </li>
                           ) : (
                           <li key={i}>
                             <a data-scroll-to data-offset="-100" className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full" href={`#${url}`}>
@@ -246,7 +246,7 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
 
                       <div className="absolute hidden -translate-y-1/2 left-[500px] sm:block top-1/2">
                           
-                        <a className="inline-block p-4 px-12 text-sm uppercase -rotate-90 bg-white" href="#">View map</a>
+                        <a className="inline-block p-4 px-12 text-sm uppercase transition-all duration-200 -rotate-90 bg-white hover:pt-8" href="https://www.google.com/maps/search/Old+Mill+Cottage++Rolleston++Southwell+Golf+Club++Nottinghamshire++NG23+5SF/@53.0661906,-0.9024038,17z/data=!3m1!4b1" target="_blank">View map</a>
                         
                       </div>
  
@@ -344,14 +344,28 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                   </div>
                   
                 </m.div>
-                
-                
-                
+
               </m.div>
 
             </LazyMotion>
           
           </div> {/* scroll section */}
+
+          <LazyMotion features={domAnimation}>
+            <m.div
+              initial="initial"
+              animate="enter"
+              exit="exit"
+            >
+            <m.div variants={backToTop} className="fixed z-50 bottom-4 right-4">
+              <a className="block" data-scroll-to href="#Home">
+                <img src="/back-to-top.svg" alt="Back to top" className="w-6 h-6 transition-all duration-500 opacity-50 hover:opacity-100" />
+              </a>
+            </m.div>    
+            </m.div>
+          </LazyMotion>
+
+                
           
         </div> {/* scroll container */}
 

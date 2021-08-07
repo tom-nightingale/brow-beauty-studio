@@ -2,6 +2,7 @@ import Container from './container'
 import Link from 'next/link'
 
 export default function Footer({ navItems }) {
+
     return (
         <footer className="relative z-50 py-16 bg-black">
             <Container>
@@ -11,11 +12,13 @@ export default function Footer({ navItems }) {
                     {navItems.map(({ title, url }, i) => {
                         return(
                           url == "treatment-menu" ? (
-                            <Link href="/treatment-menu">
-                              <a className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
-                                {title}
-                              </a>
-                            </Link>
+                            <li key={i}>
+                              <Link href="/treatment-menu">
+                                <a className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
+                                  {title}
+                                </a>
+                              </Link>
+                            </li>
                           ) : (
                             <li key={i}>
                               <a data-scroll-to data-offset="-100" className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full" href={`#${url}`}>
@@ -32,6 +35,7 @@ export default function Footer({ navItems }) {
                 <p className="px-8 mt-16 font-serif text-center text-white">&copy; Copyright The Brow & Beauty Studio 2021 - All rights reserved</p>
                 
             </Container>
+
         </footer>
     )
 }
