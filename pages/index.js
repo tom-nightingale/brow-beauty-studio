@@ -16,6 +16,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
 import InstagramFeed from 'react-ig-feed'
+import Script from 'next/script'
 
 export default function Home({ data: {home, site, treatments}, igUserToken }) {
 
@@ -185,7 +186,7 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
                       
                     </div>
 
-                    <main className="flex-wrap md:my-20 md:flex" id="About">
+                    <main className="flex-wrap items-center md:my-20 md:flex" id="About">
 
                       <article className="md:w-1/2">
                       
@@ -201,9 +202,13 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
 
                       </article>
 
-                      <div className="bg-gray-200 lg:w-1/2">
+                      <div className="md:w-1/2">
 
-                        <Image data={{...home.contentImage.responsiveImage, alt: "The Brow &amp; Beauty Studio"}} />
+                        <div className="mx-auto max-w-[500px]">
+
+                          <Image data={{...home.contentImage.responsiveImage, alt: "The Brow &amp; Beauty Studio"}} />
+
+                        </div>
 
                       </div>
 
@@ -365,6 +370,19 @@ export default function Home({ data: {home, site, treatments}, igUserToken }) {
             </m.div>
           </LazyMotion>
 
+
+          {/* iFrame for Ovatu
+          <div id="bookapp-reservation-widget"></div>
+
+          <Script id="ovatu-js" strategy="afterInteractive">
+            {`
+              !function(e,t,n){var u=n.queue||[];e.BookAppWidgetReady=n=function(e){n.queue.push(e)},n.queue=u;var o="script",a=t.createElement(o),i=t.getElementsByTagName(o)[0];a.src="https://cdn.book.app/embed/v1.js",a.type="text/javascript",a.async=!0,a.addEventListener("load",function(){for(;n.queue.length;)n.queue.shift()()},!1),i.parentNode.insertBefore(a,i)}(window,document,window.BookAppWidgetReady||function(){});
+              BookAppWidgetReady(function () {
+                BookApp.widget('#bookapp-reservation-widget', 'brow-beauty-studio');
+              });
+            `}
+          </Script> */}
+
                 
           
         </div> {/* scroll container */}
@@ -397,7 +415,7 @@ const HOMEPAGE_QUERY = `
       h1
       content
       contentImage {
-        responsiveImage(imgixParams: {fm: png, fit: crop, w: 829, h: 850 }) {
+        responsiveImage(imgixParams: {fm: png, fit: crop, w: 961, h: 1817 }) {
           ...responsiveImageFragment
         }
       }
