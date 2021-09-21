@@ -16,41 +16,11 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
 import InstagramFeed from 'react-ig-feed'
+import { navItems } from 'lib/navItems'
 
 export default function Home({ data: {home, site, treatmentCategory}, igUserToken }) {
 
   const containerRef = useRef(null);
-
-  const navItems = [
-    {
-      title: "Home",
-      url:  "Home"
-    },
-    {
-      title: "Treatments",
-      url:  "Treatments"
-    },
-    {
-      title: "Treatment Menu",
-      url:  "treatment-menu"
-    },
-    {
-      title: "About",
-      url:  "About"
-    },
-    {
-      title: "Where",
-      url:  "Where"
-    },
-    {
-      title: "Contact",
-      url: "Contact"
-    },
-    {
-      title: "Social",
-      url: "Social"
-    }
-  ];
   
   return (
 
@@ -254,8 +224,7 @@ export default function Home({ data: {home, site, treatmentCategory}, igUserToke
 
                   </div>
                   
-                </m.div>
-                
+                </m.div>               
                 
                 
               </m.div>

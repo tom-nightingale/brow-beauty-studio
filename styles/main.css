@@ -21,7 +21,7 @@ body {
 
 /* Buttons */
 .btn {
-  @apply relative inline-block p-4 text-sm tracking-widest uppercase transition-all duration-500 delay-200 md:px-6 xl:px-12;
+  @apply relative inline-block p-4 text-sm tracking-widest uppercase transition-all duration-500 delay-200 cursor-pointer md:px-6 xl:px-12;
 
 
   &:before,

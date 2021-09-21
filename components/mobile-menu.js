@@ -46,19 +46,19 @@ export default function mobileMenu({ navItems }) {
                         <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="w-2/3 mx-auto mb-8 max-w-72" />
                     </motion.div>
 
-                    {navItems.map(({ title, url }, i) => {
+                    {navItems.map(({ title, url, type }, i) => {
                         return(
-                            url === "treatment-menu" ? (
+                            type === "route" ? (
                                 <motion.div className="mb-5 text-center" variants={listItem} key={i}>
-                                    { currentPath == "/treatment-menu" ? (
-                                        <Link href="/treatment-menu">
-                                            <a className="blah relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" onClick={() => setOpen(!open)}>
+                                    { currentPath == "/treatment-menu" || currentPath == "/book" ? (
+                                        <Link href={`/${url}`}>
+                                            <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" onClick={() => setOpen(!open)}>
                                                 {title}
                                             </a>
                                         </Link>
                                     ) : (
-                                        <Link href="/treatment-menu">
-                                            <a className="blah relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
+                                        <Link href={`/${url}`}>
+                                            <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
                                                 {title}
                                             </a>
                                         </Link>
@@ -66,7 +66,7 @@ export default function mobileMenu({ navItems }) {
                                 </motion.div>
                             ) : (
                                 <motion.div className="mb-5 text-center" variants={listItem} key={i}>
-                                    { currentPath == "/treatment-menu" ? (
+                                    { currentPath == "/treatment-menu" || currentPath == "/book" ? (
                                         <Link href={`/#${url}`}>
                                             <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
                                                 {title}

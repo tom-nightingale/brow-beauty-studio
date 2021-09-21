@@ -1,9 +1,9 @@
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
-import { logoBackground, logoFade, fade, backToTop } from '@/helpers/transitions'
+import { fade, quickFade } from '@/helpers/transitions'
 import { instagramURL, facebookURL, phoneNumber } from '@/helpers/constants'
 import Layout from '@/components/layout'
 import Button from '@/components/button'
@@ -17,10 +17,11 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
 import InstagramFeed from 'react-ig-feed'
 import { navItems } from 'lib/navItems'
+import Script from 'next/script'
 
-export default function Home({ data: {home, site, treatments} }) {
+export default function Home({ data: {home, site, treatmentCategory}, igUserToken }) {
 
-  const containerRef = useRef(null);
+  const containerRef = useRef(null);  
   
   return (
 
@@ -48,154 +49,34 @@ export default function Home({ data: {home, site, treatments} }) {
                 exit="exit"
               >
 
-                <m.div variants={logoBackground} className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full min-h-screen bg-white">
-                  <m.div variants={logoFade} className="w-2/3 mx-auto md:w-1/3">
-                    <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
-                  </m.div>
-                </m.div>
-                
-                <m.div variants={fade} className="relative z-50"> 
+                <m.div variants={quickFade} className="relative z-50"> 
 
-                  <Header navItems={navItems} />
+                <Header navItems={navItems} />
                   
                   <Container>
 
-                    <ul className="relative z-10 justify-around hidden max-w-lg p-4 mx-auto mt-8 font-medium text-white uppercase bg-black md:flex">
-                      {navItems.map(({ title, url, type }, i) => {
-                        return(
-                          type == "route" ? (
-                            <li key={i}>
-                              <Link href={`/${url}`}>
-                                <a className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full">
-                                  {title}
-                                </a>
-                              </Link>
-                            </li>
-                          ) : (
-                            url == "Home" ? (
-                              <>
-                              </>
-                            )
-                            : (
-                              <li key={i}>
-                                <a data-scroll-to data-offset="-100" className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full" href={`#${url}`}>
-                                  {title}
-                                </a>
-                              </li>
-                            )
-                          )
-                        )
-                      })}
-                    </ul>
-
-                    <div className="relative z-0 overflow-hidden bg-gray-200 md:-mt-8">
-
-                      <div className="flex flex-wrap items-center justify-end w-full md:min-h-[610px]">
-
-                        <div className="absolute top-[50%] left-0 translate-y-[-50%] z-10 opacity-20 lg:opacity-100">
-                          <Image data={{...home.heroImage.responsiveImage, alt: "The Brow &amp; Beauty Studio" }} />
-                        </div>
-
-                        <img src="/logo.png" alt="" className="absolute w-full top-[50%] right-0 translate-y-[-50%] z-0 opacity-5 hidden lg:block" />
-
-                        <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 lg:p-4 lg:w-2/5">
-
-                          <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
-
-                          <Button destination="#Treatments" label="Treatments" modifier="mr-4" />
-                          <Button destination="#Contact" label="Contact" secondary modifier="" />
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
                     <div className="relative max-w-screen-xl py-12 mx-auto md:py-20" id="Treatments">
 
-                        <div className="relative z-10 text-center">
-                          <h2 className="lg:mt-[80px]">Treatments</h2>
-                          
-                          <div className="">
-                            <Link href="/treatment-menu">
-                              <a className="mx-3 btn text-center mb-8 lg:mb-[175px] inline-block mx-auto">
-                                View full treatment menu
-                              </a>
-                            </Link>
-                            
-                            <a className="mx-3 btn btn--secondary text-center mb-8 lg:mb-[175px] inline-block mx-auto">
-                              Book online
-                            </a>
-                          </div>
-                          
-                        </div>
-
-                        <img data-scroll data-scroll-sticky data-scroll-target="#Treatments" src="/logo-light-trimmed.png" alt="" className="absolute top-0 w-full" />
-
-                        {treatments.map((treatment, i) => {
-                          return (
-                            <div key={i}>
-                              {i %2 == 0 &&
-                                <Treatment
-                                  key={i}
-                                  image={treatment.image}
-                                  overlay={treatment.imageOverlayText}
-                                  heading={treatment.heading}
-                                  subHeading={treatment.subheading}
-                                />
-                              }
-
-                              {i %2 != 0 && 
-                                <Treatment
-                                  key={i}
-                                  image={treatment.image}
-                                  overlay={treatment.imageOverlayText}
-                                  heading={treatment.heading}
-                                  subHeading={treatment.subheading}
-                                  alt
-                                />
-                              }                          
-                            </div>                          
-                          )
-                        })}
-
-                        <div className="mt-8 text-center lg:mt-16">
-                            <Link href="/treatment-menu">
-                              <a className="inline-block mx-auto text-center btn">
-                                View full treatment menu
-                              </a>
-                            </Link>
-                        </div>
+                      <div className="relative z-10 text-center">
                       
-                    </div>
+                        <h2>Book Online</h2>
 
-                    <main className="flex-wrap items-center md:my-20 md:flex" id="About">
+                        {/* iFrame for Ovatu */}
+                        
+                        <div className="p-10 my-10" id="bookapp-reservation-widget"></div>
 
-                      <article className="md:w-1/2">
-                      
-                        <div className="p-4 content xs:p-12 lg:p-20">
+                        <Script id="ovatu-js" strategy="afterInteractive">
+                          {`
+                            !function(e,t,n){var u=n.queue||[];e.BookAppWidgetReady=n=function(e){n.queue.push(e)},n.queue=u;var o="script",a=t.createElement(o),i=t.getElementsByTagName(o)[0];a.src="https://cdn.book.app/embed/v1.js",a.type="text/javascript",a.async=!0,a.addEventListener("load",function(){for(;n.queue.length;)n.queue.shift()()},!1),i.parentNode.insertBefore(a,i)}(window,document,window.BookAppWidgetReady||function(){});
+                            BookAppWidgetReady(function () {
+                              BookApp.widget('#bookapp-reservation-widget', 'brow-beauty-studio');
+                            });
+                          `}
+                        </Script> 
 
-                          <h2>{home.h1}</h2>
+                      </div>    
 
-                          <div className="content" dangerouslySetInnerHTML={{ __html: home.content }} />
-
-                          <p className="mt-8 text-lg tracking-wider uppercase">Call for your appointment On <a className="inline-block font-bold" href={`tel:${phoneNumber}`}>{phoneNumber}</a></p>
-                          
-                        </div>
-
-                      </article>
-
-                      <div className="md:w-1/2">
-
-                        <div className="mx-auto max-w-[500px]">
-
-                          <Image data={{...home.contentImage.responsiveImage, alt: "The Brow &amp; Beauty Studio"}} />
-
-                        </div>
-
-                      </div>
-
-                    </main>                    
+                    </div>                       
 
                     <div className="relative p-8 my-20 overflow-hidden bg-gray-200 sm:p-12 lg:p-20" id="Where">
 
@@ -234,7 +115,7 @@ export default function Home({ data: {home, site, treatments} }) {
 
                       <div className="absolute hidden -translate-y-1/2 left-[500px] sm:block top-1/2">
                           
-                        <a className="inline-block p-4 px-12 text-sm uppercase transition-all duration-200 -rotate-90 bg-white hover:pt-8" href="https://www.google.com/maps/search/Old+Mill+Cottage++Rolleston++Southwell+Golf+Club++Nottinghamshire++NG23+5SF/@53.0661906,-0.9024038,17z/data=!3m1!4b1" target="_blank">View map</a>
+                        <a className="inline-block p-4 px-12 text-sm uppercase -rotate-90 bg-white" href="#">View map</a>
                         
                       </div>
  
@@ -320,7 +201,7 @@ export default function Home({ data: {home, site, treatments} }) {
                       </Container>
                       
                       <div className="socialFeed">
-                        <InstagramFeed token="IGQVJYX0xRcU4wRHl6bEdZAb0Y1RFluTF94WVRPbVJBVUdGN2QyT1lIc3ZAEZAVZAxTUpUejhPdHI5d2xaM3lacTZAscU4wNy16NGhHMUdtSzFEbUlhMUR5aHI2djhYcmxybUFXQkY5b3ZA5eEwxRk1TM3RMaQZDZD" counter="6"/>
+                        <InstagramFeed token={igUserToken} counter="6"/>
                       </div>
 
                     </div>
@@ -332,28 +213,14 @@ export default function Home({ data: {home, site, treatments} }) {
                   </div>
                   
                 </m.div>
-
+                
+                
+                
               </m.div>
 
             </LazyMotion>
           
           </div> {/* scroll section */}
-
-          <LazyMotion features={domAnimation}>
-            <m.div
-              initial="initial"
-              animate="enter"
-              exit="exit"
-            >
-
-              <m.div variants={backToTop} className="fixed z-50 bottom-4 right-4">
-                <a className="block" data-scroll-to href="#Home">
-                  <img src="/back-to-top.svg" alt="Back to top" className="w-6 h-6 transition-all duration-500 opacity-50 hover:opacity-100" />
-                </a>
-              </m.div>    
-
-            </m.div>
-          </LazyMotion>                
           
         </div> {/* scroll container */}
 
@@ -375,34 +242,20 @@ const HOMEPAGE_QUERY = `
       seo: _seoMetaTags {
         ...metaTagsFragment
       }
-      title
-      heroHeading
-      heroImage {
-        responsiveImage(imgixParams: {fm: png, fit: crop, w: 829, h: 850 }) {
-          ...responsiveImageFragment
-        }
-      }
-      h1
-      content
-      contentImage {
-        responsiveImage(imgixParams: {fm: png, fit: crop, w: 961, h: 1817 }) {
-          ...responsiveImageFragment
-        }
-      }
       locationImage {
         responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2017, h: 1464 }) {
           ...responsiveImageFragment
         }
       }
     }
-    treatments: allTreatmentCategories {
+    treatmentCategory: allTreatmentCategories {
       heading
       subheading
-      imageOverlayText
-      image {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 500, h: 500 }) {
-          ...responsiveImageFragment
-        }
+      treatments {
+        treatmentHeading
+        treatmentSubheading
+        treatmentDescription
+        treatmentPrice
       }
     }
   }  
@@ -415,9 +268,12 @@ export async function getStaticProps() {
     query: HOMEPAGE_QUERY
   })
 
+  const igUserToken = process.env.IG_USER_TOKEN;
+
   return {
     props: { 
       data,
+      igUserToken,
     }
   }
 }

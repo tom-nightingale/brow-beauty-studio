@@ -21,7 +21,7 @@ export default function Header({ navItems }) {
                 <div className="w-9/12 2xl:w-full">
                   <Link href="/">
                     <a className="block cursor-pointer">
-                      <img className="w-full max-w-[750px] mx-auto" src="logo.png" alt="The Birth Mum" />
+                      <img className="w-full max-w-[750px] mx-auto" src="logo.png" alt="The Brow &amp; Beauty Studio" />
                     </a>
                   </Link>
                 </div>
