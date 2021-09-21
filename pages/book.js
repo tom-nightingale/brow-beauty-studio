@@ -5,10 +5,11 @@ import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
 import { quickFade } from '@/helpers/transitions'
 import { phoneNumber } from '@/helpers/constants'
 import Layout from '@/components/Layout'
-import Button from '@/components/Button'
+import Button from '@/components/button'
 import Header from '@/components/Header'
+import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import Container from '@/components/Container'
+import Container from '@/components/container'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
@@ -118,7 +119,6 @@ export default function Home({ data: {home, site} }) {
 
                   </Container>
 
-
                   <Contact />
 
                   <Footer />
@@ -150,6 +150,11 @@ const HOMEPAGE_QUERY = `
     home {
       seo: _seoMetaTags {
         ...metaTagsFragment
+      }
+      locationImage {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2017, h: 1464 }) {
+          ...responsiveImageFragment
+        }
       }
     }
   }  
