@@ -1,10 +1,10 @@
-import Container from '@/components/container'
-import MobileMenu from '@/components/mobile-menu'
-import SocialIcon from '@/components/social-icon'
+import Container from '@/components/Container'
+import MobileMenu from '@/components/MobileMenu'
+import SocialIcon from '@/components/SocialIcon'
 import { instagramURL, facebookURL } from '@/helpers/constants'
 import Link from 'next/link'
 
-export default function Header({ navItems }) {
+export default function Header() {
     return (
 
         <header className="relative" id="Home">
@@ -26,7 +26,7 @@ export default function Header({ navItems }) {
                   </Link>
                 </div>
 
-               <MobileMenu navItems={navItems} />
+               <MobileMenu />
 
               </div>
                 

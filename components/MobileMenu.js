@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router'
 import { phoneNumber } from '@/helpers/constants'
 import Link from 'next/link';
+import { navItems } from '@/lib/navItems'
 
-export default function mobileMenu({ navItems }) {
+export default function mobileMenu() {
 
     const router = useRouter();
     let currentPath = router.pathname;

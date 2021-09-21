@@ -1,22 +1,24 @@
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { request } from "@/lib/datocms";
-import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
-import { logoBackground, logoFade, fade, backToTop } from '@/helpers/transitions'
-import { instagramURL, facebookURL, phoneNumber } from '@/helpers/constants'
-import Layout from '@/components/layout'
-import Button from '@/components/button'
-import Treatment from '@/components/treatment'
-import SocialIcon from '@/components/social-icon'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
-import Container from '@/components/container'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
-import InstagramFeed from 'react-ig-feed'
-import { navItems } from 'lib/navItems'
+
+import { request } from "@/lib/datocms";
+import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
+import { navItems } from '@/lib/navItems'
+
+import { logoBackground, logoFade, fade, backToTop } from '@/helpers/transitions'
+import { phoneNumber } from '@/helpers/constants'
+
+import Layout from '@/components/Layout'
+import Button from '@/components/Button'
+import Treatment from '@/components/Treatment'
+import Container from '@/components/Container'
+import Header from '@/components/Header'
+import Contact from 'components/Contact'
+import Footer from '@/components/Footer'
 
 export default function Home({ data: {home, site, treatments} }) {
 
@@ -56,7 +58,7 @@ export default function Home({ data: {home, site, treatments} }) {
                 
                 <m.div variants={fade} className="relative z-50"> 
 
-                  <Header navItems={navItems} />
+                  <Header />
                   
                   <Container>
 
@@ -242,94 +244,9 @@ export default function Home({ data: {home, site, treatments} }) {
 
                   </Container>
 
+                  <Contact />
 
-                  <div className="px-6 py-16 bg-gray-100 sm:p-8 md:p-12 lg:p-20" id="Contact">
-
-                    <Container>
-
-                      <p className="mb-[-6px] font-serif text-4xl leading-none text-center text-gray-300 lg:text-5xl lg:mb-[-9px]">Contact</p>
-                      
-                      <div className="relative max-w-screen-lg p-8 mx-auto bg-white shadow-lg sm:p-8 md:p-12 lg:p-20">
-
-                        <div className="relative">
-
-                          <img src="logo-circle-light.png" alt="The Brow &amp; Beauty Studio" className="absolute z-0 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" />
-
-                          <div className="relative z-20">
-
-                            <p className="max-w-screen-sm mx-auto leading-relaxed text-center">If you'd like to get in touch to make a booking or ask a question please use the form below. If you'd prefer to talk, fel free to give me a call directly on <a className="inline-block font-bold" href={`tel:${phoneNumber}`}>{phoneNumber}</a>.</p>
-
-                            <form id="form" action="" method="POST" className="relative z-10 flex flex-wrap mt-4 -m-1 overflow-x-hidden">
-                              <label className="w-full md:w-1/2">
-                                <input required type="text" className="w-full" name="name" placeholder="Your Name *" />
-                              </label>
-                              <label className="w-full md:w-1/2">
-                                <input required type="text" className="w-full" name="phonenumber" placeholder="Your Number *" />
-                              </label>
-                              <label className="w-full md:w-1/2">
-                                <select className="w-full" name="Treatment Type">
-                                  <option value="Facial">Facial</option>
-                                  <option value="Eyebrow Care">Eyebrow Care</option>
-                                  <option value="Eyelash Extensions">Eyelash Extensions</option>
-                                  <option value="Waxing">Waxing</option>
-                                  <option value="Massage">Massage</option>
-                                  <option value="Other">Other</option>
-                                </select>
-                              </label>
-                              <label className="w-full md:w-1/2">
-                                <input required type="tel" className="w-full" name="telephone" placeholder="Telephone" />
-                              </label>
-                              <label className="w-full">
-                                <textarea required placeholder="Your message" name="message" className="w-full min-h-48"></textarea>
-                              </label>
-                              <input type="text" name="_gotcha" className="hidden" />
-                              <div className="w-full mt-8 text-center">
-                                <input type="submit" className="inline-block p-4 mx-auto text-sm text-white uppercase bg-black border border-black md:p-6 lg:px-8 lg:py-4" value="Send Form" />
-                              </div>
-                            </form>
-
-                          </div>
-                          
-                        </div>
-                        
-                      </div>
-                      
-                    </Container>
-                    
-                  </div>
-
-                  <div className="bg-black">
-
-                    <div id="Social">
-
-                      <Container>
-
-                        <div className="p-8 md:p-12 lg:p-20">
-
-                          <div className="flex items-center justify-center">
-
-                            <h3 className="mb-0 mr-4 text-3xl text-center text-gray-100 xl:text-5xl">Social</h3>
-
-                            <SocialIcon classes="mb-0 w-6 h-6 mx-2 hover:scale-110 transition duration-200 focus:scale-90" svgFill="#FFF" platform="instagram" url={instagramURL} />
-                            <SocialIcon classes="mb-0 w-6 h-6 mx-2 hover:scale-110 transition duration-200 focus:scale-90" svgFill="#FFF" platform="facebook" url={facebookURL} />
-
-                          </div>
-                          
-                        </div>
-                        
-                      </Container>
-                      
-                      <div className="socialFeed">
-                        <InstagramFeed token="IGQVJYX0xRcU4wRHl6bEdZAb0Y1RFluTF94WVRPbVJBVUdGN2QyT1lIc3ZAEZAVZAxTUpUejhPdHI5d2xaM3lacTZAscU4wNy16NGhHMUdtSzFEbUlhMUR5aHI2djhYcmxybUFXQkY5b3ZA5eEwxRk1TM3RMaQZDZD" counter="6"/>
-                      </div>
-
-                    </div>
-
-                    <m.div variants={fade}>
-                      <Footer navItems={navItems} />
-                    </m.div>
-
-                  </div>
+                  <Footer />
                   
                 </m.div>
 
