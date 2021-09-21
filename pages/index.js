@@ -118,16 +118,17 @@ export default function Home({ data: {home, site, treatments} }) {
                         <div className="relative z-10 text-center">
                           <h2 className="lg:mt-[80px]">Treatments</h2>
                           
-                          <div className="">
+                          <div className="flex flex-col">
                             <Link href="/treatment-menu">
-                              <a className="mx-3 btn text-center mb-8 lg:mb-[175px] inline-block mx-auto">
+                              <a className="inline-block mx-auto mb-5 text-center btn">
                                 View full treatment menu
                               </a>
                             </Link>
-                            
-                            <a className="mx-3 btn btn--secondary text-center mb-8 lg:mb-[175px] inline-block mx-auto">
-                              Book online
-                            </a>
+                            <Link href="/book">
+                              <a className="btn btn--secondary text-center mb-8 lg:mb-[175px] inline-block mx-auto">
+                                Book online
+                              </a>
+                            </Link>
                           </div>
                           
                         </div>
