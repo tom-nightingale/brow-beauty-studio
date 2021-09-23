@@ -122,6 +122,11 @@ select {
   @apply h-full p-4 tracking-widest uppercase bg-transparent border border-black;
 }
 
+input[type=submit] {
+  @apply cursor-pointer;
+}
+
+
 .socialFeed {
   @apply flex;
 
