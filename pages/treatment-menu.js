@@ -47,7 +47,7 @@ export default function Home({ data: {home, site, treatmentCategory}, igUserToke
 
                 <m.div variants={quickFade} className="relative z-50"> 
 
-                <Header />
+                {/* <Header /> */}
                   
                   <Container>
 

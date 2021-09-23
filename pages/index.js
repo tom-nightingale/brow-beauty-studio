@@ -118,10 +118,10 @@ export default function Home({ data: {home, site, treatments} }) {
                     <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
                   </m.div>
                 </m.div>
-                
-                <m.div variants={fade} className="relative z-50"> 
 
-                  <Header />
+                {/* <Header /> */}
+                
+                <m.div variants={fade} className="relative z-50">                   
                   
                   <Container>
 
