@@ -25,7 +25,7 @@ export default function Contact({  }) {
                             <input required type="text" className="w-full" name="name" placeholder="Your Name *" />
                             </label>
                             <label className="w-full md:w-1/2">
-                            <input required type="text" className="w-full" name="phonenumber" placeholder="Your Number *" />
+                                <input required type="email" className="w-full" name="phonenumber" placeholder="Your Email *" />
                             </label>
                             <label className="w-full md:w-1/2">
                             <select className="w-full" name="Treatment Type">

@@ -33,11 +33,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/book.js"
-    ],
-    "/treatment-menu": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/treatment-menu.js"
     ]
   },
   "ampFirstPages": []
