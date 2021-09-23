@@ -8,7 +8,7 @@ import Layout from '@/components/Layout'
 import Button from '@/components/Button'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import Container from '@/components/container'
+import Container from '@/components/Container'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
