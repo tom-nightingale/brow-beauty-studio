@@ -11,6 +11,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { Image, renderMetaTags } from "react-datocms";
 import Contact from '@/components/Contact'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 
@@ -37,6 +38,8 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
           <div data-scroll-section>            
             
             <LazyMotion features={domAnimation}>
+
+              <Header />  
               
               <m.div
                 initial="initial"
@@ -44,9 +47,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                 exit="exit"
               >
 
-                <m.div variants={quickFade} className="relative z-50"> 
-
-                {/* <Header /> */}
+                <m.div variants={quickFade} className="relative z-20"> 
                   
                   <Container>
 

@@ -7,6 +7,7 @@ import { phoneNumber } from '@/helpers/constants'
 import Layout from '@/components/Layout'
 import Button from '@/components/Button'
 import Contact from '@/components/Contact'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Container from '@/components/Container'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
@@ -37,6 +38,8 @@ export default function Home({ data: {home, site} }) {
           <div data-scroll-section>            
             
             <LazyMotion features={domAnimation}>
+
+              <Header />  
               
               <m.div
                 initial="initial"
@@ -44,9 +47,7 @@ export default function Home({ data: {home, site} }) {
                 exit="exit"
               >
 
-                <m.div variants={quickFade} className="relative z-50"> 
-
-                {/* <Header /> */}
+                <m.div variants={quickFade} className="relative z-20"> 
                   
                   <Container>
 

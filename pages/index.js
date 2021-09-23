@@ -9,7 +9,6 @@ import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
 import { navItems } from '@/lib/navItems'
 
-// import { logoBackground, logoFade, fade, backToTop } from '@/helpers/transitions'
 import { phoneNumber } from '@/helpers/constants'
 
 import { IntroContext } from '@/context/intro'
@@ -19,6 +18,7 @@ import Button from '@/components/Button'
 import Treatment from '@/components/Treatment'
 import Container from '@/components/Container'
 import Contact from 'components/Contact'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function Home({ data: {home, site, treatments} }) {
@@ -44,9 +44,21 @@ export default function Home({ data: {home, site, treatments} }) {
     }
   }
 
+  const fadeIn = {
+    initial: { opacity: introContext ? 1 : 0 },
+    enter: { 
+      opacity: 1,
+      transition: { duration: 0.4, ease: [0.83, 0, 0.17, 1], delay: introContext ? 0 : 2.75 }
+    },
+    exit: {
+      opacity: 1,
+      transition: { duration: 1, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
+
   const logoBackground = {
     initial: {
-      opacity: 1,
+      opacity: introContext ? 0 : 1,
     },
     enter: {
       opacity: 0,
@@ -63,7 +75,7 @@ export default function Home({ data: {home, site, treatments} }) {
       opacity: 0,
     },
     enter: {
-      opacity: 1,
+      opacity: introContext ? 0 : 1,
       transition: { duration: 1, ease: [0.83, 0, 0.17, 1] }
     },  
     exit: {
@@ -104,23 +116,38 @@ export default function Home({ data: {home, site, treatments} }) {
             
           <div data-scroll-section>            
             
-            <LazyMotion features={domAnimation}>
+            <LazyMotion features={domAnimation}>              
+
+              <m.div
+                initial="initial"
+                animate="enter"
+                exit="exit"
+              >  
+
+                {/* Start Intro */}
+                  {!introContext &&
+                    <m.div variants={logoBackground} className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full min-h-screen bg-white">
+                      <m.div variants={logoFade} className="w-2/3 mx-auto md:w-1/3">
+                        <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
+                      </m.div>
+                    </m.div>
+                  }
+                {/* End intro */}
+
+                {/* Start constant header */}
+                  <m.div variants={fadeIn}>
+                    <Header />  
+                  </m.div>
+                {/* End constant header */}
+              </m.div>
               
               <m.div
                 initial="initial"
                 animate="enter"
                 exit="exit"
-              >
+              >  
                 
-                <m.div variants={logoBackground} className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full min-h-screen bg-white">
-                  <m.div variants={logoFade} className="w-2/3 mx-auto md:w-1/3">
-                    <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
-                  </m.div>
-                </m.div>
-
-                {/* <Header /> */}
-                
-                <m.div variants={fade} className="relative z-50">                   
+                <m.div variants={fade} className="relative z-20">   
                   
                   <Container>
 
