@@ -6,6 +6,7 @@ import '../styles/main.css'
 
 
 export default function App({ Component, pageProps }) {
+    
     const router = useRouter();
     const [introContext, setIntroContext] = useState(false);
 
@@ -22,9 +23,11 @@ export default function App({ Component, pageProps }) {
     return (
         <>
             <IntroContext.Provider value={[introContext, setIntroContext]}>
-            <AnimatePresence exitBeforeEnter>
-                <Component {...pageProps} key={router.asPath} />
-            </AnimatePresence>
+
+                <AnimatePresence exitBeforeEnter>
+                    <Component {...pageProps} key={router.asPath} />
+                </AnimatePresence>
+
             </IntroContext.Provider>
         </>
     )
