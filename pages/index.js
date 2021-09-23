@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
@@ -9,8 +9,10 @@ import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
 import { navItems } from '@/lib/navItems'
 
-import { logoBackground, logoFade, fade, backToTop } from '@/helpers/transitions'
+// import { logoBackground, logoFade, fade, backToTop } from '@/helpers/transitions'
 import { phoneNumber } from '@/helpers/constants'
+
+import { IntroContext } from '@/context/intro'
 
 import Layout from '@/components/Layout'
 import Button from '@/components/Button'
@@ -23,6 +25,67 @@ import Footer from '@/components/Footer'
 export default function Home({ data: {home, site, treatments} }) {
 
   const containerRef = useRef(null);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIntroContext(true)
+    }, 2750);
+  },[]);
+
+  const fade = {
+    initial: { opacity: 0 },
+    enter: { 
+      opacity: 1,
+      transition: { duration: 0.4, ease: [0.83, 0, 0.17, 1], delay: introContext ? 0 : 2.75 }
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 1, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
+
+  const logoBackground = {
+    initial: {
+      opacity: 1,
+    },
+    enter: {
+      opacity: 0,
+      transition: { duration: 1, ease: [0.83, 0, 0.17, 1], delay: 2 }
+    },  
+    exit: {
+      opacity: 0,
+      zIndex: -100,
+    }
+  }
+
+  const logoFade = {
+    initial: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+      transition: { duration: 1, ease: [0.83, 0, 0.17, 1] }
+    },  
+    exit: {
+      opacity: 0,
+      transition: { duration: 1, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
+
+  const backToTop = {
+    initial: {
+      opacity: 0,
+    },
+    enter: { 
+      opacity: 1,
+      transition: { duration: 1, ease: [0.83, 0, 0.17, 1], delay: 5 }
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 1, ease: [0.83, 0, 0.17, 1] }
+    }
+  }
   
   return (
 
@@ -49,7 +112,7 @@ export default function Home({ data: {home, site, treatments} }) {
                 animate="enter"
                 exit="exit"
               >
-
+                
                 <m.div variants={logoBackground} className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full min-h-screen bg-white">
                   <m.div variants={logoFade} className="w-2/3 mx-auto md:w-1/3">
                     <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
