@@ -6,7 +6,6 @@ import { quickFade } from '@/helpers/transitions'
 import { phoneNumber } from '@/helpers/constants'
 import Layout from '@/components/Layout'
 import Button from '@/components/Button'
-import Header from '@/components/Header'
 import Container from '@/components/Container'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
@@ -15,7 +14,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
 
-export default function Home({ data: {home, site, treatmentCategory}, igUserToken }) {
+export default function Home({ data: {home, site, treatmentCategory} }) {
 
   const containerRef = useRef(null);
   
@@ -191,12 +190,7 @@ export async function getStaticProps() {
     query: HOMEPAGE_QUERY
   })
 
-  const igUserToken = process.env.IG_USER_TOKEN;
-
   return {
-    props: { 
-      data,
-      igUserToken,
-    }
+    props: { data }
   }
 }

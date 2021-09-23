@@ -18,7 +18,6 @@ import Layout from '@/components/Layout'
 import Button from '@/components/Button'
 import Treatment from '@/components/Treatment'
 import Container from '@/components/Container'
-import Header from '@/components/Header'
 import Contact from 'components/Contact'
 import Footer from '@/components/Footer'
 
