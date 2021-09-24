@@ -37,7 +37,7 @@ export default function mobileMenu() {
             </button>
 
             {/* Mobile Menu */}
-            <div open={open} className={`fixed top-0 left-0 -z-10 w-full h-full fill-available p-4 transition-all duration-200 bg-white ${open ? 'opacity-100 z-40' : 'opacity-0'}`}>
+            <div open={open} className={`fixed top-0 left-0 -z-10 w-full min-h-screen fill-available p-4 transition-all duration-200 bg-white ${open ? 'opacity-100 z-40' : 'opacity-0'}`}>
                 
                 <div className="flex flex-col items-center justify-center h-screen">
 
