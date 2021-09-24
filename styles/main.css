@@ -16,15 +16,6 @@
 /* Simple defaults */
 body {
   @apply min-h-screen font-sans antialiased text-black bg-white;
-  min-height: -webkit-fill-available;
-}
-
-html {
-  min-height: -webkit-fill-available;
-}
-
-.fill-available {
-  min-height: -webkit-fill-available;
 }
 
 /* Buttons */
@@ -149,7 +140,7 @@ input[type=submit] {
     }
 
     img {
-      @apply object-cover h-full;
+      @apply object-cover sm:h-full;
     }
   }
 

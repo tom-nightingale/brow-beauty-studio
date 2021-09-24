@@ -126,7 +126,7 @@ export default function Home({ data: {home, site, treatments} }) {
 
                 {/* Start Intro */}
                   {!introContext &&
-                    <m.div variants={logoBackground} className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full min-h-screen bg-white fill-available">
+                    <m.div variants={logoBackground} className="fixed top-0 left-0 z-50 flex flex-col items-center justify-center w-full min-h-screen bg-white">
                       <m.div variants={logoFade} className="w-2/3 mx-auto md:w-1/3">
                         <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" className="block" />
                       </m.div>
