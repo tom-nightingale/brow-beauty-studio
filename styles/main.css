@@ -23,10 +23,13 @@ html {
   min-height: -webkit-fill-available;
 }
 
+.fill-available {
+  min-height: -webkit-fill-available;
+}
+
 /* Buttons */
 .btn {
   @apply relative inline-block p-4 text-sm tracking-widest uppercase transition-all duration-500 delay-200 cursor-pointer md:px-6 xl:px-12;
-
 
   &:before,
   &:after {
@@ -76,7 +79,7 @@ html {
 
 /* Mobile menu */
 .btn-mobile-menu {
-  @apply transition duration-200 absolute top-1/2 -translate-y-1/2 right-[6%] md:right-[2%] z-50 flex flex-col items-center justify-around w-8 h-8 outline-none;
+  @apply transition-transform duration-200 right-[6%] md:right-[2%] z-50 flex flex-col items-center justify-around w-8 h-8 outline-none;
 
   &:focus {
     @apply outline-none;
