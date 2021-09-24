@@ -20,8 +20,8 @@ export default function Header() {
 
                 <div className="w-9/12 2xl:w-full">
                   <Link href="/">
-                    <a className="block cursor-pointer">
-                      <img className="w-full max-w-[750px] mx-auto" src="logo.png" alt="The Brow &amp; Beauty Studio" />
+                    <a className="block cursor-pointer w-full max-w-[750px] mx-auto">
+                      <img className="" src="logo.png" alt="The Brow &amp; Beauty Studio" />
                     </a>
                   </Link>
                 </div>

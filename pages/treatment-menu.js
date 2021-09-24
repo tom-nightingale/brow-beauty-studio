@@ -71,9 +71,11 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                 {category.treatments.map((treatment, i) => {
                                   return (
                                     <div className="relative" key={i}>
-                                      <div className="py-4 md:py-6 lg:py-12">
-                                        <h4>{treatment.treatmentHeading} - &pound;{treatment.treatmentPrice}</h4>
-                                        <p className="font-serif text-lg">{treatment.treatmentSubheading}</p>
+                                      <div className="py-10 lg:py-12">
+                                        <h4 className="mb-2">{treatment.treatmentHeading} - &pound;{treatment.treatmentPrice}</h4>
+                                        {treatment.treatmentSubheading &&
+                                          <p className="font-serif text-lg">{treatment.treatmentSubheading}</p>
+                                        }
                                         <p className="text-sm">{treatment.treatmentDescription}</p>
                                         <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
                                       </div>
