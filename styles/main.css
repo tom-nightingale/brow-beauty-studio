@@ -15,9 +15,13 @@
 
 /* Simple defaults */
 body {
-  @apply font-sans antialiased text-black bg-white;
+  @apply min-h-screen font-sans antialiased text-black bg-white;
+  min-height: -webkit-fill-available;
 }
 
+html {
+  min-height: -webkit-fill-available;
+}
 
 /* Buttons */
 .btn {
