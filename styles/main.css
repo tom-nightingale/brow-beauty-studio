@@ -140,7 +140,7 @@ input[type=submit] {
     }
 
     img {
-      @apply object-cover sm:h-full;
+      @apply object-cover min-h-full;
     }
   }
 
