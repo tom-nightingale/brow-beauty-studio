@@ -59,34 +59,76 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
 
                         <img data-scroll data-scroll-sticky data-scroll-target="#Treatments" src="/logo-light-trimmed.png" alt="" className="absolute top-0 w-full" />
 
-                        <div className="relative z-10 flex-wrap p-8 pt-0 md:flex">
+                        <div className="relative z-10 flex-wrap grid-flow-col p-8 pt-0 md:flex">
 
-                          {treatmentCategory.map((category, i) => {
-                            return(
-                              <div key={i} className="relative p-8 text-center md:w-1/2 lg:p-16">
-                                <div className="py-4 border-b border-b-black/50">
-                                  <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
-                                  <p className="tracking-widest uppercase">{category.subheading}</p>
-                                </div>
-                                {category.treatments.map((treatment, i) => {
-                                  return (
-                                    <div className="relative" key={i}>
-                                      <div className="py-10 lg:py-12">
-                                        <h4 className="mb-2">{treatment.treatmentHeading} {treatment.treatmentPrice ? `- £${treatment.treatmentPrice}` : ``}</h4>
-                                        {treatment.treatmentSubheading &&
-                                          <p className="mb-4 font-serif">{treatment.treatmentSubheading}</p>
-                                        }
-                                        <p className="text-sm">{treatment.treatmentDescription}</p>
-                                        <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
+                          
+                            {/* Splitting items into two columns for a better layout */}
+
+                            <div className="w-full md:w-1/2">
+
+                              {treatmentCategory.map((category, i) => {
+                                return (
+                                    category.treatments.length > 0 &&
+                                    i < 2 &&
+                                    <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
+                                      <div className="py-4 border-b border-b-black/50">
+                                        <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
+                                        <p className="tracking-widest uppercase">{category.subheading}</p>
                                       </div>
-                                    </div>
-                                  )
-                                })}
-                              </div>
-                            )
-                          })}
-                        </div>                       
-                      
+                                      {category.treatments.map((treatment, i) => {
+                                        return (
+                                          <div className="relative" key={i}>
+                                            <div className="py-10 lg:py-12">
+                                              <h4 className="mb-2">{treatment.treatmentHeading} {treatment.treatmentPrice ? `- £${treatment.treatmentPrice}` : ``}</h4>
+                                              {treatment.treatmentSubheading &&
+                                                <p className="mb-4 font-serif">{treatment.treatmentSubheading}</p>
+                                              }
+                                              <p className="text-sm">{treatment.treatmentDescription}</p>
+                                              <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
+                                            </div>
+                                          </div>
+                                        )
+                                      })}
+                                    </div>                                      
+                                )
+                              })}  
+
+                            </div>
+
+                            <div className="w-full md:w-1/2">
+
+                              {treatmentCategory.map((category, i) => {
+                                return (
+                                    category.treatments.length > 0 &&
+                                    i > 1 &&
+                                    <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
+                                      <div className="py-4 border-b border-b-black/50">
+                                        <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
+                                        <p className="tracking-widest uppercase">{category.subheading}</p>
+                                      </div>
+                                      {category.treatments.map((treatment, i) => {
+                                        return (
+                                          <div className="relative" key={i}>
+                                            <div className="py-10 lg:py-12">
+                                              <h4 className="mb-2">{treatment.treatmentHeading} {treatment.treatmentPrice ? `- £${treatment.treatmentPrice}` : ``}</h4>
+                                              {treatment.treatmentSubheading &&
+                                                <p className="mb-4 font-serif">{treatment.treatmentSubheading}</p>
+                                              }
+                                              <p className="text-sm">{treatment.treatmentDescription}</p>
+                                              <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
+                                            </div>
+                                          </div>
+                                        )
+                                      })}
+                                    </div>                                      
+                                )
+                              })}  
+
+                            </div>
+
+
+                        </div> 
+                        
                     </div>                                      
 
                     <div className="relative p-8 my-20 overflow-hidden bg-gray-200 sm:p-12 lg:p-20" id="Where">
