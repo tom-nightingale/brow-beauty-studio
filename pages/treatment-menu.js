@@ -91,7 +91,9 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                                </>
                                               }
                                               </p>
-                                              <p className="text-sm">{treatment.treatmentDescription}</p>
+                                              {treatment.treatmentDescription && 
+                                                <p className="text-sm">{treatment.treatmentDescription}</p>
+                                              }
                                               <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
                                             </div>
                                           </div>
@@ -131,7 +133,9 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                                 </>
                                               }
                                               </p>
-                                              <p className="text-sm">{treatment.treatmentDescription}</p>
+                                              {treatment.treatmentDescription && 
+                                                <p className="text-sm">{treatment.treatmentDescription}</p>
+                                              }
                                               <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
                                             </div>
                                           </div>
