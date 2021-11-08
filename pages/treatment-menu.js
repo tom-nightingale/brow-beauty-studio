@@ -68,7 +68,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
 
                               {treatmentCategory.map((category, i) => {
                                 return (
-                                    category.treatments.length > 0 &&
+                                    category.id !== "50993166" &&
                                     i < 2 &&
                                     <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
                                       <div className="py-4 border-b border-b-black/50">
@@ -79,10 +79,18 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                         return (
                                           <div className="relative" key={i}>
                                             <div className="py-10 lg:py-12">
-                                              <h4 className="mb-2">{treatment.treatmentHeading} {treatment.treatmentPrice ? `- £${treatment.treatmentPrice}` : ``}</h4>
+                                              <h4 className="mb-2">{treatment.treatmentHeading}</h4>
+                                              <p className="mb-4 font-serif">
                                               {treatment.treatmentSubheading &&
-                                                <p className="mb-4 font-serif">{treatment.treatmentSubheading}</p>
+                                                <>
+                                                | {treatment.treatmentSubheading} |
+                                                </>
                                               }
+                                              {treatment.treatmentPrice && 
+                                                <>{treatment.treatmentPrice ? ` £${treatment.treatmentPrice}` : ``}
+                                               </>
+                                              }
+                                              </p>
                                               <p className="text-sm">{treatment.treatmentDescription}</p>
                                               <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
                                             </div>
@@ -99,7 +107,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
 
                               {treatmentCategory.map((category, i) => {
                                 return (
-                                    category.treatments.length > 0 &&
+                                    category.id !== "50993166" &&
                                     i > 1 &&
                                     <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
                                       <div className="py-4 border-b border-b-black/50">
@@ -110,10 +118,19 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                         return (
                                           <div className="relative" key={i}>
                                             <div className="py-10 lg:py-12">
-                                              <h4 className="mb-2">{treatment.treatmentHeading} {treatment.treatmentPrice ? `- £${treatment.treatmentPrice}` : ``}</h4>
+                                              <h4 className="mb-2">{treatment.treatmentHeading}</h4>
+                                              <p className="mb-4 font-serif">
                                               {treatment.treatmentSubheading &&
-                                                <p className="mb-4 font-serif">{treatment.treatmentSubheading}</p>
+                                                <>
+                                                | {treatment.treatmentSubheading} |
+                                                </>
                                               }
+                                              {treatment.treatmentPrice && 
+                                                <>
+                                                {treatment.treatmentPrice ? ` £${treatment.treatmentPrice} |` : ``}
+                                                </>
+                                              }
+                                              </p>
                                               <p className="text-sm">{treatment.treatmentDescription}</p>
                                               <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
                                             </div>
@@ -126,6 +143,44 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
 
                             </div>
 
+                            <div className="w-full">
+                              {treatmentCategory.map((category, i) => {
+                                return (
+                                    category.id === "50993166" &&
+                                    i > 1 &&
+                                    <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
+                                      <div className="py-4 border-b border-b-black/50">
+                                        <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
+                                        <p className="tracking-widest uppercase">{category.subheading}</p>
+                                      </div>
+                                      <div className="max-w-md mx-auto mt-8 text-sm content" dangerouslySetInnerHTML={{ __html: category.description }} />
+                                      {category.treatments.map((treatment, i) => {
+                                        return (
+                                          <div className="relative" key={i}>
+                                            <div className="py-10 lg:py-12">
+                                              <h4 className="mb-2">{treatment.treatmentHeading}</h4>
+                                              <p className="mb-4 font-serif">
+                                              {treatment.treatmentSubheading &&
+                                                <>
+                                                | {treatment.treatmentSubheading} |
+                                                </>
+                                              }
+                                              {treatment.treatmentPrice && 
+                                                <>
+                                                {treatment.treatmentPrice ? ` £${treatment.treatmentPrice} |` : ``}
+                                                </>
+                                              }
+                                              </p>
+                                              <p className="text-sm">{treatment.treatmentDescription}</p>
+                                              <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
+                                            </div>
+                                          </div>
+                                        )
+                                      })}
+                                    </div>                                    
+                                )
+                              })}  
+                            </div>
 
                         </div> 
                         
@@ -216,8 +271,10 @@ const HOMEPAGE_QUERY = `
       }
     }
     treatmentCategory: allTreatmentCategories {
+      id
       heading
       subheading
+      description
       treatments {
         treatmentHeading
         treatmentSubheading
