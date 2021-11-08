@@ -69,7 +69,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                               {treatmentCategory.map((category, i) => {
                                 return (
                                     category.id !== "50993166" &&
-                                    i < 2 &&
+                                    i < 3 &&
                                     <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
                                       <div className="py-4 border-b border-b-black/50">
                                         <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
@@ -108,7 +108,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                               {treatmentCategory.map((category, i) => {
                                 return (
                                     category.id !== "50993166" &&
-                                    i > 1 &&
+                                    i > 2 &&
                                     <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
                                       <div className="py-4 border-b border-b-black/50">
                                         <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
