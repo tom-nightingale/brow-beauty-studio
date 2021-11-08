@@ -157,7 +157,7 @@ export default function Home({ data: {home, site, treatments} }) {
                           type == "route" ? (
                             <li key={i}>
                               <Link href={`/${url}`}>
-                                <a className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full">
+                                <a className="text-xs lg:text-sm xl:text-base relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full">
                                   {title}
                                 </a>
                               </Link>
@@ -166,7 +166,7 @@ export default function Home({ data: {home, site, treatments} }) {
                             url == "Home" ? (
                                <li key={i}>
                                 <Link href={`/${url}`}>
-                                  <a className="relative hidden p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full">
+                                  <a className="text-xs lg:text-sm xl:text-base relative hidden p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full">
                                     {title}
                                   </a>
                                 </Link>
@@ -174,7 +174,7 @@ export default function Home({ data: {home, site, treatments} }) {
                             )
                             : (
                               <li key={i}>
-                                <a data-scroll-to data-offset="-100" className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full" href={`#${url}`}>
+                                <a data-scroll-to data-offset="-100" className="text-xs lg:text-sm xl:text-base relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full" href={`#${url}`}>
                                   {title}
                                 </a>
                               </li>
@@ -186,15 +186,15 @@ export default function Home({ data: {home, site, treatments} }) {
 
                     <div className="relative z-0 overflow-hidden bg-gray-200 md:-mt-8">
 
-                      <div className="flex flex-wrap items-center justify-end w-full md:min-h-[610px]">
+                      <div className="flex flex-wrap items-center justify-start xl:justify-end w-full md:min-h-[610px]">
 
-                        <div className="absolute top-[50%] left-0 translate-y-[-50%] z-10 opacity-20 lg:opacity-100">
+                        <div className="absolute top-[50%] left-0 translate-y-[-50%] z-10 opacity-20 xl:opacity-100 w-full xl:w-1/2 2xl:w-3/5">
                           <Image data={{...home.heroImage.responsiveImage, alt: "The Brow &amp; Beauty Studio" }} />
                         </div>
 
                         <img src="/logo.png" alt="" className="absolute w-full top-[50%] right-0 translate-y-[-50%] z-0 opacity-5 hidden lg:block" />
 
-                        <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 lg:p-4 lg:w-2/5">
+                        <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 xl:p-4 lg:w-3/5 xl:w-1/2 2xl:w-2/5">
 
                           <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
 
