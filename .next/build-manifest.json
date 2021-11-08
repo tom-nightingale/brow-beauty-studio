@@ -29,10 +29,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/treatment-menu": [
+    "/book": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/treatment-menu.js"
+      "static/chunks/pages/book.js"
     ]
   },
   "ampFirstPages": []

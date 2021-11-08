@@ -59,7 +59,7 @@ export default function Home({ data: {home, site} }) {
 
                         {/* iFrame for Ovatu */}
                         
-                        <div className="p-10 my-10" id="bookapp-reservation-widget"></div>
+                        {/* <div className="p-10 my-10" id="bookapp-reservation-widget"></div>
 
                         <Script id="ovatu-js" strategy="afterInteractive">
                           {`
@@ -68,7 +68,9 @@ export default function Home({ data: {home, site} }) {
                               BookApp.widget('#bookapp-reservation-widget', 'brow-beauty-studio');
                             });
                           `}
-                        </Script> 
+                        </Script>  */}
+
+                        <iframe src="https://bookings.gettimely.com/thebrowandbeautystudio1/bb/book" scrolling="no" id="timelyWidget" className="border-0 h-[600px] w-[480px] md:w-[600px] lg:w-[900px] mx-auto"></iframe>
 
                       </div>    
 
