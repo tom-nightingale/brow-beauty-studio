@@ -164,8 +164,13 @@ export default function Home({ data: {home, site, treatments} }) {
                             </li>
                           ) : (
                             url == "Home" ? (
-                              <>
-                              </>
+                               <li key={i}>
+                                <Link href={`/${url}`}>
+                                  <a className="relative hidden p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white/25 hover:after:w-full">
+                                    {title}
+                                  </a>
+                                </Link>
+                              </li>
                             )
                             : (
                               <li key={i}>

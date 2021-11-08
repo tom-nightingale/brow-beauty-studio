@@ -68,7 +68,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
 
                               {treatmentCategory.map((category, i) => {
                                 return (
-                                    category.id !== "50993166" &&
+                                    (category.id !== "50993166" && category.id !== "58367412") &&
                                     i < 3 &&
                                     <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
                                       <div className="py-4 border-b border-b-black/50">
@@ -109,7 +109,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
 
                               {treatmentCategory.map((category, i) => {
                                 return (
-                                    category.id !== "50993166" &&
+                                   (category.id !== "50993166" && category.id !== "58367412") &&
                                     i > 2 &&
                                     <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
                                       <div className="py-4 border-b border-b-black/50">
@@ -150,7 +150,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                             <div className="w-full">
                               {treatmentCategory.map((category, i) => {
                                 return (
-                                    category.id === "50993166" &&
+                                    (category.id === "50993166" || category.id === "58367412") &&
                                     i > 1 &&
                                     <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
                                       <div className="py-4 border-b border-b-black/50">
@@ -175,7 +175,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                                 </>
                                               }
                                               </p>
-                                              <p className="text-sm">{treatment.treatmentDescription}</p>
+                                              <p className="max-w-md mx-auto text-sm">{treatment.treatmentDescription}</p>
                                               <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
                                             </div>
                                           </div>
