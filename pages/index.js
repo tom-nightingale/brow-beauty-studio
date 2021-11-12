@@ -185,7 +185,7 @@ export default function Home({ data: {home, site, treatments} }) {
                       })}
                     </ul>
 
-                    <div className="relative z-0 pb-12 overflow-hidden bg-gray-200 md:-mt-8">
+                    <div className="relative z-0 pb-12 overflow-hidden bg-gray-200 md:pb-0 md:-mt-8">
 
                       <div className="flex flex-wrap items-center justify-start xl:justify-end w-full md:min-h-[610px]">
 
