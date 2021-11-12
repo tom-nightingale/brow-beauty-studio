@@ -197,7 +197,7 @@ export default function Home({ data: {home, site, treatments} }) {
 
                         <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 xl:p-4 lg:w-3/5 xl:w-1/2 2xl:w-2/5 2xl:p-12">
 
-                          <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase 2xl:text-4xl lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
+                          <h1 className="mb-12 text-3xl lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
 
                           <Button destination="#Treatments" label="Treatments" modifier="mr-4" />
                           <Button destination="#Contact" label="Contact" secondary modifier="" />
