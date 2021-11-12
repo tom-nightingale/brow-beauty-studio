@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import InstagramFeed from 'react-ig-feed'
 import { m } from 'framer-motion'
@@ -8,6 +9,9 @@ import Container from '@/components/Container'
 import SocialIcon from '@/components/SocialIcon'
 
 export default function Footer() {
+
+    const router = useRouter();
+    let currentPath = router.pathname;
 
     return (
       <m.div variants={fade}>
@@ -44,27 +48,41 @@ export default function Footer() {
                 <img className="w-[270px] mx-auto" src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" />
 
                 <ul className="relative z-10 justify-around hidden max-w-lg p-4 mx-auto mt-8 text-white uppercase bg-black md:flex">
-                    {navItems.map(({ title, url, type }, i) => {
+                      {navItems.map(({ title, url, type }, i) => {
                         return(
-                          type == "route" ? (
-                            <li key={i}>
-                              <Link href={`/${url}`}>
-                                <a className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
-                                  {title}
-                                </a>
-                              </Link>
-                            </li>
-                          ) : (
-                            <li key={i}>
-                              <Link href={`/#${url}`}>
-                                <a data-scroll-to data-offset="-100" className="relative block p-2 tracking-widest after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
-                                  {title}
-                                </a>
-                              </Link>                                
-                            </li>
-                          )
+                            type === "route" ? (
+                                <li className="mb-5 text-center" key={i}>
+                                    { currentPath == "/treatment-menu" || currentPath == "/book" ? (
+                                        <Link href={`/${url}`}>
+                                            <a className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
+                                                {title}
+                                            </a>
+                                        </Link>
+                                    ) : (
+                                        <Link href={`/${url}`}>
+                                            <a className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
+                                                {title}
+                                            </a>
+                                        </Link>
+                                    ) }
+                                </li>
+                            ) : (
+                                <li className="mb-5 text-center" key={i}>
+                                    { currentPath == "/treatment-menu" || currentPath == "/book" ? (
+                                        <Link href={`/#${url}`}>
+                                            <a className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
+                                                {title}
+                                            </a>
+                                        </Link>
+                                    ) : (
+                                        <a data-scroll-to data-offset="-100" className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full" href={`#${url}`}>
+                                            {title}
+                                        </a>
+                                    )}                                    
+                                </li>
+                            )                        
                         )
-                      })}
+                    })}
                 </ul>
 
                 <hr className="w-1/6 mx-auto mt-16 opacity-20" />

@@ -324,14 +324,14 @@ export default function Home({ data: {home, site, treatments} }) {
                         </div>
                         
                         <div className="absolute top-0 left-0 z-0 w-full h-full overflow-hidden">
-                          <Image data={{...home.locationImage.responsiveImage, alt: "The Brow &amp; Beauty Studioooo"}} className="absolute w-[220%] md:w-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" />
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2397.449921796844!2d-0.9024091481642247!3d53.06619060326027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879b60c9f9d4b75%3A0x75f5bf1d6605ff74!2sSouthwell%20Golf%20Club!5e0!3m2!1sen!2suk!4v1636710063128!5m2!1sen!2suk" className="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
                         </div>
 
                       </div>
 
                       <div className="absolute hidden -translate-y-1/2 left-[500px] sm:block top-1/2">
                           
-                        <a className="inline-block p-4 px-12 text-sm uppercase transition-all duration-200 -rotate-90 bg-white hover:pt-8" href="https://www.google.com/maps/search/Old+Mill+Cottage++Rolleston++Southwell+Golf+Club++Nottinghamshire++NG23+5SF/@53.0661906,-0.9024038,17z/data=!3m1!4b1" target="_blank">View map</a>
+                        <a className="inline-block p-4 px-12 text-sm uppercase transition-all duration-200 -rotate-90 bg-white cursor-pointer hover:pt-8">View map</a>
                         
                       </div>
  
