@@ -17,6 +17,7 @@ import Layout from '@/components/Layout'
 import Button from '@/components/Button'
 import Treatment from '@/components/Treatment'
 import Container from '@/components/Container'
+import Where from 'components/Where'
 import Contact from 'components/Contact'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -184,19 +185,19 @@ export default function Home({ data: {home, site, treatments} }) {
                       })}
                     </ul>
 
-                    <div className="relative z-0 overflow-hidden bg-gray-200 md:-mt-8">
+                    <div className="relative z-0 pb-12 overflow-hidden bg-gray-200 md:-mt-8">
 
                       <div className="flex flex-wrap items-center justify-start xl:justify-end w-full md:min-h-[610px]">
 
-                        <div className="absolute top-[50%] left-0 translate-y-[-50%] z-10 opacity-20 xl:opacity-100 w-full xl:w-1/2 2xl:w-3/5">
+                        <div className="absolute top-[50%]  left-0 translate-y-[-50%] z-10 opacity-20 xl:opacity-100 w-full h-full xl:w-1/2 2xl:w-3/5">
                           <Image data={{...home.heroImage.responsiveImage, alt: "The Brow &amp; Beauty Studio" }} />
                         </div>
 
                         <img src="/logo.png" alt="" className="absolute w-full top-[50%] right-0 translate-y-[-50%] z-0 opacity-5 hidden lg:block" />
 
-                        <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 xl:p-4 lg:w-3/5 xl:w-1/2 2xl:w-2/5">
+                        <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 xl:p-4 lg:w-3/5 xl:w-1/2 2xl:w-2/5 2xl:p-12">
 
-                          <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
+                          <h1 className="mb-12 font-sans text-3xl tracking-widest uppercase 2xl:text-4xl lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
 
                           <Button destination="#Treatments" label="Treatments" modifier="mr-4" />
                           <Button destination="#Contact" label="Contact" secondary modifier="" />
@@ -207,10 +208,14 @@ export default function Home({ data: {home, site, treatments} }) {
 
                     </div>
 
-                    <div className="relative max-w-screen-xl py-12 mx-auto md:py-20" id="Treatments">
+                    <div className="w-32 h-32 mx-auto -mt-12">
+                      <Image className="border-4 border-white rounded-full" data={{...home.profilePhoto.responsiveImage, alt: "The Brow &amp; Beauty Studio"}} />
+                    </div>
+
+                    <div className="relative max-w-screen-xl py-12 mx-auto -mt-12 md:py-20" id="Treatments">
 
                         <div className="relative z-10 text-center">
-                          <h2 className="lg:mt-[80px]">Treatments</h2>
+                          <h2 className="lg:mt-[30px]">Treatments</h2>
                           
                           <div className="flex flex-col">
                             <Link href="/treatment-menu">
@@ -294,48 +299,7 @@ export default function Home({ data: {home, site, treatments} }) {
 
                     </main>                    
 
-                    <div className="relative p-8 my-20 overflow-hidden bg-gray-200 sm:p-12 lg:p-20" id="Where">
-
-                      <div className="sm:max-w-screen-xs">
-
-                        <p className="mb-[-6px] font-serif text-4xl leading-none text-center text-white lg:text-5xl lg:mb-[-9px] relative z-50" data-scroll-direction="horizontal" data-scroll-speed="-0.1" data-scroll>Where</p>
-
-                        <div className="relative z-10 p-6 pb-16 mb-8 bg-white shadow-lg md:p-12 md:pb-20">
-
-                            <p>A: The Brow and Beauty Studio</p>
-                            <div className="pl-5 leading-relaxed">
-                              <p>Old Mill Cottage</p>
-                              <p>Rolleston</p>
-                              <p>Southwell Golf Club</p>
-                              <p>Nottinghamshire</p>
-                              <p>NG23 5SF</p>
-                            </div>
-
-                            <p>T: <a className="inline-block pl-1 mt-8 font-bold" href={`tel:${phoneNumber}`}>{phoneNumber}</a></p>
-
-                            <Button
-                              destination="https://www.google.com/maps/dir//Southwell+Golf+Club,+Occupation+Ln,+Southwell+NG25+0TS/@53.0661906,-0.9024038,17z/data=!4m16!1m6!3m5!1s0x4879b60c9f9d4b75:0x75f5bf1d6605ff74!2sSouthwell+Golf+Club!8m2!3d53.0661394!4d-0.9003083!4m8!1m0!1m5!1m1!1s0x4879b60c9f9d4b75:0x75f5bf1d6605ff74!2m2!1d-0.9003083!2d53.0661394!3e2"
-                              modifier="mt-8 absolute -bottom-7 left-1/2 -translate-x-1/2 w-4/5 sm:w-auto text-center"
-                              label="Get directions"
-                              secondary
-                              external
-                            />
-
-                        </div>
-                        
-                        <div className="absolute top-0 left-0 z-0 w-full h-full overflow-hidden">
-                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2397.449921796844!2d-0.9024091481642247!3d53.06619060326027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879b60c9f9d4b75%3A0x75f5bf1d6605ff74!2sSouthwell%20Golf%20Club!5e0!3m2!1sen!2suk!4v1636710063128!5m2!1sen!2suk" className="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-
-                      </div>
-
-                      <div className="absolute hidden -translate-y-1/2 left-[500px] sm:block top-1/2">
-                          
-                        <a className="inline-block p-4 px-12 text-sm uppercase transition-all duration-200 -rotate-90 bg-white cursor-pointer hover:pt-8">View map</a>
-                        
-                      </div>
- 
-                    </div>
+                    <Where />
 
                   </Container>
 
@@ -401,8 +365,8 @@ const HOMEPAGE_QUERY = `
           ...responsiveImageFragment
         }
       }
-      locationImage {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2017, h: 1464 }) {
+      profilePhoto {
+        responsiveImage(imgixParams: {fm: png, fit: crop, w: 829, h: 850 }) {
           ...responsiveImageFragment
         }
       }
