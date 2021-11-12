@@ -208,7 +208,7 @@ export default function Home({ data: {home, site, treatments} }) {
 
                     </div>
 
-                    <div className="w-32 h-32 mx-auto -mt-12">
+                    <div className="relative z-50 w-32 h-32 mx-auto -mt-12">
                       <Image className="border-4 border-white rounded-full" data={{...home.profilePhoto.responsiveImage, alt: "The Brow &amp; Beauty Studio"}} />
                     </div>
 
