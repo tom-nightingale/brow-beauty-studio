@@ -31,6 +31,11 @@ module.exports = {
         'Times',
         'serif',
       ],
+      script: [
+        'Great Vibes',
+        'Georgia',
+        'serif',
+      ],
     },
     fontSize: {
       'xs': '.75rem',

@@ -215,7 +215,7 @@ export default function Home({ data: {home, site, treatments} }) {
                     <div className="relative max-w-screen-xl py-12 mx-auto -mt-12 md:py-20" id="Treatments">
 
                         <div className="relative z-10 text-center">
-                          <h2 className="lg:mt-[30px]">Treatments</h2>
+                          <h2 className="lg:mt-[30px] leading-tight">{home.treatmentHeadingTitle} <span className="block text-2xl font-script lg:text-4xl">{home.treatmentHeadingScript}</span></h2>
                           
                           <div className="flex flex-col">
                             <Link href="/treatment-menu">
@@ -358,6 +358,8 @@ const HOMEPAGE_QUERY = `
           ...responsiveImageFragment
         }
       }
+      treatmentHeadingTitle
+      treatmentHeadingScript
       h1
       content
       contentImage {
