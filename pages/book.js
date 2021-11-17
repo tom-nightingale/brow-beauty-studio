@@ -33,7 +33,7 @@ export default function Home({ data: {home, site} }) {
 
         <div data-scroll-container ref={containerRef} id="scroll-container">
             
-          <div data-scroll-section>            
+          <div data-scroll-section>                      
             
             <LazyMotion features={domAnimation}>
 
