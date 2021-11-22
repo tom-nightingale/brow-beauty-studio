@@ -44,7 +44,7 @@ export default function mobileMenu() {
                 <motion.div variants={container} initial="hidden" animate={open ? 'show' : ''}>
 
                     <motion.div variants={listItem}>
-                        <img src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="w-2/3 mx-auto mb-8 max-w-72" />
+                        <img width="1400" height="1050" src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio Logo" className="w-2/3 mx-auto mb-8 max-w-72" />
                     </motion.div>
 
                     {navItems.map(({ title, url, type }, i) => {

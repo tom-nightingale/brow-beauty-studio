@@ -38,7 +38,7 @@ export default function Footer() {
             </Container>
             
             <div className="socialFeed">
-              <InstagramFeed token="IGQVJXVXJWa0l2UGpWNTllREFMZAE02cmhxX0w3cG5SdGY4NmVocWJoYm9Ic1BtUUU2b0tTRlo4cXZA5YUMzc3dIZAW1jZAW1zZAGRXcFFiTW1aUXFIcHRWNS1QRFdZAMXNZALU5KOVZANRHVfb211a0xkclF6SwZDZD" counter="6"/>
+              <InstagramFeed token="IGQVJXaE43MzFNbmtkNXlFYzIwaGMwbGtCaWQyY1hnX1JFdm85Y1pJUmZArMEZAQYmxCT1NEUUQ1c3FHV2h6enVKOTNsMHhmcVdwQ3E3R0RMMUt2aU91NzRJTEZAreWh5NFFId3J4dkNzWDhjNE1lSWExOQZDZD" counter="6"/>
             </div>
 
           </div>
