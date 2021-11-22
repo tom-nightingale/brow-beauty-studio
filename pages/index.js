@@ -189,13 +189,13 @@ export default function Home({ data: {home, site, treatments} }) {
 
                       <div className="flex flex-wrap items-center justify-start xl:justify-end w-full md:min-h-[610px]">
 
-                        <div className="absolute top-[50%]  left-0 translate-y-[-50%] z-10 opacity-20 xl:opacity-100 w-full h-full xl:w-1/2 2xl:w-3/5">
+                        <div className="absolute top-[50%]  left-0 translate-y-[-50%] z-10 opacity-20 xl:opacity-100 h-full xl:w-1/2">
                           <Image data={{...home.heroImage.responsiveImage, alt: "The Brow &amp; Beauty Studio" }} />
                         </div>
 
                         <img src="/logo.png" alt="" className="absolute w-full top-[50%] right-0 translate-y-[-50%] z-0 opacity-5 hidden lg:block" />
 
-                        <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 xl:p-4 lg:w-3/5 xl:w-1/2 2xl:w-2/5 2xl:p-12">
+                        <div className="relative z-20 h-full max-w-screen-sm p-8 py-12 lg:w-3/5 xl:max-w-none xl:w-1/2 xl:p-12 2xl:p-24">
 
                           <h1 className="mb-12 text-3xl lg:mb-16 md:text-5xl">{home.heroHeading}</h1>
 
