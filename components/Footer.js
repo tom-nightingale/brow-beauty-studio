@@ -45,7 +45,7 @@ export default function Footer() {
 
           <footer className="relative z-50 py-16 bg-black">
             <Container>
-                <img className="w-[270px] mx-auto" src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" />
+                <img className="w-[270px] mx-auto" width="1400" height="1050" src="/logo-circle-dark.png" alt="The Brow &amp; Beauty Studio" />
 
                 <ul className="relative z-10 justify-around hidden max-w-lg p-4 mx-auto mt-8 text-white uppercase bg-black md:flex">
                       {navItems.map(({ title, url, type }, i) => {
