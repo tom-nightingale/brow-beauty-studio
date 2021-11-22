@@ -2,7 +2,7 @@ export default function socialIcon({ platform, url, classes, svgFill}) {
     return (
         <>
 
-        <a className={`block ${classes}`} href={url} aria-label={`Follow The Brow &amp; Beauty Studio on ${platform}`} rel="noreferrer" target="_blank">
+        <a className={`block w-8 h-8 ${classes}`} href={url} aria-label={`Follow The Brow &amp; Beauty Studio on ${platform}`} rel="noreferrer" target="_blank">
 
             {platform == "facebook" &&
                 <svg width="100%" height="100%" viewBox="0 0 26 41" fill="none" xmlns="http://www.w3.org/2000/svg">
