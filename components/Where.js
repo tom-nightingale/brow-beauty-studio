@@ -15,9 +15,8 @@ export default function Where() {
 
                 <p>A: The Brow and Beauty Studio</p>
                 <div className="pl-5 leading-relaxed">
-                    <p>Old Mill Cottage</p>
-                    <p>Rolleston</p>
-                    <p>Southwell Golf Club</p>
+                    <p>Southwell Golf Club</p>            
+                    <p>Rolleston</p>                    
                     <p>Nottinghamshire</p>
                     <p>NG23 5SF</p>
                 </div>
