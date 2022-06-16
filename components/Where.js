@@ -34,7 +34,7 @@ export default function Where() {
             </div>
             
             <div className="absolute top-0 left-0 z-0 w-full h-full overflow-hidden">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2397.449921796844!2d-0.9024091481642247!3d53.06619060326027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879b60c9f9d4b75%3A0x75f5bf1d6605ff74!2sSouthwell%20Golf%20Club!5e0!3m2!1sen!2suk!4v1636710063128!5m2!1sen!2suk" className="w-full h-full border-0" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2396.89577866733!2d-0.9595265842944402!3d53.076145502616704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879b7adce5eb921%3A0x61bb4d2348e5be94!2s14%20Westgate%2C%20Southwell%20NG25%200JH!5e0!3m2!1sen!2suk!4v1655401368584!5m2!1sen!2suk" className="w-full h-full border-0" loading="lazy"></iframe>
             </div>
 
             </div>
