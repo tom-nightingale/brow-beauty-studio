@@ -15,10 +15,10 @@ export default function Where() {
 
                 <p>A: The Brow and Beauty Studio</p>
                 <div className="pl-5 leading-relaxed">
-                    <p>Southwell Golf Club</p>            
-                    <p>Rolleston</p>                    
+                    <p>14 Westgate</p>            
+                    <p>Southwell</p>                    
                     <p>Nottinghamshire</p>
-                    <p>NG23 5SF</p>
+                    <p>NG15 0JH</p>
                 </div>
 
                 <p>T: <a className="inline-block pl-1 mt-8 font-bold" href={`tel:${phoneNumber}`}>{phoneNumber}</a></p>
