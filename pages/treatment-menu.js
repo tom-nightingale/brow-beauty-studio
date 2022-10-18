@@ -63,7 +63,7 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                           
                             {/* Splitting items into two columns for a better layout */}
 
-                            <div className="w-full md:w-1/2">
+                            {/* <div className="w-full md:w-1/2">
 
                               {treatmentCategory.map((category, i) => {
                                 return (
@@ -102,9 +102,9 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                 )
                               })}  
 
-                            </div>
+                            </div> */}
 
-                            <div className="w-full md:w-1/2">
+                            {/* <div className="w-full md:w-1/2">
 
                               {treatmentCategory.map((category, i) => {
                                 return (
@@ -144,13 +144,13 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                 )
                               })}  
 
-                            </div>
+                            </div> */}
 
                             <div className="w-full">
                               {treatmentCategory.map((category, i) => {
                                 return (
-                                    (category.id === "50993166" || category.id === "58367412") &&
-                                    i > 1 &&
+                                    // (category.id === "50993166" || category.id === "58367412") &&
+                                    // i > 1 &&
                                     <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
                                       <div className="py-4 border-b border-b-black/50">
                                         <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
@@ -165,12 +165,12 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                                               <p className="mb-4 font-serif">
                                               {treatment.treatmentSubheading &&
                                                 <>
-                                                | {treatment.treatmentSubheading} |
+                                                {treatment.treatmentSubheading} |
                                                 </>
                                               }
                                               {treatment.treatmentPrice && 
                                                 <>
-                                                {treatment.treatmentPrice ? ` £${treatment.treatmentPrice} |` : ``}
+                                                {treatment.treatmentPrice ? ` £${treatment.treatmentPrice}` : ``}
                                                 </>
                                               }
                                               </p>
