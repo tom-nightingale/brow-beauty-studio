@@ -12,8 +12,8 @@ import Where from 'components/Where'
 import Contact from 'components/Contact'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Card from '@/components/card';
-import Pagination from '@/components/pagination'
+import Card from '@/components/Card';
+import Pagination from '@/components/Pagination'
 
 export default function Blog({ subscription, blogData }) {
 
