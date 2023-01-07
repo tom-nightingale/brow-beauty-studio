@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router'
+import { useRouter} from 'next/router'
 import Link from 'next/link'
-import InstagramFeed from 'react-ig-feed'
 import { m } from 'framer-motion'
 import { navItems } from '@/lib/navItems'
 import { instagramURL, facebookURL } from '@/helpers/constants'
 import { fade } from '@/helpers/transitions'
 import Container from '@/components/Container'
 import SocialIcon from '@/components/SocialIcon'
+import InstagramFeed from "@/components/Instagram";
 
 export default function Footer() {
 
@@ -38,7 +38,7 @@ export default function Footer() {
             </Container>
             
             <div className="socialFeed">
-              <InstagramFeed token="IGQVJXaE43MzFNbmtkNXlFYzIwaGMwbGtCaWQyY1hnX1JFdm85Y1pJUmZArMEZAQYmxCT1NEUUQ1c3FHV2h6enVKOTNsMHhmcVdwQ3E3R0RMMUt2aU91NzRJTEZAreWh5NFFId3J4dkNzWDhjNE1lSWExOQZDZD" counter="6"/>
+              <InstagramFeed />
             </div>
 
           </div>
