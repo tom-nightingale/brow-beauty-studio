@@ -1,8 +1,6 @@
 import { useRef } from 'react'
 import Head from "next/head";
 import { renderMetaTags, useQuerySubscription } from "react-datocms";
-import Card from '../../components/card';
-import Pagination from '../../components/pagination'
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments"
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
@@ -14,6 +12,8 @@ import Where from 'components/Where'
 import Contact from 'components/Contact'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Card from '@/components/card';
+import Pagination from '@/components/pagination'
 
 export default function Blog({ subscription }) {
 
@@ -26,7 +26,7 @@ export default function Blog({ subscription }) {
 
   // Set up variables to pass to Pagination
   const currentPage = 1;
-  const postsPerPage = 10;
+  const postsPerPage = 8;
 
   return (
     <Layout>
@@ -59,7 +59,18 @@ export default function Blog({ subscription }) {
                   
                   <Container>
 
-                    <div className="relative z-10 flex flex-wrap my-32">
+                    <div className="relative max-w-screen-xl py-12 pb-6 mx-auto md:py-20 md:pb-12" id="Treatments">
+
+                      <div className="relative z-10 text-center">
+                          <h2>{blog.heroHeading}</h2>
+                          <p className="max-w-sm mx-auto">{blog.heroText}</p>
+                        </div>
+
+                      <img data-scroll data-scroll-sticky data-scroll-target="#Treatments" src="/logo-light-trimmed.png" alt="" className="absolute top-0 w-full" />
+
+                    </div>
+
+                    <div className="relative z-10 flex flex-wrap">
                         {pagedBlogs.map((blog, i) => {
                         return(
                             <Card
@@ -73,15 +84,13 @@ export default function Blog({ subscription }) {
                         })}
                     </div>
                     
-                    
                     <Pagination
-                    currentPage={currentPage}
-                    postsPerPage={postsPerPage}
-                    allPosts={allBlogs}
-                    archive
-                    pagedUrlBase="blog"
+                      currentPage={currentPage}
+                      postsPerPage={postsPerPage}
+                      allPosts={allBlogs}
+                      archive
+                      pagedUrlBase="blog"
                     />
-
 
                     <Where />
 
@@ -133,7 +142,7 @@ export async function getStaticProps() {
           slug
           title
         }
-        pagedBlogs: allBlogs(first: "10", orderBy: _firstPublishedAt_DESC) {
+        pagedBlogs: allBlogs(first: "8", orderBy: _firstPublishedAt_DESC) {
           slug 
           title
           heroImage {

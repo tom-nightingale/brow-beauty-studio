@@ -25,8 +25,8 @@ export default function Pagination({currentPage, postsPerPage, allPosts, pagedUr
                             <li className="mx-2 list-none ">
                                 {
                                     currentPage == 1 
-                                    ? <div className="px-4 py-2 text-white rounded-lg bg-orange">{page}</div>
-                                    : <Link scroll={false} className="px-4 py-2 bg-white text-orange" href={`/${pagedUrlBase}/`}><a>{page}</a></Link>
+                                    ? <div className="px-4 py-2 text-white bg-black rounded-lg">{page}</div>
+                                    : <Link scroll={false}  href={`/${pagedUrlBase}/`}><a className="px-4 py-2 text-black bg-white">{page}</a></Link>
                                 }                            
                             </li>
                         }
@@ -34,8 +34,8 @@ export default function Pagination({currentPage, postsPerPage, allPosts, pagedUr
                             <li className="mx-2 list-none">
                                 {
                                     currentPage == page
-                                    ? <div className="px-4 py-2 text-white rounded-lg bg-orange">{page}</div>
-                                    : <Link scroll={false} className="px-4 py-2 bg-white text-orange" href={`/${pagedUrlBase}/page/${page}`}><a>{page}</a></Link>
+                                    ? <div className="px-4 py-2 text-white bg-black rounded-lg">{page}</div>
+                                    : <Link scroll={false}  href={`/${pagedUrlBase}/page/${page}`}><a className="inline-block px-4 py-2 text-black bg-white">{page}</a></Link>
                                 }
                             </li>
                         }
