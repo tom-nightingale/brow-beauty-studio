@@ -34,10 +34,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/blog.js"
     ],
-    "/blog/page/[id]": [
+    "/blog/[slug]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/blog/page/[id].js"
+      "static/chunks/pages/blog/[slug].js"
     ],
     "/next/dist/pages/_error": [
       "static/chunks/webpack.js",
