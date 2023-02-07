@@ -22,7 +22,7 @@ export default function Blog({ subscription }) {
     
   const containerRef = useRef(null);
   const metaTags = blog.seo.concat(site.favicon);
-  const newDate = parseISO(blog.date);    
+  const newDate = new Date(parseISO(blog.date));    
 
   return (
     <Layout>
@@ -74,7 +74,7 @@ export default function Blog({ subscription }) {
                                 )}
                                 <h1 className="text-4xl leading-none md:text-5xl lg:text-6xl xl:text-7xl">{ blog.title }</h1>
                                 <small>
-                                    <span>{format(newDate, 'MMMM Do, yyyy')}</span>
+                                    <span>{format(newDate, 'MMMM do, yyyy')}</span>
                                 </small>
                                 { blog.content && (
                                     <div
