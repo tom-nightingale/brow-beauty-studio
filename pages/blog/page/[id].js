@@ -29,10 +29,8 @@ export default function Blog({ subscription, blogData }) {
   return (
     <Layout>
 
-      <Head>
-            <Head>{renderMetaTags(metaTags)}</Head> 
-      </Head>
-
+      <Head>{renderMetaTags(metaTags)}</Head> 
+      
       <LocomotiveScrollProvider
         options={{ smooth: true, lerp: 0.07,  }}
         containerRef={containerRef}

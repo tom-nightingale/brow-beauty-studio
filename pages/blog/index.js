@@ -24,6 +24,7 @@ export default function Blog({ subscription }) {
   const containerRef = useRef(null);
   const metaTags = blog.seo.concat(site.favicon);
 
+
   // Set up variables to pass to Pagination
   const currentPage = 1;
   const postsPerPage = 8;
@@ -32,7 +33,7 @@ export default function Blog({ subscription }) {
     <Layout>
 
       <Head>
-            <Head>{renderMetaTags(metaTags)}</Head> 
+            {renderMetaTags(metaTags)}
       </Head>
 
       <LocomotiveScrollProvider
@@ -69,28 +70,38 @@ export default function Blog({ subscription }) {
                       <img data-scroll data-scroll-sticky data-scroll-target="#Treatments" src="/logo-light-trimmed.png" alt="" className="absolute top-0 w-full" />
 
                     </div>
-
-                    <div className="relative z-10 flex flex-wrap">
-                        {pagedBlogs.map((blog, i) => {
-                        return(
-                            <Card
-                            key={i}
-                            url={`blog/${blog.slug}`}
-                            image={blog.heroImage}
-                            title={blog.title}
-                            date={blog.date}
-                            />
-                        )
-                        })}
-                    </div>
                     
-                    <Pagination
-                      currentPage={currentPage}
-                      postsPerPage={postsPerPage}
-                      allPosts={allBlogs}
-                      archive
-                      pagedUrlBase="blog"
-                    />
+                    {pagedBlogs.length > 0 &&
+                      <div>
+                        <div className="relative z-10 flex flex-wrap">
+                            {pagedBlogs.map((blog, i) => {
+                            return(
+                                <Card
+                                key={i}
+                                url={`blog/${blog.slug}`}
+                                image={blog.heroImage}
+                                title={blog.title}
+                                date={blog.date}
+                                />
+                            )
+                            })}
+                        </div>
+                      
+                        <Pagination
+                          currentPage={currentPage}
+                          postsPerPage={postsPerPage}
+                          allPosts={allBlogs}
+                          archive
+                          pagedUrlBase="blog"
+                        />
+                      </div>
+                    }
+
+                    {pagedBlogs.length < 1 &&
+                      <div className="text-center">
+                        <p>New blog posts coming soon!</p>
+                      </div>
+                    }
 
                     <Where />
 

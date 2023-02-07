@@ -10,6 +10,8 @@ export default function mobileMenu() {
     const router = useRouter();
     let currentPath = router.pathname;
 
+    console.log(currentPath);
+
     //State management for mobile menu
     const [open, setOpen] = useState(false);
 
@@ -51,7 +53,7 @@ export default function mobileMenu() {
                         return(
                             type === "route" ? (
                                 <motion.div className="mb-5 text-center" variants={listItem} key={i}>
-                                    { currentPath == "/treatment-menu" || currentPath == "/book" ? (
+                                    { currentPath == "/treatment-menu" || currentPath == "/book" || currentPath.includes("/blog") ? (
                                         <Link href={`/${url}`}>
                                             <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full" onClick={() => setOpen(!open)}>
                                                 {title}
@@ -67,7 +69,7 @@ export default function mobileMenu() {
                                 </motion.div>
                             ) : (
                                 <motion.div className="mb-5 text-center" variants={listItem} key={i}>
-                                    { currentPath == "/treatment-menu" || currentPath == "/book" ? (
+                                    { currentPath == "/treatment-menu" || currentPath == "/book" || currentPath.includes("/blog") ? (
                                         <Link href={`/#${url}`}>
                                             <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
                                                 {title}

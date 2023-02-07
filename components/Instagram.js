@@ -24,7 +24,7 @@ export default function InstagramFeed() {
     
 
     return (
-        <div class="socialFeed">
+        <div className="socialFeed">
             {igImages && igImages.map((image) => {
                 return (
                     <a className="image" href={image.permalink}>

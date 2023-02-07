@@ -28,7 +28,7 @@ export default function Blog({ subscription }) {
     <Layout>
 
       <Head>
-            <Head>{renderMetaTags(metaTags)}</Head> 
+            {renderMetaTags(metaTags)}
       </Head>
 
       <LocomotiveScrollProvider
@@ -89,11 +89,6 @@ export default function Blog({ subscription }) {
                       </div>
 
                     </div>
-
-                    
-            
-                    
-                    
 
                     <Where />
 
