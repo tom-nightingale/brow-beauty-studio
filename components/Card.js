@@ -4,7 +4,7 @@ import { format, parseISO } from 'date-fns'
 
 export default function Card({ url, image, title, date }) {
     
-    const newDate = parseISO(date);    
+    const newDate = new Date(parseISO(date));  
 
     return(
         <div className="w-full mb-4 sm:w-1/2 xl:w-1/4 sm:px-4">
@@ -24,7 +24,7 @@ export default function Card({ url, image, title, date }) {
 
                     {date && 
                         <small className="block mt-6 mb-0 text-center text-green-light">
-                            {format(newDate, 'MMMM Do, yyyy')}
+                            {format(newDate, 'MMMM do, yyyy')}
                         </small>
                     }
                     
