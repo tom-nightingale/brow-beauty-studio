@@ -60,7 +60,7 @@ export default function Blog({ subscription }) {
                   
                   <Container>
 
-                    <div className="relative max-w-screen-xl py-12 pb-6 mx-auto md:py-20 md:pb-12" id="Treatments">
+                    <div className="relative max-w-screen-xl px-4 py-12 pb-6 mx-auto md:py-20 md:pb-12" id="Treatments">
 
                       <div className="relative z-10 text-center">
                           <h2>{blog.heroHeading}</h2>
@@ -73,7 +73,7 @@ export default function Blog({ subscription }) {
                     
                     {pagedBlogs.length > 0 &&
                       <div>
-                        <div className="relative z-10 flex flex-wrap">
+                        <div className="relative z-10 flex flex-wrap px-4">
                             {pagedBlogs.map((blog, i) => {
                             return(
                                 <Card
