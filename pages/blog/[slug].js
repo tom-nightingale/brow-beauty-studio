@@ -64,7 +64,7 @@ export default function Blog({ subscription }) {
 
                       <img data-scroll data-scroll-sticky data-scroll-target="#Treatments" src="/logo-light-trimmed.png" alt="" className="absolute top-0 w-full" />
 
-                      <div className="relative z-50 mb-12 md:mb-24">
+                      <div className="relative z-50 px-4 mb-12 md:mb-24">
                         <Container>
                             <div className="flex flex-wrap items-center justify-center">
                             <div className="w-full mb-6 md:w-3/5 md:mb-0 md:px-5">
