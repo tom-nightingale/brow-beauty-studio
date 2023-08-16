@@ -13,10 +13,15 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { renderMetaTags } from "react-datocms";
 import { useRouter } from "next/router";
+import Gallery from "@/components/Gallery";
+import Cta from "@/components/Cta";
+import { Image } from "react-datocms";
 
-export default function Home({ data: { home, site } }) {
+export default function Home({ data: { home, site, page } }) {
   const containerRef = useRef(null);
   const router = useRouter();
+
+  console.log(page);
 
   return (
     <Layout>
@@ -40,50 +45,40 @@ export default function Home({ data: { home, site } }) {
                       id="SpaParties"
                     >
                       <div className="relative z-10 mb-12 text-center">
-                        <h2 className="mb-0">Childrens Parties</h2>
-                        <p className="mt-0 uppercase">
-                          At The Mini Brow & Beauty Studio
-                        </p>
+                        <h2 className="mb-0">{page.title}</h2>
+                        <p className="mt-0 uppercase">{page.subtitle}</p>
                       </div>
 
-                      <div className="bg-gray-100 min-h-[400px]"></div>
+                      <div className="bg-gray-100 min-h-[400px]">
+                        <Image
+                          data={{
+                            ...page.heroImage.responsiveImage,
+                            alt: "The Brow &amp; Beauty Studio",
+                          }}
+                        />
+                      </div>
 
                       <div className="max-w-md mx-auto my-12 text-center content">
-                        <h2>
-                          Say HELLO to the latest addition at The Brow and
-                          Beauty Studio, Southwell.
-                        </h2>
-                        <p>
-                          'The Mini Brow and Beauty Studio' is located on the
-                          third floor above the existing studio here on
-                          Southwell's Westgate.
-                        </p>
-
-                        <p>
-                          Welcome to our magical world of children's spa
-                          parties! At The Mini Brow and Beauty Studio, we
-                          believe in creating unforgettable experiences filled
-                          with fun, relaxation, and enchantment. Dive into a
-                          world where young minds can escape and indulge in a
-                          delightful spa adventure tailored just for them. Join
-                          us as we embark on a magical journey of pampering and
-                          play!
-                        </p>
+                        <h2>{page.introTitle}</h2>
+                        <div
+                          dangerouslySetInnerHTML={{ __html: page.introText }}
+                        />
                       </div>
 
-                      <div className="flex flex-wrap mb-12">
-                        <div className="w-full p-2 md:w-1/3">
-                          <div className="bg-gray-100 min-h-[400px]"></div>
-                        </div>
-                        <div className="w-full p-2 md:w-1/3">
-                          <div className="bg-gray-100 min-h-[400px]"></div>
-                        </div>
-                        <div className="w-full p-2 md:w-1/3">
-                          <div className="bg-gray-100 min-h-[400px]"></div>
-                        </div>
-                      </div>
-
-                      <div className="w-full p-20 bg-black"></div>
+                      {page.spaParties.map((block, i) => {
+                        const type = block.__typename;
+                        console.log(type);
+                        switch (type) {
+                          case "GalleryRecord":
+                            return <Gallery />;
+                          case "CtaRecord":
+                            return <Cta />;
+                          case "TextimageblockRecord":
+                            return <div></div>;
+                          default:
+                            return null;
+                        }
+                      })}
 
                       <div className="flex flex-wrap my-12">
                         <div className="w-full p-20 md:w-1/2 content">
@@ -125,7 +120,7 @@ export default function Home({ data: { home, site } }) {
                         <div className="w-full bg-gray-100 md:w-1/2"></div>
                       </div>
 
-                      <div className="w-full p-20 mb-12 bg-black"></div>
+                      <Cta />
 
                       <div className="flex flex-wrap my-12">
                         <div className="w-full p-20 md:w-1/2 content">
@@ -162,7 +157,7 @@ export default function Home({ data: { home, site } }) {
                         <div className="w-full bg-gray-100 md:w-1/2"></div>
                       </div>
 
-                      <div className="w-full p-20 mb-12 bg-black"></div>
+                      <Cta />
 
                       <div className="flex flex-wrap my-12">
                         <div className="w-full p-20 md:w-1/2 content">
@@ -243,7 +238,7 @@ export default function Home({ data: { home, site } }) {
   );
 }
 
-const HOMEPAGE_QUERY = `
+const PAGE_QUERY = `
   query HomePage {
     site: _site {
       faviconMetaTags {
@@ -255,13 +250,49 @@ const HOMEPAGE_QUERY = `
         ...metaTagsFragment
       }
     }
+    page: miniSpa {
+      title
+      subtitle
+      heroImage {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1000, h: 500 }) {
+          ...responsiveImageFragment
+        }
+      }
+      introTitle
+      introText
+      spaParties {
+        ... on CtaRecord {
+          __typename
+          ctaText
+        }
+        ...on GalleryRecord {
+          __typename
+          gallery {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 500, h: 500 }) {
+              ...responsiveImageFragment
+            }
+          }
+        }
+        ... on TextimageblockRecord {
+          __typename
+          title
+          content
+          image {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 800, h: 800 }) {
+              ...responsiveImageFragment
+            }
+          }          
+        }
+      }
+    }
   }  
   ${metaTagsFragment}
+  ${responsiveImageFragment}
 `;
 
 export async function getStaticProps() {
   const data = await request({
-    query: HOMEPAGE_QUERY,
+    query: PAGE_QUERY,
   });
 
   return {

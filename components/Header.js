@@ -5,7 +5,6 @@ import { instagramURL, facebookURL } from "@/helpers/constants";
 import Link from "next/link";
 
 export default function Header({ url }) {
-  console.log(url);
   return (
     <header className="relative" id="Home">
       <div className="absolute top-1/2 -translate-y-1/2 left-[2%] flex-col justify-center hidden w-1/5 md:flex">
