@@ -1,18 +1,23 @@
-export default function TextWithImage() {
+import { Image } from "react-datocms";
+
+export default function TextWithImage({ index, title, content, image }) {
   return (
-    <div className="flex flex-wrap my-12">
-      <div className="w-full p-20 md:w-1/2 content">
-        <h2>Safety and Hygiene</h2>
-        <p>
-          We prioritize the safety and well-being of every child who walks
-          through our doors. Our staff follows strict hygiene practices, and all
-          our products are carefully selected to be child-friendly and
-          non-toxic. We ensure a clean and secure environment where children can
-          truly relax and enjoy their extraordinary spa experience.
-        </p>
+    <div className="flex flex-wrap items-center md:my-12 even:flex-row-reverse">
+      <div className="w-full p-8 md:p-8 lg:p-20 md:w-1/2 content">
+        <h2>{title}</h2>
+        <p>{content}</p>
       </div>
 
-      <div className="w-full bg-gray-100 md:w-1/2"></div>
+      <div className="w-full bg-gray-100 md:w-1/2">
+        <Image
+          data={{
+            ...image.responsiveImage,
+            alt: "The Brow &amp; Beauty Studio",
+          }}
+          className="w-full h-full"
+          pictureClassName="object-cover object-center"
+        />
+      </div>
     </div>
   );
 }
