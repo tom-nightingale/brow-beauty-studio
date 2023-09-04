@@ -174,7 +174,7 @@ const PAGE_QUERY = `
           title
           content
           image {
-            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 250, h: 200 }) {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 650, h: 500 }) {
               ...responsiveImageFragment
             }
           }          
