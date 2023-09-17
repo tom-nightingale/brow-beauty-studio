@@ -17,6 +17,8 @@ import Gallery from "@/components/Gallery";
 import Cta from "@/components/Cta";
 import TextWithImage from "@/components/TextWithImage";
 import { Image } from "react-datocms";
+import Link from "next/link";
+import Packages from "@/components/Packages";
 
 export default function Home({ data: { home, site, page } }) {
   const containerRef = useRef(null);
@@ -48,13 +50,13 @@ export default function Home({ data: { home, site, page } }) {
                         <p className="mt-0 uppercase">{page.subtitle}</p>
                       </div>
 
-                      <div className="bg-gray-100 min-h-[400px]">
+                      <div className="bg-gray-100">
                         <Image
                           data={{
                             ...page.heroImage.responsiveImage,
                             alt: "The Brow &amp; Beauty Studio",
                           }}
-                          className="min-h-[400px] w-full h-full"
+                          className="w-full h-auto"
                           pictureClassName="object-cover object-center"
                         />
                       </div>
@@ -83,10 +85,62 @@ export default function Home({ data: { home, site, page } }) {
                                 image={block.image}
                               />
                             );
+                          case "PackagegroupRecord":
+                            return (
+                              <Packages key={i} packages={block.packages} />
+                            );
                           default:
                             return null;
                         }
                       })}
+
+                      {/* <div className="w-full mt-12 text-center md:py-8 xl:py-20">
+                        <h3 className="mb-0 xl:mb-8">View Amazing Packages</h3>
+
+                        <div className="flex-wrap xl:flex">
+                          {page.packages.map((item, index) => {
+                            return (
+                              <div
+                                className={`relative w-full p-12 xl:w-1/3 xl:p-8 ${
+                                  index === 1 && "text-white bg-black"
+                                }`}
+                                key={index}
+                              >
+                                <img
+                                  src="/logo-circle-dark.png"
+                                  alt=""
+                                  className="block w-20 mx-auto mb-4"
+                                />
+
+                                <h3 className="inline-block mx-auto mb-0">
+                                  {item.title}
+                                </h3>
+                                <p className="tracking-widest uppercase">
+                                  {item.subtitle}
+                                </p>
+
+                                <div
+                                  className="mx-auto mt-8 text-sm content"
+                                  dangerouslySetInnerHTML={{
+                                    __html: item.content,
+                                  }}
+                                />
+
+                                {index === 1 ? (
+                                  <Link href="/book">
+                                    <a
+                                      aria-label="Book your party now"
+                                      className="mt-12 btn btn--secondary"
+                                    >
+                                      Book now
+                                    </a>
+                                  </Link>
+                                ) : null}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div> */}
 
                       <div className="w-full p-20 mt-12 text-center text-white bg-black">
                         <div className="mx-auto md:max-w-md content">
@@ -104,14 +158,14 @@ export default function Home({ data: { home, site, page } }) {
                             prince or princess!
                           </p>
 
-                          <a
-                            data-scroll-to
-                            data-offset="-100"
-                            className="mt-12 btn btn--secondary"
-                            href="#Contact"
-                          >
-                            Book now
-                          </a>
+                          <Link href="/book">
+                            <a
+                              aria-label="Book your party now"
+                              className="mt-12 btn btn--secondary"
+                            >
+                              Book now
+                            </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -178,6 +232,14 @@ const PAGE_QUERY = `
               ...responsiveImageFragment
             }
           }          
+        }
+        ... on PackagegroupRecord {
+          __typename
+          packages{
+            title
+            subtitle
+            content
+          }
         }
       }
     }
