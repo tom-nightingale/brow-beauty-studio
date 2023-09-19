@@ -37,7 +37,7 @@ export default function Where() {
           </p>
 
           <Button
-            destination="https://www.google.com/maps/dir//Southwell+Golf+Club,+Occupation+Ln,+Southwell+NG25+0TS/@53.0661906,-0.9024038,17z/data=!4m16!1m6!3m5!1s0x4879b60c9f9d4b75:0x75f5bf1d6605ff74!2sSouthwell+Golf+Club!8m2!3d53.0661394!4d-0.9003083!4m8!1m0!1m5!1m1!1s0x4879b60c9f9d4b75:0x75f5bf1d6605ff74!2m2!1d-0.9003083!2d53.0661394!3e2"
+            destination="https://www.google.com/maps/dir//The+Brow+and+Beauty+Studio,+14+Westgate,+Southwell+NG25+0JH/@53.0761423,-0.9599128,17z/data=!3m1!5s0x4879b7adc4fc918b:0x9a8086a6a383e121!4m17!1m7!3m6!1s0x4879b729c9d354f1:0x347d3e1312506662!2sThe+Brow+and+Beauty+Studio!8m2!3d53.0761423!4d-0.9573379!16s%2Fg%2F11qbcvnlbx!4m8!1m0!1m5!1m1!1s0x4879b729c9d354f1:0x347d3e1312506662!2m2!1d-0.9573379!2d53.0761423!3e2?entry=ttu"
             modifier="mt-8 absolute -bottom-7 left-1/2 -translate-x-1/2 w-4/5 sm:w-auto text-center"
             label="Get directions"
             secondary
