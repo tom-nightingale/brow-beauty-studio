@@ -288,15 +288,12 @@ export default function Home({ data: { home, site, treatments } }) {
                             dangerouslySetInnerHTML={{ __html: home.content }}
                           />
 
-                          <p className="mt-8 text-lg tracking-wider uppercase">
-                            Call for your appointment On{" "}
-                            <a
-                              className="inline-block font-bold"
-                              href={`tel:${phoneNumber}`}
-                            >
-                              {phoneNumber}
-                            </a>
-                          </p>
+                          <a
+                            className="inline-block mt-8 text-lg font-bold tracking-wider uppercase"
+                            href={`${phoneNumber}`}
+                          >
+                            Chat with us on Whatsapp
+                          </a>
                         </div>
                       </article>
 

@@ -26,15 +26,9 @@ export default function Where() {
             <p>NG25 0JH</p>
           </div>
 
-          <p>
-            T:{" "}
-            <a
-              className="inline-block pl-1 mt-8 font-bold"
-              href={`tel:${phoneNumber}`}
-            >
-              {phoneNumber}
-            </a>
-          </p>
+          <a className="block pl-1 mt-8 font-bold" href={`${phoneNumber}`}>
+            Chat with us on Whatsapp
+          </a>
 
           <Button
             destination="https://www.google.com/maps/dir//The+Brow+and+Beauty+Studio,+14+Westgate,+Southwell+NG25+0JH/@53.0761423,-0.9599128,17z/data=!3m1!5s0x4879b7adc4fc918b:0x9a8086a6a383e121!4m17!1m7!3m6!1s0x4879b729c9d354f1:0x347d3e1312506662!2sThe+Brow+and+Beauty+Studio!8m2!3d53.0761423!4d-0.9573379!16s%2Fg%2F11qbcvnlbx!4m8!1m0!1m5!1m1!1s0x4879b729c9d354f1:0x347d3e1312506662!2m2!1d-0.9573379!2d53.0761423!3e2?entry=ttu"
