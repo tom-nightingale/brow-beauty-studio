@@ -17,7 +17,6 @@ export default function Pagination({currentPage, postsPerPage, allPosts, pagedUr
 
     return (
         <div className="flex items-center justify-center w-full my-8">
-
             {pageLinks.map((page, i) => {
                 return (
                     <span key={i}>
@@ -26,7 +25,10 @@ export default function Pagination({currentPage, postsPerPage, allPosts, pagedUr
                                 {
                                     currentPage == 1 
                                     ? <div className="px-4 py-2 text-white bg-black rounded-lg">{page}</div>
-                                    : <Link scroll={false}  href={`/${pagedUrlBase}/`}><a className="px-4 py-2 text-black bg-white">{page}</a></Link>
+                                    : <Link
+                                        scroll={false}
+                                        href={`/${pagedUrlBase}/`}
+                                        className="px-4 py-2 text-black bg-white">{page}</Link>
                                 }                            
                             </li>
                         }
@@ -35,14 +37,16 @@ export default function Pagination({currentPage, postsPerPage, allPosts, pagedUr
                                 {
                                     currentPage == page
                                     ? <div className="px-4 py-2 text-white bg-black rounded-lg">{page}</div>
-                                    : <Link scroll={false}  href={`/${pagedUrlBase}/page/${page}`}><a className="inline-block px-4 py-2 text-black bg-white">{page}</a></Link>
+                                    : <Link
+                                        scroll={false}
+                                        href={`/${pagedUrlBase}/page/${page}`}
+                                        className="inline-block px-4 py-2 text-black bg-white">{page}</Link>
                                 }
                             </li>
                         }
                     </span>
-                )                
+                );                
             })}
-
         </div>
-    )   
+    );   
 }

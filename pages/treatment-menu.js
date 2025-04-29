@@ -19,13 +19,10 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
   const containerRef = useRef(null);
   
   return (
-
     <Layout>
-
       <Head>
             {renderMetaTags(home.seo.concat(site.faviconMetaTags))} 
       </Head>
-
       <LocomotiveScrollProvider
         options={{ smooth: true, lerp: 0.07,  }}
         containerRef={containerRef}
@@ -149,39 +146,39 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
                             <div className="w-full">
                               {treatmentCategory.map((category, i) => {
                                 return (
-                                    // (category.id === "50993166" || category.id === "58367412") &&
-                                    // i > 1 &&
-                                    <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
-                                      <div className="py-4 border-b border-b-black/50">
-                                        <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
-                                        <p className="tracking-widest uppercase">{category.subheading}</p>
-                                      </div>
-                                      <div className="max-w-md mx-auto mt-8 text-sm content" dangerouslySetInnerHTML={{ __html: category.description }} />
-                                      {category.treatments.map((treatment, i) => {
-                                        return (
-                                          <div className="relative" key={i}>
-                                            <div className="py-10 lg:py-12">
-                                              <h4 className="mb-2">{treatment.treatmentHeading}</h4>
-                                              <p className="mb-4 font-serif">
-                                              {treatment.treatmentSubheading &&
-                                                <>
-                                                {treatment.treatmentSubheading} |
-                                                </>
-                                              }
-                                              {treatment.treatmentPrice && 
-                                                <>
-                                                {treatment.treatmentPrice ? ` £${treatment.treatmentPrice}` : ``}
-                                                </>
-                                              }
-                                              </p>
-                                              <p className="max-w-md mx-auto text-sm">{treatment.treatmentDescription}</p>
-                                              <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
-                                            </div>
+                                  // (category.id === "50993166" || category.id === "58367412") &&
+                                  // i > 1 &&
+                                  <div key={i} className={`relative w-full p-8 text-center lg:p-16`}>
+                                    <div className="py-4 border-b border-b-black/50">
+                                      <h3 className="inline-block px-4 mx-auto mb-0">{category.heading}</h3>
+                                      <p className="tracking-widest uppercase">{category.subheading}</p>
+                                    </div>
+                                    <div className="max-w-md mx-auto mt-8 text-sm content" dangerouslySetInnerHTML={{ __html: category.description }} />
+                                    {category.treatments.map((treatment, i) => {
+                                      return (
+                                        <div className="relative" key={i}>
+                                          <div className="py-10 lg:py-12">
+                                            <h4 className="mb-2">{treatment.treatmentHeading}</h4>
+                                            <p className="mb-4 font-serif">
+                                            {treatment.treatmentSubheading &&
+                                              <>
+                                              {treatment.treatmentSubheading} |
+                                              </>
+                                            }
+                                            {treatment.treatmentPrice && 
+                                              <>
+                                              {treatment.treatmentPrice ? ` £${treatment.treatmentPrice}` : ``}
+                                              </>
+                                            }
+                                            </p>
+                                            <p className="max-w-md mx-auto text-sm">{treatment.treatmentDescription}</p>
+                                            <img src="/logo-circle-dark.png" alt="" className="absolute block w-20 transform -translate-x-1/2 -bottom-8 left-1/2" />
                                           </div>
-                                        )
-                                      })}
-                                    </div>                                    
-                                )
+                                        </div>
+                                      )
+                                    })}
+                                  </div>
+                                );
                               })}  
                             </div>
 
@@ -209,10 +206,8 @@ export default function Home({ data: {home, site, treatmentCategory} }) {
         </div> {/* scroll container */}
 
       </LocomotiveScrollProvider>
-
     </Layout>
-
-  )
+  );
 }
 
 const HOMEPAGE_QUERY = `

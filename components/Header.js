@@ -21,23 +21,21 @@ export default function Header({ url }) {
           url={facebookURL}
         />
       </div>
-
       <Container>
         <div className="flex flex-wrap items-center justify-start p-4 md:justify-center">
           <div className="w-9/12 2xl:w-full">
-            <Link href="/">
-              <a className="block cursor-pointer w-full max-w-[750px] mx-auto">
-                <img
-                  width="1600"
-                  height="421"
-                  src={
-                    url === "/spa-parties"
-                      ? "/logo-spa-parties.jpg"
-                      : "/logo.png"
-                  }
-                  alt="The Brow &amp; Beauty Studio"
-                />
-              </a>
+            <Link
+              href="/"
+              className="block cursor-pointer w-full max-w-[750px] mx-auto"
+            >
+              <img
+                width="1600"
+                height="421"
+                src={
+                  url === "/spa-parties" ? "/logo-spa-parties.jpg" : "/logo.png"
+                }
+                alt="The Brow &amp; Beauty Studio"
+              />
             </Link>
           </div>
 

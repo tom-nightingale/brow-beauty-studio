@@ -41,7 +41,6 @@ export default function mobileMenu() {
         <span />
         <span />
       </button>
-
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
@@ -81,19 +80,21 @@ export default function mobileMenu() {
                   {currentPath == "/treatment-menu" ||
                   currentPath == "/book" ||
                   currentPath.includes("/blog") ? (
-                    <Link href={`/${url}`}>
-                      <a
-                        className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full"
-                        onClick={() => setOpen(!open)}
-                      >
-                        {title}
-                      </a>
+                    <Link
+                      href={`/${url}`}
+                      className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full"
+                      onClick={() => setOpen(!open)}>
+
+                      {title}
+
                     </Link>
                   ) : (
-                    <Link href={`/${url}`}>
-                      <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
-                        {title}
-                      </a>
+                    <Link
+                      href={`/${url}`}
+                      className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
+
+                      {title}
+
                     </Link>
                   )}
                 </motion.div>
@@ -106,10 +107,12 @@ export default function mobileMenu() {
                   {currentPath == "/treatment-menu" ||
                   currentPath == "/book" ||
                   currentPath.includes("/blog") ? (
-                    <Link href={`/#${url}`}>
-                      <a className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
-                        {title}
-                      </a>
+                    <Link
+                      href={`/#${url}`}
+                      className="relative inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-black hover:after:w-full">
+
+                      {title}
+
                     </Link>
                   ) : (
                     <a

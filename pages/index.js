@@ -109,7 +109,6 @@ export default function Home({ data: { home, site, treatments } }) {
   return (
     <Layout>
       <Head>{renderMetaTags(home.seo.concat(site.faviconMetaTags))}</Head>
-
       <LocomotiveScrollProvider
         options={{ smooth: true, lerp: 0.07 }}
         containerRef={containerRef}
@@ -215,15 +214,17 @@ export default function Home({ data: { home, site, treatments } }) {
                         </h2>
 
                         <div className="flex flex-col">
-                          <Link href="/treatment-menu">
-                            <a className="inline-block mx-auto mb-5 text-center btn">
-                              View full treatment menu
-                            </a>
+                          <Link
+                            href="/treatment-menu"
+                            className="inline-block mx-auto mb-5 text-center btn"
+                          >
+                            View full treatment menu
                           </Link>
-                          <Link href="/book">
-                            <a className="btn btn--secondary text-center mb-8 lg:mb-[175px] inline-block mx-auto">
-                              Book online
-                            </a>
+                          <Link
+                            href="/book"
+                            className="btn btn--secondary text-center mb-8 lg:mb-[175px] inline-block mx-auto"
+                          >
+                            Book online
                           </Link>
                         </div>
                       </div>
@@ -267,10 +268,11 @@ export default function Home({ data: { home, site, treatments } }) {
                       })}
 
                       <div className="mt-8 text-center lg:mt-16">
-                        <Link href="/treatment-menu">
-                          <a className="inline-block mx-auto text-center btn">
-                            View full treatment menu
-                          </a>
+                        <Link
+                          href="/treatment-menu"
+                          className="inline-block mx-auto text-center btn"
+                        >
+                          View full treatment menu
                         </Link>
                       </div>
                     </div>

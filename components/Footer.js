@@ -6,7 +6,7 @@ import { instagramURL, facebookURL } from "@/helpers/constants";
 import { fade } from "@/helpers/transitions";
 import Container from "@/components/Container";
 import SocialIcon from "@/components/SocialIcon";
-import InstagramFeed from "@/components/Instagram";
+// import InstagramFeed from "@/components/Instagram";
 
 export default function Footer() {
   const router = useRouter();
@@ -39,12 +39,12 @@ export default function Footer() {
             </div>
           </Container>
 
-          <div className="socialFeed">
+          {/* <div className="socialFeed">
             <InstagramFeed />
-          </div>
+          </div> */}
         </div>
 
-        <footer className="relative z-50 py-16 bg-black">
+        <footer className="relative z-50 pb-16 bg-black">
           <Container>
             <img
               className="w-[270px] mx-auto"
@@ -60,16 +60,18 @@ export default function Footer() {
                   <li className="mb-5 text-center" key={i}>
                     {currentPath == "/treatment-menu" ||
                     currentPath == "/book" ? (
-                      <Link href={`/${url}`}>
-                        <a className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
-                          {title}
-                        </a>
+                      <Link
+                        href={`/${url}`}
+                        className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full"
+                      >
+                        {title}
                       </Link>
                     ) : (
-                      <Link href={`/${url}`}>
-                        <a className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
-                          {title}
-                        </a>
+                      <Link
+                        href={`/${url}`}
+                        className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full"
+                      >
+                        {title}
                       </Link>
                     )}
                   </li>
@@ -77,10 +79,11 @@ export default function Footer() {
                   <li className="mb-5 text-center" key={i}>
                     {currentPath == "/treatment-menu" ||
                     currentPath == "/book" ? (
-                      <Link href={`/#${url}`}>
-                        <a className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full">
-                          {title}
-                        </a>
+                      <Link
+                        href={`/#${url}`}
+                        className="relative p-2 inline-block tracking-widest uppercase after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:w-[0px] after:h-[1px] after:transform after:-translate-x-1/2 after:transition-all after:duration-300 after:bg-white hover:after:w-full"
+                      >
+                        {title}
                       </Link>
                     ) : (
                       <a

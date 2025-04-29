@@ -27,7 +27,6 @@ export default function Home({ data: { home, site, page } }) {
   return (
     <Layout>
       <Head>{renderMetaTags(home.seo.concat(site.faviconMetaTags))}</Head>
-
       <LocomotiveScrollProvider
         options={{ smooth: true, lerp: 0.07 }}
         containerRef={containerRef}
@@ -58,6 +57,8 @@ export default function Home({ data: { home, site, page } }) {
                           }}
                           className="w-full h-auto"
                           pictureClassName="object-cover object-center"
+                          imgClassName="object-cover object-center"
+                          layout="responsive"
                         />
                       </div>
 
@@ -158,13 +159,12 @@ export default function Home({ data: { home, site, page } }) {
                             prince or princess!
                           </p>
 
-                          <Link href="/book">
-                            <a
-                              aria-label="Book your party now"
-                              className="mt-12 btn btn--secondary"
-                            >
-                              Book now
-                            </a>
+                          <Link
+                            href="/book"
+                            aria-label="Book your party now"
+                            className="mt-12 btn btn--secondary"
+                          >
+                            Book now
                           </Link>
                         </div>
                       </div>
