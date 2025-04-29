@@ -18,24 +18,23 @@
     "start": "next start"
   },
   "dependencies": {
-    "date-fns": "2.16.1",
-    "framer-motion": "^4.1.17",
-    "locomotive-scroll": "^4.1.1",
-    "net": "^1.0.2",
-    "next": "^11.0.1",
-    "postcss-import": "^14.0.0",
-    "postcss-nested": "^5.0.3",
-    "postcss-preset-env": "^6.7.0",
-    "preact": "^10.5.13",
-    "react": "^17.0.2",
-    "react-datocms": "^1.5.5",
-    "react-dom": "17.0.2",
-    "react-locomotive-scroll": "^0.1.8",
-    "tiny-json-http": "^7.3.0"
+    "date-fns": "4.1.0",
+    "framer-motion": "12.9.2",
+    "locomotive-scroll": "4.1.4",
+    "next": "15.3.1",
+    "postcss-import": "16.1.0",
+    "postcss-nested": "7.0.2",
+    "postcss-preset-env": "10.1.6",
+    "preact": "10.26.5",
+    "react": "19.1.0",
+    "react-datocms": "7.2.2",
+    "react-dom": "19.1.0",
+    "react-locomotive-scroll": "0.2.2",
+    "tiny-json-http": "7.5.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.6",
-    "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.3",
+    "tailwindcss": "3.4.14"
   }
 }
