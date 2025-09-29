@@ -5,13 +5,13 @@ export default function Cta({ content }) {
       <div className="mx-auto md:max-w-md content">
         <h4>{content}</h4>
 
-        <Link href="/book">
-          <a
-            aria-label="Book your party now"
-            className="mt-12 btn btn--secondary"
-          >
+        <Link
+          href="/book"
+          aria-label="Book your party now"
+          className="mt-12 btn btn--secondary">
+          
             Book now
-          </a>
+          
         </Link>
       </div>
     </div>

@@ -16,6 +16,8 @@ export default function TextWithImage({ index, title, content, image }) {
           }}
           className="w-full h-full"
           pictureClassName="object-cover object-center"
+          imgClassName="object-cover object-center"
+          layout="responsive"
         />
       </div>
     </div>

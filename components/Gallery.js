@@ -13,6 +13,8 @@ export default function Gallery({ images }) {
               }}
               className="min-h-[400px] w-full h-full"
               pictureClassName="object-cover object-center"
+              imgClassName="object-cover object-center"
+              layout="responsive"
             />
           </div>
         );
